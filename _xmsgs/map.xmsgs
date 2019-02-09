@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- IMPORTANT: This is an internal file that has been generated
+     by the Xilinx ISE software.  Any direct editing or
+     changes made to this file may result in unpredictable
+     behavior or data corruption.  It is strongly advised that
+     users do not edit the contents of this file. -->
+<messages>
+<msg type="info" file="MapLib" num="564" delta="old" >The following environment variables are currently set:
+</msg>
+
+<msg type="info" file="MapLib" num="591" delta="old" ><arg fmt="%s" index="1">XIL_MAP_LOCWARN</arg> 	Value: <arg fmt="%s" index="2">1</arg>
+</msg>
+
+<msg type="info" file="LIT" num="244" delta="old" >All of the single ended outputs in this design are using slew rate limited output drivers. The delay on speed critical single ended outputs can be dramatically reduced by designating them as fast outputs.
+</msg>
+
+<msg type="warning" file="Pack" num="266" delta="new" >The function generator <arg fmt="%s" index="1">RTNstate_and00061</arg> failed to merge with F5 multiplexer <arg fmt="%s" index="2">RTNstate_mux0000&lt;6&gt;129_SW0</arg>.  <arg fmt="%z" index="3">There is a conflict for the FXMUX.</arg>  The design will exhibit suboptimal timing.
+</msg>
+
+<msg type="warning" file="PhysDesignRules" num="812" delta="old" >Dangling pin &lt;<arg fmt="%s" index="1">DOA2</arg>&gt; on block:&lt;<arg fmt="%s" index="2">mian_mem/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[0].ram.r/s3_noinit.ram/dpram.dp36x36.ram.A</arg>&gt;:&lt;<arg fmt="%s" index="3">RAMB16_RAMB16A</arg>&gt;.
+</msg>
+
+<msg type="warning" file="PhysDesignRules" num="812" delta="old" >Dangling pin &lt;<arg fmt="%s" index="1">DOA3</arg>&gt; on block:&lt;<arg fmt="%s" index="2">mian_mem/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[0].ram.r/s3_noinit.ram/dpram.dp36x36.ram.A</arg>&gt;:&lt;<arg fmt="%s" index="3">RAMB16_RAMB16A</arg>&gt;.
+</msg>
+
+<msg type="warning" file="PhysDesignRules" num="812" delta="old" >Dangling pin &lt;<arg fmt="%s" index="1">DOA4</arg>&gt; on block:&lt;<arg fmt="%s" index="2">mian_mem/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[0].ram.r/s3_noinit.ram/dpram.dp36x36.ram.A</arg>&gt;:&lt;<arg fmt="%s" index="3">RAMB16_RAMB16A</arg>&gt;.
+</msg>
+
+<msg type="warning" file="PhysDesignRules" num="812" delta="old" >Dangling pin &lt;<arg fmt="%s" index="1">DOA5</arg>&gt; on block:&lt;<arg fmt="%s" index="2">mian_mem/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[0].ram.r/s3_noinit.ram/dpram.dp36x36.ram.A</arg>&gt;:&lt;<arg fmt="%s" index="3">RAMB16_RAMB16A</arg>&gt;.
+</msg>
+
+<msg type="warning" file="PhysDesignRules" num="812" delta="old" >Dangling pin &lt;<arg fmt="%s" index="1">DOA6</arg>&gt; on block:&lt;<arg fmt="%s" index="2">mian_mem/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[0].ram.r/s3_noinit.ram/dpram.dp36x36.ram.A</arg>&gt;:&lt;<arg fmt="%s" index="3">RAMB16_RAMB16A</arg>&gt;.
+</msg>
+
+<msg type="warning" file="PhysDesignRules" num="812" delta="old" >Dangling pin &lt;<arg fmt="%s" index="1">DOA7</arg>&gt; on block:&lt;<arg fmt="%s" index="2">mian_mem/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[0].ram.r/s3_noinit.ram/dpram.dp36x36.ram.A</arg>&gt;:&lt;<arg fmt="%s" index="3">RAMB16_RAMB16A</arg>&gt;.
+</msg>
+
+<msg type="warning" file="PhysDesignRules" num="812" delta="old" >Dangling pin &lt;<arg fmt="%s" index="1">DOA10</arg>&gt; on block:&lt;<arg fmt="%s" index="2">mian_mem/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[0].ram.r/s3_noinit.ram/dpram.dp36x36.ram.A</arg>&gt;:&lt;<arg fmt="%s" index="3">RAMB16_RAMB16A</arg>&gt;.
+</msg>
+
+<msg type="warning" file="PhysDesignRules" num="812" delta="old" >Dangling pin &lt;<arg fmt="%s" index="1">DOA11</arg>&gt; on block:&lt;<arg fmt="%s" index="2">mian_mem/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[0].ram.r/s3_noinit.ram/dpram.dp36x36.ram.A</arg>&gt;:&lt;<arg fmt="%s" index="3">RAMB16_RAMB16A</arg>&gt;.
+</msg>
+
+<msg type="warning" file="PhysDesignRules" num="812" delta="old" >Dangling pin &lt;<arg fmt="%s" index="1">DOA12</arg>&gt; on block:&lt;<arg fmt="%s" index="2">mian_mem/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[0].ram.r/s3_noinit.ram/dpram.dp36x36.ram.A</arg>&gt;:&lt;<arg fmt="%s" index="3">RAMB16_RAMB16A</arg>&gt;.
+</msg>
+
+<msg type="warning" file="PhysDesignRules" num="812" delta="old" >Dangling pin &lt;<arg fmt="%s" index="1">DOA13</arg>&gt; on block:&lt;<arg fmt="%s" index="2">mian_mem/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[0].ram.r/s3_noinit.ram/dpram.dp36x36.ram.A</arg>&gt;:&lt;<arg fmt="%s" index="3">RAMB16_RAMB16A</arg>&gt;.
+</msg>
+
+<msg type="warning" file="PhysDesignRules" num="812" delta="old" >Dangling pin &lt;<arg fmt="%s" index="1">DOA14</arg>&gt; on block:&lt;<arg fmt="%s" index="2">mian_mem/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[0].ram.r/s3_noinit.ram/dpram.dp36x36.ram.A</arg>&gt;:&lt;<arg fmt="%s" index="3">RAMB16_RAMB16A</arg>&gt;.
+</msg>
+
+<msg type="warning" file="PhysDesignRules" num="812" delta="old" >Dangling pin &lt;<arg fmt="%s" index="1">DOA15</arg>&gt; on block:&lt;<arg fmt="%s" index="2">mian_mem/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[0].ram.r/s3_noinit.ram/dpram.dp36x36.ram.A</arg>&gt;:&lt;<arg fmt="%s" index="3">RAMB16_RAMB16A</arg>&gt;.
+</msg>
+
+<msg type="warning" file="PhysDesignRules" num="812" delta="old" >Dangling pin &lt;<arg fmt="%s" index="1">DOA18</arg>&gt; on block:&lt;<arg fmt="%s" index="2">mian_mem/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[0].ram.r/s3_noinit.ram/dpram.dp36x36.ram.A</arg>&gt;:&lt;<arg fmt="%s" index="3">RAMB16_RAMB16A</arg>&gt;.
+</msg>
+
+<msg type="warning" file="PhysDesignRules" num="812" delta="old" >Dangling pin &lt;<arg fmt="%s" index="1">DOA19</arg>&gt; on block:&lt;<arg fmt="%s" index="2">mian_mem/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[0].ram.r/s3_noinit.ram/dpram.dp36x36.ram.A</arg>&gt;:&lt;<arg fmt="%s" index="3">RAMB16_RAMB16A</arg>&gt;.
+</msg>
+
+<msg type="warning" file="PhysDesignRules" num="812" delta="old" >Dangling pin &lt;<arg fmt="%s" index="1">DOA20</arg>&gt; on block:&lt;<arg fmt="%s" index="2">mian_mem/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[0].ram.r/s3_noinit.ram/dpram.dp36x36.ram.A</arg>&gt;:&lt;<arg fmt="%s" index="3">RAMB16_RAMB16A</arg>&gt;.
+</msg>
+
+<msg type="warning" file="PhysDesignRules" num="812" delta="old" >Dangling pin &lt;<arg fmt="%s" index="1">DOA21</arg>&gt; on block:&lt;<arg fmt="%s" index="2">mian_mem/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[0].ram.r/s3_noinit.ram/dpram.dp36x36.ram.A</arg>&gt;:&lt;<arg fmt="%s" index="3">RAMB16_RAMB16A</arg>&gt;.
+</msg>
+
+<msg type="warning" file="PhysDesignRules" num="812" delta="old" >Dangling pin &lt;<arg fmt="%s" index="1">DOA22</arg>&gt; on block:&lt;<arg fmt="%s" index="2">mian_mem/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[0].ram.r/s3_noinit.ram/dpram.dp36x36.ram.A</arg>&gt;:&lt;<arg fmt="%s" index="3">RAMB16_RAMB16A</arg>&gt;.
+</msg>
+
+<msg type="warning" file="PhysDesignRules" num="812" delta="old" >Dangling pin &lt;<arg fmt="%s" index="1">DOA23</arg>&gt; on block:&lt;<arg fmt="%s" index="2">mian_mem/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[0].ram.r/s3_noinit.ram/dpram.dp36x36.ram.A</arg>&gt;:&lt;<arg fmt="%s" index="3">RAMB16_RAMB16A</arg>&gt;.
+</msg>
+
+<msg type="warning" file="PhysDesignRules" num="812" delta="old" >Dangling pin &lt;<arg fmt="%s" index="1">DOA26</arg>&gt; on block:&lt;<arg fmt="%s" index="2">mian_mem/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[0].ram.r/s3_noinit.ram/dpram.dp36x36.ram.A</arg>&gt;:&lt;<arg fmt="%s" index="3">RAMB16_RAMB16A</arg>&gt;.
+</msg>
+
+<msg type="warning" file="PhysDesignRules" num="812" delta="old" >Dangling pin &lt;<arg fmt="%s" index="1">DOA27</arg>&gt; on block:&lt;<arg fmt="%s" index="2">mian_mem/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[0].ram.r/s3_noinit.ram/dpram.dp36x36.ram.A</arg>&gt;:&lt;<arg fmt="%s" index="3">RAMB16_RAMB16A</arg>&gt;.
+</msg>
+
+<msg type="warning" file="PhysDesignRules" num="812" delta="old" >Dangling pin &lt;<arg fmt="%s" index="1">DOA28</arg>&gt; on block:&lt;<arg fmt="%s" index="2">mian_mem/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[0].ram.r/s3_noinit.ram/dpram.dp36x36.ram.A</arg>&gt;:&lt;<arg fmt="%s" index="3">RAMB16_RAMB16A</arg>&gt;.
+</msg>
+
+<msg type="warning" file="PhysDesignRules" num="812" delta="old" >Dangling pin &lt;<arg fmt="%s" index="1">DOA29</arg>&gt; on block:&lt;<arg fmt="%s" index="2">mian_mem/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[0].ram.r/s3_noinit.ram/dpram.dp36x36.ram.A</arg>&gt;:&lt;<arg fmt="%s" index="3">RAMB16_RAMB16A</arg>&gt;.
+</msg>
+
+<msg type="warning" file="PhysDesignRules" num="812" delta="old" >Dangling pin &lt;<arg fmt="%s" index="1">DOA30</arg>&gt; on block:&lt;<arg fmt="%s" index="2">mian_mem/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[0].ram.r/s3_noinit.ram/dpram.dp36x36.ram.A</arg>&gt;:&lt;<arg fmt="%s" index="3">RAMB16_RAMB16A</arg>&gt;.
+</msg>
+
+<msg type="warning" file="PhysDesignRules" num="812" delta="old" >Dangling pin &lt;<arg fmt="%s" index="1">DOA31</arg>&gt; on block:&lt;<arg fmt="%s" index="2">mian_mem/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[0].ram.r/s3_noinit.ram/dpram.dp36x36.ram.A</arg>&gt;:&lt;<arg fmt="%s" index="3">RAMB16_RAMB16A</arg>&gt;.
+</msg>
+
+</messages>
+

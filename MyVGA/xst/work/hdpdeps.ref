@@ -1,0 +1,26 @@
+V3 16
+FL "D:/FPGA Example/MyVGA/ipcore_dir/ram.vhd" 2017/05/20.19:49:12 P.20131013
+EN work/ram 1495723450 FL "D:/FPGA Example/MyVGA/ipcore_dir/ram.vhd" \
+      PB ieee/std_logic_1164 1381692176
+AR work/ram/ram_a 1495723451 \
+      FL "D:/FPGA Example/MyVGA/ipcore_dir/ram.vhd" EN work/ram 1495723450
+FL "D:/FPGA Example/MyVGA/ipcore_dir/VGACHAR.vhd" 2017/05/18.20:20:55 P.20131013
+EN work/VGACHAR 1495723452 FL "D:/FPGA Example/MyVGA/ipcore_dir/VGACHAR.vhd" \
+      PB ieee/std_logic_1164 1381692176
+AR work/VGACHAR/VGACHAR_a 1495723453 \
+      FL "D:/FPGA Example/MyVGA/ipcore_dir/VGACHAR.vhd" EN work/VGACHAR 1495723452
+FL "D:/FPGA Example/MyVGA/OwnVGA.vhd" 2017/05/25.19:14:04 P.20131013
+EN work/MyVGA 1495723454 FL "D:/FPGA Example/MyVGA/OwnVGA.vhd" \
+      PB ieee/std_logic_1164 1381692176 PB ieee/NUMERIC_STD 1381692181
+AR work/MyVGA/Behavioral 1495723455 \
+      FL "D:/FPGA Example/MyVGA/OwnVGA.vhd" EN work/MyVGA 1495723454 CP ram \
+      CP VGACHAR
+FL "D:/FPGA Example/MyVGA/ShowChar.vhd" 2017/05/25.17:08:52 P.20131013
+EN work/ShowChar 1495715939 FL "D:/FPGA Example/MyVGA/ShowChar.vhd" \
+      PB ieee/std_logic_1164 1381692176 PB ieee/NUMERIC_STD 1381692181
+AR work/ShowChar/Behavioral 1495715940 \
+      FL "D:/FPGA Example/MyVGA/ShowChar.vhd" EN work/ShowChar 1495715939 \
+      CP VGACHAR
+FL "D:/FPGA Example/MyVGA/VGACHAR.vhd" 2017/05/18.23:09:52 P.20131013
+AR work/VGACHAR/Behavioral -1 FL "D:/FPGA Example/MyVGA/VGACHAR.vhd" \
+      EN work/VGACHAR 1495723452 CP VGACHAR

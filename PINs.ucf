@@ -1,0 +1,22 @@
+  
+# Pin assignment for VGA
+NET "HS"   LOC = p205; # Bank = 1, Signal name = HSYNC
+NET "VS"   LOC = p203; # Bank = 1, Signal name = VSYNC
+NET "RED"  LOC = p199; # Bank = 1, Signal name = RED0
+NET "GREEN"LOC = p197; # Bank = 1, Signal name = GRN0 
+NET "BLUE" LOC = p194; # Bank = 1, Signal name = BLU1 
+
+NET "clk_i" 	LOC = p80;
+
+NET "reset_i" 	LOC = p152;
+
+NET "sclk_o" 	LOC = p93;
+NET "cs" 	LOC = p90;
+NET "miso_i" 	LOC = p87;
+NET "mosi_o" 	LOC = p85;
+NET "TX" 	LOC = p190;
+NET "LED[0]" 	LOC = p12;
+NET "LED[1]" 	LOC = p16;
+NET "LED[2]" 	LOC = p19;
+NET "LED[3]" 	LOC = p21;
+

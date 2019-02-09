@@ -1,0 +1,146 @@
+Release 14.7 Map P.20131013 (nt64)
+Xilinx Map Application Log File for Design 'processor'
+
+Design Information
+------------------
+Command Line   : map -intstyle ise -p xc3s400-pq208-4 -cm area -ir off -pr off
+-c 100 -o processor_map.ncd processor.ngd processor.pcf 
+Target Device  : xc3s400
+Target Package : pq208
+Target Speed   : -4
+Mapper Version : spartan3 -- $Revision: 1.55 $
+Mapped Date    : Sun Jul 09 13:03:09 2017
+
+Mapping design into LUTs...
+Running directed packing...
+WARNING:Pack:266 - The function generator RTNstate_and00061 failed to merge with
+   F5 multiplexer RTNstate_mux0000<6>129_SW0.  There is a conflict for the
+   FXMUX.  The design will exhibit suboptimal timing.
+Running delay-based LUT packing...
+Running related packing...
+Updating timing models...
+WARNING:PhysDesignRules:812 - Dangling pin <DOA2> on
+   block:<mian_mem/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.
+   cstr/ramloop[0].ram.r/s3_noinit.ram/dpram.dp36x36.ram.A>:<RAMB16_RAMB16A>.
+WARNING:PhysDesignRules:812 - Dangling pin <DOA3> on
+   block:<mian_mem/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.
+   cstr/ramloop[0].ram.r/s3_noinit.ram/dpram.dp36x36.ram.A>:<RAMB16_RAMB16A>.
+WARNING:PhysDesignRules:812 - Dangling pin <DOA4> on
+   block:<mian_mem/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.
+   cstr/ramloop[0].ram.r/s3_noinit.ram/dpram.dp36x36.ram.A>:<RAMB16_RAMB16A>.
+WARNING:PhysDesignRules:812 - Dangling pin <DOA5> on
+   block:<mian_mem/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.
+   cstr/ramloop[0].ram.r/s3_noinit.ram/dpram.dp36x36.ram.A>:<RAMB16_RAMB16A>.
+WARNING:PhysDesignRules:812 - Dangling pin <DOA6> on
+   block:<mian_mem/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.
+   cstr/ramloop[0].ram.r/s3_noinit.ram/dpram.dp36x36.ram.A>:<RAMB16_RAMB16A>.
+WARNING:PhysDesignRules:812 - Dangling pin <DOA7> on
+   block:<mian_mem/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.
+   cstr/ramloop[0].ram.r/s3_noinit.ram/dpram.dp36x36.ram.A>:<RAMB16_RAMB16A>.
+WARNING:PhysDesignRules:812 - Dangling pin <DOA10> on
+   block:<mian_mem/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.
+   cstr/ramloop[0].ram.r/s3_noinit.ram/dpram.dp36x36.ram.A>:<RAMB16_RAMB16A>.
+WARNING:PhysDesignRules:812 - Dangling pin <DOA11> on
+   block:<mian_mem/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.
+   cstr/ramloop[0].ram.r/s3_noinit.ram/dpram.dp36x36.ram.A>:<RAMB16_RAMB16A>.
+WARNING:PhysDesignRules:812 - Dangling pin <DOA12> on
+   block:<mian_mem/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.
+   cstr/ramloop[0].ram.r/s3_noinit.ram/dpram.dp36x36.ram.A>:<RAMB16_RAMB16A>.
+WARNING:PhysDesignRules:812 - Dangling pin <DOA13> on
+   block:<mian_mem/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.
+   cstr/ramloop[0].ram.r/s3_noinit.ram/dpram.dp36x36.ram.A>:<RAMB16_RAMB16A>.
+WARNING:PhysDesignRules:812 - Dangling pin <DOA14> on
+   block:<mian_mem/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.
+   cstr/ramloop[0].ram.r/s3_noinit.ram/dpram.dp36x36.ram.A>:<RAMB16_RAMB16A>.
+WARNING:PhysDesignRules:812 - Dangling pin <DOA15> on
+   block:<mian_mem/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.
+   cstr/ramloop[0].ram.r/s3_noinit.ram/dpram.dp36x36.ram.A>:<RAMB16_RAMB16A>.
+WARNING:PhysDesignRules:812 - Dangling pin <DOA18> on
+   block:<mian_mem/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.
+   cstr/ramloop[0].ram.r/s3_noinit.ram/dpram.dp36x36.ram.A>:<RAMB16_RAMB16A>.
+WARNING:PhysDesignRules:812 - Dangling pin <DOA19> on
+   block:<mian_mem/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.
+   cstr/ramloop[0].ram.r/s3_noinit.ram/dpram.dp36x36.ram.A>:<RAMB16_RAMB16A>.
+WARNING:PhysDesignRules:812 - Dangling pin <DOA20> on
+   block:<mian_mem/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.
+   cstr/ramloop[0].ram.r/s3_noinit.ram/dpram.dp36x36.ram.A>:<RAMB16_RAMB16A>.
+WARNING:PhysDesignRules:812 - Dangling pin <DOA21> on
+   block:<mian_mem/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.
+   cstr/ramloop[0].ram.r/s3_noinit.ram/dpram.dp36x36.ram.A>:<RAMB16_RAMB16A>.
+WARNING:PhysDesignRules:812 - Dangling pin <DOA22> on
+   block:<mian_mem/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.
+   cstr/ramloop[0].ram.r/s3_noinit.ram/dpram.dp36x36.ram.A>:<RAMB16_RAMB16A>.
+WARNING:PhysDesignRules:812 - Dangling pin <DOA23> on
+   block:<mian_mem/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.
+   cstr/ramloop[0].ram.r/s3_noinit.ram/dpram.dp36x36.ram.A>:<RAMB16_RAMB16A>.
+WARNING:PhysDesignRules:812 - Dangling pin <DOA26> on
+   block:<mian_mem/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.
+   cstr/ramloop[0].ram.r/s3_noinit.ram/dpram.dp36x36.ram.A>:<RAMB16_RAMB16A>.
+WARNING:PhysDesignRules:812 - Dangling pin <DOA27> on
+   block:<mian_mem/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.
+   cstr/ramloop[0].ram.r/s3_noinit.ram/dpram.dp36x36.ram.A>:<RAMB16_RAMB16A>.
+WARNING:PhysDesignRules:812 - Dangling pin <DOA28> on
+   block:<mian_mem/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.
+   cstr/ramloop[0].ram.r/s3_noinit.ram/dpram.dp36x36.ram.A>:<RAMB16_RAMB16A>.
+WARNING:PhysDesignRules:812 - Dangling pin <DOA29> on
+   block:<mian_mem/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.
+   cstr/ramloop[0].ram.r/s3_noinit.ram/dpram.dp36x36.ram.A>:<RAMB16_RAMB16A>.
+WARNING:PhysDesignRules:812 - Dangling pin <DOA30> on
+   block:<mian_mem/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.
+   cstr/ramloop[0].ram.r/s3_noinit.ram/dpram.dp36x36.ram.A>:<RAMB16_RAMB16A>.
+WARNING:PhysDesignRules:812 - Dangling pin <DOA31> on
+   block:<mian_mem/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.
+   cstr/ramloop[0].ram.r/s3_noinit.ram/dpram.dp36x36.ram.A>:<RAMB16_RAMB16A>.
+
+Design Summary
+--------------
+
+Design Summary:
+Number of errors:      0
+Number of warnings:   25
+Logic Utilization:
+  Number of Slice Flip Flops:           529 out of   7,168    7%
+  Number of 4 input LUTs:             3,023 out of   7,168   42%
+Logic Distribution:
+  Number of occupied Slices:          1,638 out of   3,584   45%
+    Number of Slices containing only related logic:   1,638 out of   1,638 100%
+    Number of Slices containing unrelated logic:          0 out of   1,638   0%
+      *See NOTES below for an explanation of the effects of unrelated logic.
+  Total Number of 4 input LUTs:       3,132 out of   7,168   43%
+    Number used as logic:             3,023
+    Number used as a route-thru:        109
+
+  The Slice Logic Distribution report is not meaningful if the design is
+  over-mapped for a non-slice resource or if Placement fails.
+
+  Number of bonded IOBs:                 16 out of     141   11%
+  Number of RAMB16s:                     12 out of      16   75%
+  Number of MULT18X18s:                   1 out of      16    6%
+  Number of BUFGMUXs:                     3 out of       8   37%
+
+Average Fanout of Non-Clock Nets:                3.62
+
+Peak Memory Usage:  310 MB
+Total REAL time to MAP completion:  4 secs 
+Total CPU time to MAP completion:   4 secs 
+
+NOTES:
+
+   Related logic is defined as being logic that shares connectivity - e.g. two
+   LUTs are "related" if they share common inputs.  When assembling slices,
+   Map gives priority to combine logic that is related.  Doing so results in
+   the best timing performance.
+
+   Unrelated logic shares no connectivity.  Map will only begin packing
+   unrelated logic into a slice once 99% of the slices are occupied through
+   related logic packing.
+
+   Note that once logic distribution reaches the 99% level through related
+   logic packing, this does not mean the device is completely utilized.
+   Unrelated logic packing will then begin, continuing until all usable LUTs
+   and FFs are occupied.  Depending on your timing budget, increased levels of
+   unrelated logic packing may adversely affect the overall timing performance
+   of your design.
+
+Mapping completed.
+See MAP report file "processor_map.mrp" for details.

@@ -1,0 +1,3 @@
+vhdl work "ipcore_dir/ram.vhd"
+vhdl work "ipcore_dir/VGACHAR.vhd"
+vhdl work "OwnVGA.vhd"

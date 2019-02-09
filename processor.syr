@@ -1,0 +1,1212 @@
+Release 14.7 - xst P.20131013 (nt64)
+Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
+--> Parameter TMPDIR set to xst/projnav.tmp
+
+
+Total REAL time to Xst completion: 0.00 secs
+Total CPU time to Xst completion: 0.15 secs
+ 
+--> Parameter xsthdpdir set to xst
+
+
+Total REAL time to Xst completion: 0.00 secs
+Total CPU time to Xst completion: 0.16 secs
+ 
+--> Reading design: processor.prj
+
+TABLE OF CONTENTS
+  1) Synthesis Options Summary
+  2) HDL Compilation
+  3) Design Hierarchy Analysis
+  4) HDL Analysis
+  5) HDL Synthesis
+     5.1) HDL Synthesis Report
+  6) Advanced HDL Synthesis
+     6.1) Advanced HDL Synthesis Report
+  7) Low Level Synthesis
+  8) Partition Report
+  9) Final Report
+	9.1) Device utilization summary
+	9.2) Partition Resource Summary
+	9.3) TIMING REPORT
+
+
+=========================================================================
+*                      Synthesis Options Summary                        *
+=========================================================================
+---- Source Parameters
+Input File Name                    : "processor.prj"
+Input Format                       : mixed
+Ignore Synthesis Constraint File   : NO
+
+---- Target Parameters
+Output File Name                   : "processor"
+Output Format                      : NGC
+Target Device                      : xc3s400-4-pq208
+
+---- Source Options
+Top Module Name                    : processor
+Automatic FSM Extraction           : YES
+FSM Encoding Algorithm             : Auto
+Safe Implementation                : No
+FSM Style                          : LUT
+RAM Extraction                     : Yes
+RAM Style                          : Auto
+ROM Extraction                     : Yes
+Mux Style                          : Auto
+Decoder Extraction                 : YES
+Priority Encoder Extraction        : Yes
+Shift Register Extraction          : YES
+Logical Shifter Extraction         : YES
+XOR Collapsing                     : YES
+ROM Style                          : Auto
+Mux Extraction                     : Yes
+Resource Sharing                   : YES
+Asynchronous To Synchronous        : NO
+Multiplier Style                   : Auto
+Automatic Register Balancing       : No
+
+---- Target Options
+Add IO Buffers                     : YES
+Global Maximum Fanout              : 100000
+Add Generic Clock Buffer(BUFG)     : 8
+Register Duplication               : YES
+Slice Packing                      : YES
+Optimize Instantiated Primitives   : NO
+Use Clock Enable                   : Yes
+Use Synchronous Set                : Yes
+Use Synchronous Reset              : Yes
+Pack IO Registers into IOBs        : Auto
+Equivalent register Removal        : YES
+
+---- General Options
+Optimization Goal                  : Speed
+Optimization Effort                : 1
+Keep Hierarchy                     : No
+Netlist Hierarchy                  : As_Optimized
+RTL Output                         : Yes
+Global Optimization                : AllClockNets
+Read Cores                         : YES
+Write Timing Constraints           : NO
+Cross Clock Analysis               : NO
+Hierarchy Separator                : /
+Bus Delimiter                      : <>
+Case Specifier                     : Maintain
+Slice Utilization Ratio            : 100
+BRAM Utilization Ratio             : 100
+Verilog 2001                       : YES
+Auto BRAM Packing                  : NO
+Slice Utilization Ratio Delta      : 5
+
+---- Other Options
+Cores Search Directories           : {"ipcore_dir"  }
+
+=========================================================================
+
+
+=========================================================================
+*                          HDL Compilation                              *
+=========================================================================
+Compiling vhdl file "J:/xilinx_prj/processor/Common.vhd" in Library work.
+Architecture commonpckg of Entity commonpckg is up to date.
+Compiling vhdl file "J:/xilinx_prj/processor/ipcore_dir/ram.vhd" in Library work.
+Architecture ram_a of Entity ram is up to date.
+Compiling vhdl file "J:/xilinx_prj/processor/ipcore_dir/VGACHAR.vhd" in Library work.
+Architecture vgachar_a of Entity vgachar is up to date.
+Compiling vhdl file "J:/xilinx_prj/processor/ipcore_dir/MainMemory.vhd" in Library work.
+Architecture mainmemory_a of Entity mainmemory is up to date.
+Compiling vhdl file "J:/xilinx_prj/processor/VGA.vhd" in Library work.
+Architecture behavioral of Entity myvga is up to date.
+Compiling vhdl file "J:/xilinx_prj/SDC.vhd" in Library work.
+Architecture arch of Entity sdcardctrl is up to date.
+Compiling vhdl file "J:/xilinx_prj/processor/processor.vhd" in Library work.
+Entity <processor> compiled.
+Entity <processor> (Architecture <behavioral>) compiled.
+Compiling verilog file "UART.v" in library work
+Module <UART_TX> compiled
+No errors in compilation
+Analysis of file <"processor.prj"> succeeded.
+ 
+
+=========================================================================
+*                     Design Hierarchy Analysis                         *
+=========================================================================
+Analyzing hierarchy for entity <processor> in library <work> (architecture <behavioral>).
+
+Analyzing hierarchy for entity <MYVGA> in library <work> (architecture <behavioral>).
+WARNING:Xst:2094 - "J:/xilinx_prj/processor/VGA.vhd" line 78: Default value is ignored for signal <Echar>.
+
+Analyzing hierarchy for entity <SdCardCtrl> in library <work> (architecture <arch>) with generics.
+	BLOCK_SIZE_G = 512
+	CARD_TYPE_G = "sd_card_e"
+	FREQ_G = 50.000000
+	INIT_SPI_FREQ_G = 0.400000
+	SPI_FREQ_G = 25.000000
+
+Analyzing hierarchy for module <UART_TX> in library <work>.
+
+
+=========================================================================
+*                            HDL Analysis                               *
+=========================================================================
+Analyzing Entity <processor> in library <work> (Architecture <behavioral>).
+WARNING:Xst:2211 - "J:/xilinx_prj/processor/processor.vhd" line 126: Instantiating black box module <MainMemory>.
+WARNING:Xst:753 - "J:/xilinx_prj/processor/processor.vhd" line 150: Unconnected output port 'LED' of component 'SdCardCtrl'.
+WARNING:Xst:2364 - "J:/xilinx_prj/processor/processor.vhd" line 375: Possible simulation mismatch due to '-' in condition expression.
+WARNING:Xst:2364 - "J:/xilinx_prj/processor/processor.vhd" line 390: Possible simulation mismatch due to '-' in condition expression.
+WARNING:Xst:2364 - "J:/xilinx_prj/processor/processor.vhd" line 399: Possible simulation mismatch due to '-' in condition expression.
+WARNING:Xst:2364 - "J:/xilinx_prj/processor/processor.vhd" line 408: Possible simulation mismatch due to '-' in condition expression.
+WARNING:Xst:2364 - "J:/xilinx_prj/processor/processor.vhd" line 417: Possible simulation mismatch due to '-' in condition expression.
+WARNING:Xst:2364 - "J:/xilinx_prj/processor/processor.vhd" line 426: Possible simulation mismatch due to '-' in condition expression.
+WARNING:Xst:2364 - "J:/xilinx_prj/processor/processor.vhd" line 436: Possible simulation mismatch due to '-' in condition expression.
+WARNING:Xst:2364 - "J:/xilinx_prj/processor/processor.vhd" line 445: Possible simulation mismatch due to '-' in condition expression.
+WARNING:Xst:2364 - "J:/xilinx_prj/processor/processor.vhd" line 455: Possible simulation mismatch due to '-' in condition expression.
+WARNING:Xst:2364 - "J:/xilinx_prj/processor/processor.vhd" line 464: Possible simulation mismatch due to '-' in condition expression.
+WARNING:Xst:2364 - "J:/xilinx_prj/processor/processor.vhd" line 474: Possible simulation mismatch due to '-' in condition expression.
+WARNING:Xst:2364 - "J:/xilinx_prj/processor/processor.vhd" line 484: Possible simulation mismatch due to '-' in condition expression.
+WARNING:Xst:2364 - "J:/xilinx_prj/processor/processor.vhd" line 492: Possible simulation mismatch due to '-' in condition expression.
+WARNING:Xst:2364 - "J:/xilinx_prj/processor/processor.vhd" line 501: Possible simulation mismatch due to '-' in condition expression.
+WARNING:Xst:2364 - "J:/xilinx_prj/processor/processor.vhd" line 511: Possible simulation mismatch due to '-' in condition expression.
+WARNING:Xst:2364 - "J:/xilinx_prj/processor/processor.vhd" line 521: Possible simulation mismatch due to '-' in condition expression.
+WARNING:Xst:2364 - "J:/xilinx_prj/processor/processor.vhd" line 530: Possible simulation mismatch due to '-' in condition expression.
+WARNING:Xst:2364 - "J:/xilinx_prj/processor/processor.vhd" line 546: Possible simulation mismatch due to '-' in condition expression.
+WARNING:Xst:2364 - "J:/xilinx_prj/processor/processor.vhd" line 553: Possible simulation mismatch due to '-' in condition expression.
+WARNING:Xst:2364 - "J:/xilinx_prj/processor/processor.vhd" line 560: Possible simulation mismatch due to '-' in condition expression.
+WARNING:Xst:2364 - "J:/xilinx_prj/processor/processor.vhd" line 568: Possible simulation mismatch due to '-' in condition expression.
+WARNING:Xst:2364 - "J:/xilinx_prj/processor/processor.vhd" line 589: Possible simulation mismatch due to '-' in condition expression.
+WARNING:Xst:2364 - "J:/xilinx_prj/processor/processor.vhd" line 594: Possible simulation mismatch due to '-' in condition expression.
+WARNING:Xst:2364 - "J:/xilinx_prj/processor/processor.vhd" line 641: Possible simulation mismatch due to '-' in condition expression.
+WARNING:Xst:2364 - "J:/xilinx_prj/processor/processor.vhd" line 653: Possible simulation mismatch due to '-' in condition expression.
+WARNING:Xst:2364 - "J:/xilinx_prj/processor/processor.vhd" line 665: Possible simulation mismatch due to '-' in condition expression.
+WARNING:Xst:2364 - "J:/xilinx_prj/processor/processor.vhd" line 680: Possible simulation mismatch due to '-' in condition expression.
+WARNING:Xst:2364 - "J:/xilinx_prj/processor/processor.vhd" line 697: Possible simulation mismatch due to '-' in condition expression.
+WARNING:Xst:2364 - "J:/xilinx_prj/processor/processor.vhd" line 716: Possible simulation mismatch due to '-' in condition expression.
+WARNING:Xst:2364 - "J:/xilinx_prj/processor/processor.vhd" line 735: Possible simulation mismatch due to '-' in condition expression.
+WARNING:Xst:2364 - "J:/xilinx_prj/processor/processor.vhd" line 765: Possible simulation mismatch due to '-' in condition expression.
+WARNING:Xst:2364 - "J:/xilinx_prj/processor/processor.vhd" line 782: Possible simulation mismatch due to '-' in condition expression.
+WARNING:Xst:2364 - "J:/xilinx_prj/processor/processor.vhd" line 798: Possible simulation mismatch due to '-' in condition expression.
+WARNING:Xst:1610 - "J:/xilinx_prj/processor/processor.vhd" line 920: Width mismatch. <addr_mem_rw> has a width of 16 bits but assigned expression is 9-bit wide.
+WARNING:Xst:1610 - "J:/xilinx_prj/processor/processor.vhd" line 921: Width mismatch. <addr_mem_rw> has a width of 16 bits but assigned expression is 9-bit wide.
+WARNING:Xst:1610 - "J:/xilinx_prj/processor/processor.vhd" line 922: Width mismatch. <addr_mem_rw> has a width of 16 bits but assigned expression is 9-bit wide.
+WARNING:Xst:1610 - "J:/xilinx_prj/processor/processor.vhd" line 923: Width mismatch. <addr_mem_rw> has a width of 16 bits but assigned expression is 9-bit wide.
+WARNING:Xst:1610 - "J:/xilinx_prj/processor/processor.vhd" line 931: Width mismatch. <addr_mem_rw> has a width of 16 bits but assigned expression is 9-bit wide.
+WARNING:Xst:1610 - "J:/xilinx_prj/processor/processor.vhd" line 1066: Width mismatch. <reg_h<8:0>> has a width of 9 bits but assigned expression is 8-bit wide.
+WARNING:Xst:1610 - "J:/xilinx_prj/processor/processor.vhd" line 1073: Width mismatch. <reg_h> has a width of 17 bits but assigned expression is 16-bit wide.
+WARNING:Xst:1610 - "J:/xilinx_prj/processor/processor.vhd" line 1181: Width mismatch. <reg_h<8:0>> has a width of 9 bits but assigned expression is 8-bit wide.
+WARNING:Xst:1610 - "J:/xilinx_prj/processor/processor.vhd" line 1181: Width mismatch. <reg_h<8:0>> has a width of 9 bits but assigned expression is 8-bit wide.
+WARNING:Xst:1610 - "J:/xilinx_prj/processor/processor.vhd" line 1183: Width mismatch. <reg_h<8:0>> has a width of 9 bits but assigned expression is 8-bit wide.
+WARNING:Xst:1610 - "J:/xilinx_prj/processor/processor.vhd" line 1183: Width mismatch. <reg_h<8:0>> has a width of 9 bits but assigned expression is 8-bit wide.
+WARNING:Xst:1610 - "J:/xilinx_prj/processor/processor.vhd" line 1184: Width mismatch. <reg_h<8:0>> has a width of 9 bits but assigned expression is 16-bit wide.
+WARNING:Xst:1610 - "J:/xilinx_prj/processor/processor.vhd" line 1185: Width mismatch. <reg_h<8:0>> has a width of 9 bits but assigned expression is 8-bit wide.
+WARNING:Xst:1610 - "J:/xilinx_prj/processor/processor.vhd" line 1186: Width mismatch. <reg_h<8:0>> has a width of 9 bits but assigned expression is 8-bit wide.
+WARNING:Xst:1610 - "J:/xilinx_prj/processor/processor.vhd" line 1187: Width mismatch. <reg_h<8:0>> has a width of 9 bits but assigned expression is 8-bit wide.
+WARNING:Xst:1610 - "J:/xilinx_prj/processor/processor.vhd" line 1198: Width mismatch. <reg_h> has a width of 17 bits but assigned expression is 16-bit wide.
+WARNING:Xst:1610 - "J:/xilinx_prj/processor/processor.vhd" line 1199: Width mismatch. <reg_h> has a width of 17 bits but assigned expression is 16-bit wide.
+WARNING:Xst:1610 - "J:/xilinx_prj/processor/processor.vhd" line 1200: Width mismatch. <reg_h> has a width of 17 bits but assigned expression is 16-bit wide.
+WARNING:Xst:1610 - "J:/xilinx_prj/processor/processor.vhd" line 1201: Width mismatch. <reg_h> has a width of 17 bits but assigned expression is 16-bit wide.
+WARNING:Xst:1610 - "J:/xilinx_prj/processor/processor.vhd" line 1201: Width mismatch. <reg_h> has a width of 17 bits but assigned expression is 16-bit wide.
+WARNING:Xst:1610 - "J:/xilinx_prj/processor/processor.vhd" line 1202: Width mismatch. <reg_h> has a width of 17 bits but assigned expression is 16-bit wide.
+WARNING:Xst:1610 - "J:/xilinx_prj/processor/processor.vhd" line 1203: Width mismatch. <reg_h> has a width of 17 bits but assigned expression is 16-bit wide.
+WARNING:Xst:1610 - "J:/xilinx_prj/processor/processor.vhd" line 1203: Width mismatch. <reg_h> has a width of 17 bits but assigned expression is 16-bit wide.
+WARNING:Xst:1610 - "J:/xilinx_prj/processor/processor.vhd" line 1204: Width mismatch. <reg_h> has a width of 17 bits but assigned expression is 32-bit wide.
+WARNING:Xst:1610 - "J:/xilinx_prj/processor/processor.vhd" line 1205: Width mismatch. <reg_h> has a width of 17 bits but assigned expression is 16-bit wide.
+WARNING:Xst:1610 - "J:/xilinx_prj/processor/processor.vhd" line 1206: Width mismatch. <reg_h> has a width of 17 bits but assigned expression is 16-bit wide.
+WARNING:Xst:1610 - "J:/xilinx_prj/processor/processor.vhd" line 1207: Width mismatch. <reg_h> has a width of 17 bits but assigned expression is 16-bit wide.
+Entity <processor> analyzed. Unit <processor> generated.
+
+Analyzing Entity <MYVGA> in library <work> (Architecture <behavioral>).
+WARNING:Xst:2094 - "J:/xilinx_prj/processor/VGA.vhd" line 78: Default value is ignored for signal <Echar>.
+WARNING:Xst:2211 - "J:/xilinx_prj/processor/VGA.vhd" line 87: Instantiating black box module <ram>.
+WARNING:Xst:2211 - "J:/xilinx_prj/processor/VGA.vhd" line 96: Instantiating black box module <VGACHAR>.
+WARNING:Xst:1610 - "J:/xilinx_prj/processor/VGA.vhd" line 164: Width mismatch. <VGA_ADDR_RAM> has a width of 15 bits but assigned expression is 16-bit wide.
+Entity <MYVGA> analyzed. Unit <MYVGA> generated.
+
+Analyzing generic Entity <SdCardCtrl> in library <work> (Architecture <arch>).
+	BLOCK_SIZE_G = 512
+	CARD_TYPE_G = "sd_card_e"
+	FREQ_G = 50.000000
+	INIT_SPI_FREQ_G = 0.400000
+	SPI_FREQ_G = 25.000000
+Entity <SdCardCtrl> analyzed. Unit <SdCardCtrl> generated.
+
+Analyzing module <UART_TX> in library <work>.
+Module <UART_TX> is correct for synthesis.
+ 
+
+=========================================================================
+*                           HDL Synthesis                               *
+=========================================================================
+
+Performing bidirectional port resolution...
+
+Synthesizing Unit <SdCardCtrl>.
+    Related source file is "J:/xilinx_prj/SDC.vhd".
+    Using one-hot encoding for signal <state_v>.
+INFO:Xst:2117 - HDL ADVISOR - Mux Selector <state_v> of Case statement line 321 was re-encoded using one-hot encoding. The case statement will be optimized (default statement optimization), but this optimization may lead to design initialization problems. To ensure the design works safely, you can:
+   	- add an 'INIT' attribute on signal <state_v> (optimization is then done without any risk)
+   	- use the attribute 'signal_encoding user' to avoid onehot optimization
+   	- use the attribute 'safe_implementation yes' to force XST to perform a safe (but less efficient) optimization
+    Found 16-bit register for signal <error_o>.
+    Found 1-bit register for signal <busy_o>.
+    Found 1-bit register for signal <cs_bo>.
+    Found 8-bit register for signal <data_o>.
+    Found 1-bit register for signal <mosi_o>.
+    Found 32-bit register for signal <addr_v>.
+    Found 8-bit register for signal <bitCnt_v>.
+    Found 8-bit subtractor for signal <bitCnt_v$share0000> created at line 321.
+    Found 10-bit register for signal <byteCnt_v>.
+    Found 10-bit subtractor for signal <byteCnt_v$share0000> created at line 321.
+    Found 6-bit register for signal <clkDivider_v>.
+    Found 1-bit register for signal <doDeselect_v<0>>.
+    Found 1-bit register for signal <getCmdResponse_v<0>>.
+    Found 1-bit register for signal <hndShk_r>.
+    Found 4-bit register for signal <LEDr>.
+    Found 1-bit register for signal <rtnData_v<0>>.
+    Found 10-bit comparator greatequal for signal <rtnData_v_0$cmp_ge0000> created at line 465.
+    Found 19-bit register for signal <rtnState_v>.
+    Found 10-bit comparator greatequal for signal <rtnState_v$cmp_ge0000> created at line 491.
+    Found 8-bit register for signal <rx_v>.
+    Found 1-bit register for signal <sclk_r>.
+    Found 6-bit register for signal <sclkPhaseTimer_v>.
+    Found 6-bit subtractor for signal <sclkPhaseTimer_v$addsub0000> created at line 296.
+    Found 19-bit register for signal <state_v>.
+    Found 48-bit register for signal <tx_v>.
+    Found 32-bit adder for signal <tx_v$add0001> created at line 413.
+    Summary:
+	inferred 192 D-type flip-flop(s).
+	inferred   4 Adder/Subtractor(s).
+	inferred   2 Comparator(s).
+Unit <SdCardCtrl> synthesized.
+
+
+Synthesizing Unit <UART_TX>.
+    Related source file is "UART.v".
+    Found 1-bit 16-to-1 multiplexer for signal <Tx>.
+    Found 13-bit up counter for signal <CounterPluse>.
+    Found 1-bit register for signal <EndSend>.
+    Found 4-bit up counter for signal <Number>.
+    Found 13-bit adder for signal <old_CounterPluse_2$add0000> created at line 19.
+    Found 1-bit register for signal <SendKeyPrev>.
+    Found 1-bit register for signal <StartSend>.
+    Found 1-bit xor2 for signal <StartSend$xor0000> created at line 33.
+    Summary:
+	inferred   2 Counter(s).
+	inferred   3 D-type flip-flop(s).
+	inferred   2 Adder/Subtractor(s).
+	inferred   1 Multiplexer(s).
+Unit <UART_TX> synthesized.
+
+
+Synthesizing Unit <MYVGA>.
+    Related source file is "J:/xilinx_prj/processor/VGA.vhd".
+WARNING:Xst:1781 - Signal <ROMchar<15:8>> is used but never assigned. Tied to default value.
+WARNING:Xst:1780 - Signal <Echar> is never used or assigned. This unconnected signal will be trimmed during the optimization process.
+WARNING:Xst:1780 - Signal <CounterY> is never used or assigned. This unconnected signal will be trimmed during the optimization process.
+WARNING:Xst:1780 - Signal <CounterX> is never used or assigned. This unconnected signal will be trimmed during the optimization process.
+WARNING:Xst:1780 - Signal <CounterTime> is never used or assigned. This unconnected signal will be trimmed during the optimization process.
+WARNING:Xst:643 - "J:/xilinx_prj/processor/VGA.vhd" line 164: The result of a 8x8-bit multiplication is partially used. Only the 15 least significant bits are used. If you are doing this on purpose, you may safely ignore this warning. Otherwise, make sure you are not losing information, leading to unexpected circuit behavior.
+    Found 8-bit 16-to-1 multiplexer for signal <$varindex0000> created at line 158.
+    Found 7-bit subtractor for signal <ADDR_ROM>.
+    Found 1-bit register for signal <Clk_25MHz>.
+    Found 11-bit up counter for signal <CurrentHPos>.
+    Found 11-bit comparator less for signal <CurrentHPos$cmp_lt0000> created at line 113.
+    Found 11-bit up counter for signal <CurrentVPos>.
+    Found 11-bit comparator less for signal <CurrentVPos$cmp_lt0000> created at line 116.
+    Found 11-bit comparator greatequal for signal <HBlank$cmp_ge0000> created at line 133.
+    Found 11-bit comparator less for signal <HBlank$cmp_lt0000> created at line 133.
+    Found 11-bit comparator less for signal <HS$cmp_lt0000> created at line 127.
+    Found 11-bit subtractor for signal <ScanlineX$addsub0000> created at line 142.
+    Found 11-bit subtractor for signal <ScanlineX$addsub0001> created at line 142.
+    Found 11-bit subtractor for signal <ScanlineY$addsub0000> created at line 145.
+    Found 11-bit subtractor for signal <ScanlineY$addsub0001> created at line 145.
+    Found 11-bit comparator greatequal for signal <VBlank$cmp_ge0000> created at line 136.
+    Found 11-bit comparator less for signal <VBlank$cmp_lt0000> created at line 136.
+    Found 15-bit adder for signal <VGA_ADDR_RAM>.
+    Found 8x8-bit multiplier for signal <VGA_ADDR_RAM$mult0000> created at line 164.
+    Found 8-bit comparator equal for signal <VGA_DATA_IN_RAM$cmp_eq0000> created at line 158.
+    Found 7-bit comparator equal for signal <VGA_DATA_IN_RAM$cmp_eq0001> created at line 158.
+    Found 1-bit 8-to-1 multiplexer for signal <VGA_DATA_OUT_RAM$mux0000> created at line 166.
+    Found 11-bit comparator less for signal <VS$cmp_lt0000> created at line 130.
+    Summary:
+	inferred   2 Counter(s).
+	inferred   1 D-type flip-flop(s).
+	inferred   6 Adder/Subtractor(s).
+	inferred   1 Multiplier(s).
+	inferred  10 Comparator(s).
+	inferred   9 Multiplexer(s).
+Unit <MYVGA> synthesized.
+
+
+Synthesizing Unit <processor>.
+    Related source file is "J:/xilinx_prj/processor/processor.vhd".
+WARNING:Xst:653 - Signal <sd_write_en> is used but never assigned. This sourceless signal will be automatically connected to value 0.
+WARNING:Xst:653 - Signal <sd_read_en> is used but never assigned. This sourceless signal will be automatically connected to value 1.
+WARNING:Xst:653 - Signal <sd_read_continue> is used but never assigned. This sourceless signal will be automatically connected to value 0.
+WARNING:Xst:646 - Signal <sd_is_busy> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
+WARNING:Xst:646 - Signal <sd_error> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
+WARNING:Xst:653 - Signal <sd_data_in> is used but never assigned. This sourceless signal will be automatically connected to value 00000000.
+WARNING:Xst:653 - Signal <sd_address> is used but never assigned. This sourceless signal will be automatically connected to value 00000000000000000000000000000000.
+WARNING:Xst:1780 - Signal <CounterPulse> is never used or assigned. This unconnected signal will be trimmed during the optimization process.
+    Using one-hot encoding for signal <Sub_State>.
+    Using one-hot encoding for signal <State>.
+    Found 4-bit register for signal <LED>.
+    Found 16-bit register for signal <addr_mem_rw>.
+    Found 9-bit adder for signal <addr_mem_rw$add0000> created at line 920.
+    Found 9-bit adder for signal <addr_mem_rw$add0001> created at line 921.
+    Found 9-bit adder for signal <addr_mem_rw$add0002> created at line 922.
+    Found 9-bit adder for signal <addr_mem_rw$add0003> created at line 923.
+    Found 9-bit adder for signal <addr_mem_rw$add0004> created at line 931.
+    Found 16-bit adder for signal <addr_mem_rw$add0005> created at line 339.
+    Found 16-bit adder for signal <addr_mem_rw$add0006> created at line 932.
+    Found 16-bit subtractor for signal <addr_mem_rw$addsub0000> created at line 1227.
+    Found 16-bit 8-to-1 multiplexer for signal <addr_mem_rw$mux0000> created at line 919.
+    Found 16-bit 8-to-1 multiplexer for signal <addr_mem_rw$mux0005> created at line 919.
+    Found 16-bit subtractor for signal <addr_mem_rw$sub0000> created at line 712.
+    Found 16-bit subtractor for signal <addr_mem_rw$sub0001> created at line 1227.
+    Found 16-bit register for signal <AX>.
+    Found 1-bit 16-to-1 multiplexer for signal <AX_0$mux0000> created at line 1232.
+    Found 1-bit 16-to-1 multiplexer for signal <AX_1$mux0000> created at line 1232.
+    Found 1-bit 16-to-1 multiplexer for signal <AX_2$mux0000> created at line 1232.
+    Found 1-bit 16-to-1 multiplexer for signal <AX_3$mux0000> created at line 1232.
+    Found 1-bit 16-to-1 multiplexer for signal <AX_4$mux0000> created at line 1232.
+    Found 1-bit 16-to-1 multiplexer for signal <AX_5$mux0000> created at line 1232.
+    Found 1-bit 16-to-1 multiplexer for signal <AX_6$mux0000> created at line 1232.
+    Found 1-bit 16-to-1 multiplexer for signal <AX_7$mux0000> created at line 1232.
+    Found 1-bit 4-to-1 multiplexer for signal <bool$mux0003> created at line 803.
+    Found 1-bit 16-to-1 multiplexer for signal <bool$mux0005> created at line 978.
+    Found 1-bit xor2 for signal <bool$xor0000> created at line 994.
+    Found 16-bit register for signal <BP>.
+    Found 16-bit register for signal <BX>.
+    Found 1-bit 16-to-1 multiplexer for signal <BX_0$mux0000> created at line 1232.
+    Found 1-bit 16-to-1 multiplexer for signal <BX_1$mux0000> created at line 1232.
+    Found 1-bit 16-to-1 multiplexer for signal <BX_10$mux0000> created at line 1232.
+    Found 1-bit 16-to-1 multiplexer for signal <BX_11$mux0000> created at line 1232.
+    Found 1-bit 16-to-1 multiplexer for signal <BX_12$mux0000> created at line 1232.
+    Found 1-bit 16-to-1 multiplexer for signal <BX_13$mux0000> created at line 1232.
+    Found 1-bit 16-to-1 multiplexer for signal <BX_14$mux0000> created at line 1232.
+    Found 1-bit 16-to-1 multiplexer for signal <BX_15$mux0000> created at line 1232.
+    Found 1-bit 16-to-1 multiplexer for signal <BX_2$mux0000> created at line 1232.
+    Found 1-bit 16-to-1 multiplexer for signal <BX_3$mux0000> created at line 1232.
+    Found 1-bit 16-to-1 multiplexer for signal <BX_4$mux0000> created at line 1232.
+    Found 1-bit 16-to-1 multiplexer for signal <BX_5$mux0000> created at line 1232.
+    Found 1-bit 16-to-1 multiplexer for signal <BX_6$mux0000> created at line 1232.
+    Found 1-bit 16-to-1 multiplexer for signal <BX_7$mux0000> created at line 1232.
+    Found 1-bit 16-to-1 multiplexer for signal <BX_8$mux0000> created at line 1232.
+    Found 1-bit 16-to-1 multiplexer for signal <BX_9$mux0000> created at line 1232.
+    Found 8-bit register for signal <byte0>.
+    Found 8-bit register for signal <byte1>.
+    Found 8-bit register for signal <byte2>.
+    Found 8-bit register for signal <byte3>.
+    Found 7-bit register for signal <char>.
+    Found 1-bit register for signal <cheng_reg_h_byte>.
+    Found 1-bit register for signal <CLKPorcessor>.
+    Found 16-bit up counter for signal <ClockPulse>.
+    Found 10-bit register for signal <cnt_bit>.
+    Found 10-bit subtractor for signal <cnt_bit$addsub0000> created at line 1275.
+    Found 1-bit register for signal <compare>.
+    Found 16-bit register for signal <CX>.
+    Found 16-bit subtractor for signal <CX_15$sub0001> created at line 669.
+    Found 1-bit register for signal <D_reg>.
+    Found 16-bit register for signal <DI>.
+    Found 16-bit addsub for signal <DI$addsub0000>.
+    Found 16-bit addsub for signal <DI$mux0000> created at line 713.
+    Found 16-bit register for signal <DX>.
+    Found 28-bit register for signal <EXstate>.
+    Found 8-bit register for signal <flag>.
+    Found 1-bit xor2 for signal <flag_0$xor0000> created at line 1067.
+    Found 1-bit xor2 for signal <flag_0$xor0001> created at line 1074.
+    Found 1-bit xor2 for signal <flag_0$xor0002> created at line 1191.
+    Found 1-bit xor2 for signal <flag_0$xor0003> created at line 1213.
+    Found 1-bit xor2 for signal <flag_3$xor0000> created at line 1192.
+    Found 1-bit xor2 for signal <flag_3$xor0001> created at line 1214.
+    Found 16-bit register for signal <IP>.
+    Found 16-bit adder for signal <IP$add0000> created at line 340.
+    Found 16-bit adder for signal <IP$add0001> created at line 1011.
+    Found 16-bit adder for signal <IP$add0002> created at line 1017.
+    Found 3-bit comparator not equal for signal <IP$cmp_ne0000> created at line 326.
+    Found 16-bit subtractor for signal <IP$sub0000> created at line 669.
+    Found 4-bit register for signal <LED_v>.
+    Found 2-bit register for signal <m_reg>.
+    Found 9-bit register for signal <main_mem_addr>.
+    Found 8-bit register for signal <main_mem_data_in>.
+    Found 1-bit register for signal <main_mem_wr_en<0>>.
+    Found 3-bit register for signal <num_byte>.
+    Found 3-bit adder for signal <num_byte$addsub0000>.
+    Found 3-bit register for signal <num_byte_v>.
+    Found 3-bit adder for signal <num_byte_v$addsub0000> created at line 338.
+    Found 1-bit register for signal <ram_rw_en>.
+    Found 3-bit register for signal <reg1_t>.
+    Found 17-bit register for signal <reg_h>.
+    Found 16-bit subtractor for signal <reg_h$sub0000> created at line 1073.
+    Found 1-bit xor2 for signal <reg_h_0$xor0000> created at line 1186.
+    Found 1-bit xor2 for signal <reg_h_0$xor0001> created at line 1206.
+    Found 1-bit xor2 for signal <reg_h_1$xor0000> created at line 1186.
+    Found 1-bit xor2 for signal <reg_h_1$xor0001> created at line 1206.
+    Found 1-bit xor2 for signal <reg_h_10$xor0000> created at line 1201.
+    Found 1-bit xor2 for signal <reg_h_10$xor0001> created at line 1206.
+    Found 1-bit xor2 for signal <reg_h_11$xor0000> created at line 1206.
+    Found 1-bit xor2 for signal <reg_h_12$xor0000> created at line 1206.
+    Found 1-bit xor2 for signal <reg_h_13$xor0000> created at line 1206.
+    Found 1-bit xor2 for signal <reg_h_14$xor0000> created at line 1206.
+    Found 16-bit adder for signal <reg_h_15$add0001> created at line 1199.
+    Found 16-bit adder for signal <reg_h_15$add0002> created at line 1201.
+    Found 16-bit adder for signal <reg_h_15$add0003> created at line 1198.
+    Found 16x16-bit multiplier for signal <reg_h_15$mult0000> created at line 1204.
+    Found 16-bit subtractor for signal <reg_h_15$sub0000> created at line 1200.
+    Found 16-bit subtractor for signal <reg_h_15$sub0002> created at line 1203.
+    Found 16-bit subtractor for signal <reg_h_15$sub0003> created at line 1202.
+    Found 1-bit xor2 for signal <reg_h_2$xor0000> created at line 1186.
+    Found 1-bit xor2 for signal <reg_h_2$xor0001> created at line 1206.
+    Found 1-bit xor2 for signal <reg_h_3$xor0000> created at line 1186.
+    Found 1-bit xor2 for signal <reg_h_3$xor0001> created at line 1206.
+    Found 1-bit xor2 for signal <reg_h_4$xor0000> created at line 1186.
+    Found 1-bit xor2 for signal <reg_h_4$xor0001> created at line 1206.
+    Found 1-bit xor2 for signal <reg_h_5$xor0000> created at line 1186.
+    Found 1-bit xor2 for signal <reg_h_5$xor0001> created at line 1206.
+    Found 1-bit xor2 for signal <reg_h_6$xor0000> created at line 1181.
+    Found 1-bit xor2 for signal <reg_h_6$xor0001> created at line 1186.
+    Found 1-bit xor2 for signal <reg_h_6$xor0002> created at line 1206.
+    Found 1-bit xor2 for signal <reg_h_7$xor0000> created at line 1206.
+    Found 1-bit xor2 for signal <reg_h_8$xor0000> created at line 1206.
+    Found 9-bit adder for signal <reg_h_8_0$add0000> created at line 1178.
+    Found 9-bit adder for signal <reg_h_8_0$add0001> created at line 1179.
+    Found 8-bit adder for signal <reg_h_8_0$add0002> created at line 1181.
+    Found 8-bit adder for signal <reg_h_8_0$add0003> created at line 1181.
+    Found 8-bit subtractor for signal <reg_h_8_0$addsub0000> created at line 1183.
+    Found 8x8-bit multiplier for signal <reg_h_8_0$mult0000> created at line 1184.
+    Found 8-bit subtractor for signal <reg_h_8_0$sub0000> created at line 1066.
+    Found 9-bit subtractor for signal <reg_h_8_0$sub0001> created at line 1180.
+    Found 9-bit subtractor for signal <reg_h_8_0$sub0002> created at line 1182.
+    Found 8-bit subtractor for signal <reg_h_8_0$sub0003> created at line 1183.
+    Found 8-bit subtractor for signal <reg_h_8_0$sub0004> created at line 1183.
+    Found 1-bit xor2 for signal <reg_h_9$xor0000> created at line 1206.
+    Found 3-bit register for signal <reg_t>.
+    Found 1-bit register for signal <repnz_en>.
+    Found 1-bit register for signal <repz_en>.
+    Found 3-bit register for signal <rm_t>.
+    Found 28-bit register for signal <RTNstate>.
+    Found 1-bit register for signal <S_reg>.
+    Found 1-bit register for signal <sd_h_hndShk>.
+    Found 16-bit register for signal <SI>.
+    Found 16-bit addsub for signal <SI$mux0000> created at line 677.
+    Found 16-bit register for signal <SP>.
+    Found 16-bit addsub for signal <SP$share0000> created at line 324.
+    Found 28-bit register for signal <State>.
+    Found 13-bit register for signal <Sub_State>.
+    Found 8-bit register for signal <tx_char>.
+    Found 1-bit register for signal <uart_tx_b>.
+    Found 1-bit register for signal <val_const_bit>.
+    Found 1-bit register for signal <W_reg>.
+    Found 7-bit up counter for signal <Xchar>.
+    Found 5-bit up counter for signal <Ychar>.
+    Summary:
+	inferred   3 Counter(s).
+	inferred 394 D-type flip-flop(s).
+	inferred  39 Adder/Subtractor(s).
+	inferred   2 Multiplier(s).
+	inferred   1 Comparator(s).
+	inferred  58 Multiplexer(s).
+Unit <processor> synthesized.
+
+INFO:Xst:1767 - HDL ADVISOR - Resource sharing has identified that some arithmetic operations in this design can share the same physical resources for reduced device utilization. For improved clock frequency you may try to disable resource sharing.
+
+=========================================================================
+HDL Synthesis Report
+
+Macro Statistics
+# Multipliers                                          : 3
+ 16x16-bit multiplier                                  : 1
+ 8x8-bit multiplier                                    : 2
+# Adders/Subtractors                                   : 51
+ 10-bit subtractor                                     : 2
+ 11-bit subtractor                                     : 4
+ 13-bit adder                                          : 1
+ 15-bit adder                                          : 1
+ 16-bit adder                                          : 8
+ 16-bit addsub                                         : 4
+ 16-bit subtractor                                     : 9
+ 3-bit adder                                           : 2
+ 32-bit adder                                          : 1
+ 4-bit adder                                           : 1
+ 6-bit subtractor                                      : 1
+ 7-bit subtractor                                      : 1
+ 8-bit adder                                           : 2
+ 8-bit subtractor                                      : 5
+ 9-bit adder                                           : 7
+ 9-bit subtractor                                      : 2
+# Counters                                             : 7
+ 11-bit up counter                                     : 2
+ 13-bit up counter                                     : 1
+ 16-bit up counter                                     : 1
+ 4-bit up counter                                      : 1
+ 5-bit up counter                                      : 1
+ 7-bit up counter                                      : 1
+# Registers                                            : 215
+ 1-bit register                                        : 178
+ 10-bit register                                       : 2
+ 13-bit register                                       : 1
+ 16-bit register                                       : 6
+ 19-bit register                                       : 2
+ 2-bit register                                        : 1
+ 28-bit register                                       : 3
+ 3-bit register                                        : 5
+ 32-bit register                                       : 1
+ 4-bit register                                        : 3
+ 6-bit register                                        : 2
+ 7-bit register                                        : 1
+ 8-bit register                                        : 9
+ 9-bit register                                        : 1
+# Comparators                                          : 13
+ 10-bit comparator greatequal                          : 2
+ 11-bit comparator greatequal                          : 2
+ 11-bit comparator less                                : 6
+ 3-bit comparator not equal                            : 1
+ 7-bit comparator equal                                : 1
+ 8-bit comparator equal                                : 1
+# Multiplexers                                         : 31
+ 1-bit 16-to-1 multiplexer                             : 26
+ 1-bit 4-to-1 multiplexer                              : 1
+ 1-bit 8-to-1 multiplexer                              : 1
+ 16-bit 8-to-1 multiplexer                             : 2
+ 8-bit 16-to-1 multiplexer                             : 1
+# Xors                                                 : 32
+ 1-bit xor2                                            : 32
+
+=========================================================================
+
+=========================================================================
+*                       Advanced HDL Synthesis                          *
+=========================================================================
+
+Reading core <ipcore_dir/MainMemory.ngc>.
+Reading core <ipcore_dir/ram.ngc>.
+Reading core <ipcore_dir/VGACHAR.ngc>.
+Loading core <MainMemory> for timing and area information for instance <mian_mem>.
+Loading core <ram> for timing and area information for instance <VGA_RAM>.
+Loading core <VGACHAR> for timing and area information for instance <VGA_CHAR>.
+WARNING:Xst:1293 - FF/Latch <EXstate_5> has a constant value of 0 in block <processor>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <EXstate_6> has a constant value of 0 in block <processor>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <EXstate_7> has a constant value of 0 in block <processor>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <EXstate_8> has a constant value of 0 in block <processor>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <EXstate_10> has a constant value of 0 in block <processor>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <EXstate_12> has a constant value of 0 in block <processor>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <EXstate_13> has a constant value of 0 in block <processor>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <EXstate_14> has a constant value of 0 in block <processor>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <EXstate_15> has a constant value of 0 in block <processor>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <EXstate_16> has a constant value of 0 in block <processor>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <EXstate_17> has a constant value of 0 in block <processor>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <EXstate_18> has a constant value of 0 in block <processor>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <EXstate_19> has a constant value of 0 in block <processor>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <EXstate_20> has a constant value of 0 in block <processor>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <EXstate_21> has a constant value of 0 in block <processor>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <EXstate_22> has a constant value of 0 in block <processor>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <EXstate_23> has a constant value of 0 in block <processor>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <EXstate_25> has a constant value of 0 in block <processor>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <EXstate_26> has a constant value of 0 in block <processor>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <Sub_State_3> has a constant value of 0 in block <processor>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <clkDivider_v_0> has a constant value of 0 in block <HDD>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <rtnState_v_3> has a constant value of 0 in block <HDD>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <rtnState_v_12> has a constant value of 0 in block <HDD>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <rtnState_v_13> has a constant value of 0 in block <HDD>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <rtnState_v_14> has a constant value of 0 in block <HDD>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <rtnState_v_15> has a constant value of 0 in block <HDD>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <rtnState_v_16> has a constant value of 0 in block <HDD>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <rtnState_v_17> has a constant value of 0 in block <HDD>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <rtnState_v_18> has a constant value of 0 in block <HDD>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <RTNstate_0> has a constant value of 0 in block <processor>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <RTNstate_1> has a constant value of 0 in block <processor>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <RTNstate_10> has a constant value of 0 in block <processor>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <RTNstate_12> has a constant value of 0 in block <processor>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <RTNstate_13> has a constant value of 0 in block <processor>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <RTNstate_17> has a constant value of 0 in block <processor>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <RTNstate_26> has a constant value of 0 in block <processor>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <EXstate_0> has a constant value of 0 in block <processor>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <EXstate_1> has a constant value of 0 in block <processor>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <EXstate_2> has a constant value of 0 in block <processor>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <EXstate_3> has a constant value of 0 in block <processor>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <EXstate_4> has a constant value of 0 in block <processor>. This FF/Latch will be trimmed during the optimization process.
+
+=========================================================================
+Advanced HDL Synthesis Report
+
+Macro Statistics
+# Multipliers                                          : 3
+ 16x16-bit multiplier                                  : 1
+ 8x8-bit multiplier                                    : 2
+# Adders/Subtractors                                   : 49
+ 10-bit subtractor                                     : 2
+ 11-bit subtractor                                     : 4
+ 13-bit adder                                          : 1
+ 15-bit adder                                          : 1
+ 16-bit adder                                          : 8
+ 16-bit addsub                                         : 4
+ 16-bit subtractor                                     : 7
+ 16-bit subtractor borrow in                           : 1
+ 3-bit adder                                           : 2
+ 32-bit adder                                          : 1
+ 4-bit adder                                           : 1
+ 6-bit subtractor                                      : 1
+ 7-bit subtractor                                      : 1
+ 8-bit adder                                           : 2
+ 8-bit subtractor                                      : 3
+ 8-bit subtractor borrow in                            : 1
+ 9-bit adder                                           : 7
+ 9-bit subtractor                                      : 2
+# Counters                                             : 7
+ 11-bit up counter                                     : 2
+ 13-bit up counter                                     : 1
+ 16-bit up counter                                     : 1
+ 4-bit up counter                                      : 1
+ 5-bit up counter                                      : 1
+ 7-bit up counter                                      : 1
+# Registers                                            : 590
+ Flip-Flops                                            : 590
+# Comparators                                          : 13
+ 10-bit comparator greatequal                          : 2
+ 11-bit comparator greatequal                          : 2
+ 11-bit comparator less                                : 6
+ 3-bit comparator not equal                            : 1
+ 7-bit comparator equal                                : 1
+ 8-bit comparator equal                                : 1
+# Multiplexers                                         : 31
+ 1-bit 16-to-1 multiplexer                             : 26
+ 1-bit 4-to-1 multiplexer                              : 1
+ 1-bit 8-to-1 multiplexer                              : 1
+ 16-bit 8-to-1 multiplexer                             : 2
+ 8-bit 16-to-1 multiplexer                             : 1
+# Xors                                                 : 32
+ 1-bit xor2                                            : 32
+
+=========================================================================
+
+=========================================================================
+*                         Low Level Synthesis                           *
+=========================================================================
+WARNING:Xst:1293 - FF/Latch <clkDivider_v_0> has a constant value of 0 in block <SdCardCtrl>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <rtnState_v_3> has a constant value of 0 in block <SdCardCtrl>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <rtnState_v_12> has a constant value of 0 in block <SdCardCtrl>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <rtnState_v_13> has a constant value of 0 in block <SdCardCtrl>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <rtnState_v_14> has a constant value of 0 in block <SdCardCtrl>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <rtnState_v_15> has a constant value of 0 in block <SdCardCtrl>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <rtnState_v_16> has a constant value of 0 in block <SdCardCtrl>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <rtnState_v_17> has a constant value of 0 in block <SdCardCtrl>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <rtnState_v_18> has a constant value of 0 in block <SdCardCtrl>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <Sub_State_3> has a constant value of 0 in block <processor>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <EXstate_26> has a constant value of 0 in block <processor>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <EXstate_25> has a constant value of 0 in block <processor>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <EXstate_23> has a constant value of 0 in block <processor>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <EXstate_22> has a constant value of 0 in block <processor>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <EXstate_21> has a constant value of 0 in block <processor>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <EXstate_20> has a constant value of 0 in block <processor>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <EXstate_19> has a constant value of 0 in block <processor>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <EXstate_18> has a constant value of 0 in block <processor>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <EXstate_17> has a constant value of 0 in block <processor>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <EXstate_16> has a constant value of 0 in block <processor>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <EXstate_15> has a constant value of 0 in block <processor>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <EXstate_14> has a constant value of 0 in block <processor>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <EXstate_13> has a constant value of 0 in block <processor>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <EXstate_12> has a constant value of 0 in block <processor>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <EXstate_10> has a constant value of 0 in block <processor>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <EXstate_8> has a constant value of 0 in block <processor>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <EXstate_7> has a constant value of 0 in block <processor>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <EXstate_6> has a constant value of 0 in block <processor>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <EXstate_5> has a constant value of 0 in block <processor>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <EXstate_4> has a constant value of 0 in block <processor>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <EXstate_3> has a constant value of 0 in block <processor>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <EXstate_2> has a constant value of 0 in block <processor>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <EXstate_1> has a constant value of 0 in block <processor>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <EXstate_0> has a constant value of 0 in block <processor>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <RTNstate_26> has a constant value of 0 in block <processor>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <RTNstate_17> has a constant value of 0 in block <processor>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <RTNstate_13> has a constant value of 0 in block <processor>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <RTNstate_12> has a constant value of 0 in block <processor>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <RTNstate_10> has a constant value of 0 in block <processor>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <RTNstate_1> has a constant value of 0 in block <processor>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <RTNstate_0> has a constant value of 0 in block <processor>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <addr_v_30> (without init value) has a constant value of 0 in block <SdCardCtrl>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <addr_v_29> (without init value) has a constant value of 0 in block <SdCardCtrl>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <addr_v_28> (without init value) has a constant value of 0 in block <SdCardCtrl>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <addr_v_27> (without init value) has a constant value of 0 in block <SdCardCtrl>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <addr_v_26> (without init value) has a constant value of 0 in block <SdCardCtrl>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <addr_v_25> (without init value) has a constant value of 0 in block <SdCardCtrl>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <addr_v_24> (without init value) has a constant value of 0 in block <SdCardCtrl>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <addr_v_23> (without init value) has a constant value of 0 in block <SdCardCtrl>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <addr_v_22> (without init value) has a constant value of 0 in block <SdCardCtrl>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <addr_v_21> (without init value) has a constant value of 0 in block <SdCardCtrl>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <addr_v_20> (without init value) has a constant value of 0 in block <SdCardCtrl>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <addr_v_19> (without init value) has a constant value of 0 in block <SdCardCtrl>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <addr_v_18> (without init value) has a constant value of 0 in block <SdCardCtrl>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <addr_v_17> (without init value) has a constant value of 0 in block <SdCardCtrl>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <addr_v_16> (without init value) has a constant value of 0 in block <SdCardCtrl>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <addr_v_15> (without init value) has a constant value of 0 in block <SdCardCtrl>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <addr_v_14> (without init value) has a constant value of 0 in block <SdCardCtrl>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <addr_v_13> (without init value) has a constant value of 0 in block <SdCardCtrl>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <addr_v_12> (without init value) has a constant value of 0 in block <SdCardCtrl>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <addr_v_11> (without init value) has a constant value of 0 in block <SdCardCtrl>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <addr_v_10> (without init value) has a constant value of 0 in block <SdCardCtrl>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <addr_v_9> (without init value) has a constant value of 0 in block <SdCardCtrl>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <addr_v_8> (without init value) has a constant value of 0 in block <SdCardCtrl>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <addr_v_7> (without init value) has a constant value of 0 in block <SdCardCtrl>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <addr_v_6> (without init value) has a constant value of 0 in block <SdCardCtrl>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <addr_v_5> (without init value) has a constant value of 0 in block <SdCardCtrl>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <addr_v_4> (without init value) has a constant value of 0 in block <SdCardCtrl>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <addr_v_3> (without init value) has a constant value of 0 in block <SdCardCtrl>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <addr_v_2> (without init value) has a constant value of 0 in block <SdCardCtrl>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <addr_v_1> (without init value) has a constant value of 0 in block <SdCardCtrl>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <addr_v_0> (without init value) has a constant value of 0 in block <SdCardCtrl>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:2677 - Node <addr_v_31> of sequential type is unconnected in block <SdCardCtrl>.
+WARNING:Xst:2677 - Node <BP_9> of sequential type is unconnected in block <processor>.
+WARNING:Xst:2677 - Node <BP_10> of sequential type is unconnected in block <processor>.
+WARNING:Xst:2677 - Node <BP_11> of sequential type is unconnected in block <processor>.
+WARNING:Xst:2677 - Node <BP_12> of sequential type is unconnected in block <processor>.
+WARNING:Xst:2677 - Node <BP_13> of sequential type is unconnected in block <processor>.
+WARNING:Xst:2677 - Node <BP_14> of sequential type is unconnected in block <processor>.
+WARNING:Xst:2677 - Node <BP_15> of sequential type is unconnected in block <processor>.
+WARNING:Xst:2677 - Node <DI_9> of sequential type is unconnected in block <processor>.
+WARNING:Xst:2677 - Node <DI_10> of sequential type is unconnected in block <processor>.
+WARNING:Xst:2677 - Node <DI_11> of sequential type is unconnected in block <processor>.
+WARNING:Xst:2677 - Node <DI_12> of sequential type is unconnected in block <processor>.
+WARNING:Xst:2677 - Node <DI_13> of sequential type is unconnected in block <processor>.
+WARNING:Xst:2677 - Node <DI_14> of sequential type is unconnected in block <processor>.
+WARNING:Xst:2677 - Node <DI_15> of sequential type is unconnected in block <processor>.
+WARNING:Xst:2677 - Node <IP_9> of sequential type is unconnected in block <processor>.
+WARNING:Xst:2677 - Node <IP_10> of sequential type is unconnected in block <processor>.
+WARNING:Xst:2677 - Node <IP_11> of sequential type is unconnected in block <processor>.
+WARNING:Xst:2677 - Node <IP_12> of sequential type is unconnected in block <processor>.
+WARNING:Xst:2677 - Node <IP_13> of sequential type is unconnected in block <processor>.
+WARNING:Xst:2677 - Node <IP_14> of sequential type is unconnected in block <processor>.
+WARNING:Xst:2677 - Node <IP_15> of sequential type is unconnected in block <processor>.
+WARNING:Xst:2677 - Node <SI_9> of sequential type is unconnected in block <processor>.
+WARNING:Xst:2677 - Node <SI_10> of sequential type is unconnected in block <processor>.
+WARNING:Xst:2677 - Node <SI_11> of sequential type is unconnected in block <processor>.
+WARNING:Xst:2677 - Node <SI_12> of sequential type is unconnected in block <processor>.
+WARNING:Xst:2677 - Node <SI_13> of sequential type is unconnected in block <processor>.
+WARNING:Xst:2677 - Node <SI_14> of sequential type is unconnected in block <processor>.
+WARNING:Xst:2677 - Node <SI_15> of sequential type is unconnected in block <processor>.
+WARNING:Xst:2677 - Node <SP_9> of sequential type is unconnected in block <processor>.
+WARNING:Xst:2677 - Node <SP_10> of sequential type is unconnected in block <processor>.
+WARNING:Xst:2677 - Node <SP_11> of sequential type is unconnected in block <processor>.
+WARNING:Xst:2677 - Node <SP_12> of sequential type is unconnected in block <processor>.
+WARNING:Xst:2677 - Node <SP_13> of sequential type is unconnected in block <processor>.
+WARNING:Xst:2677 - Node <SP_14> of sequential type is unconnected in block <processor>.
+WARNING:Xst:2677 - Node <SP_15> of sequential type is unconnected in block <processor>.
+WARNING:Xst:2677 - Node <addr_mem_rw_9> of sequential type is unconnected in block <processor>.
+WARNING:Xst:2677 - Node <addr_mem_rw_10> of sequential type is unconnected in block <processor>.
+WARNING:Xst:2677 - Node <addr_mem_rw_11> of sequential type is unconnected in block <processor>.
+WARNING:Xst:2677 - Node <addr_mem_rw_12> of sequential type is unconnected in block <processor>.
+WARNING:Xst:2677 - Node <addr_mem_rw_13> of sequential type is unconnected in block <processor>.
+WARNING:Xst:2677 - Node <addr_mem_rw_14> of sequential type is unconnected in block <processor>.
+WARNING:Xst:2677 - Node <addr_mem_rw_15> of sequential type is unconnected in block <processor>.
+INFO:Xst:1901 - Instance U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[9].ram.r/s3_noinit.ram/dpram.dp1x1.ram in unit U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[9].ram.r/s3_noinit.ram/dpram.dp1x1.ram of type RAMB16_S1_S1 has been replaced by RAMB16
+INFO:Xst:1901 - Instance U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[8].ram.r/s3_noinit.ram/dpram.dp1x1.ram in unit U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[8].ram.r/s3_noinit.ram/dpram.dp1x1.ram of type RAMB16_S1_S1 has been replaced by RAMB16
+INFO:Xst:1901 - Instance U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[7].ram.r/s3_noinit.ram/dpram.dp1x1.ram in unit U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[7].ram.r/s3_noinit.ram/dpram.dp1x1.ram of type RAMB16_S1_S1 has been replaced by RAMB16
+INFO:Xst:1901 - Instance U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[6].ram.r/s3_noinit.ram/dpram.dp4x4.ram in unit U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[6].ram.r/s3_noinit.ram/dpram.dp4x4.ram of type RAMB16_S4_S4 has been replaced by RAMB16
+INFO:Xst:1901 - Instance U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[5].ram.r/s3_noinit.ram/dpram.dp1x1.ram in unit U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[5].ram.r/s3_noinit.ram/dpram.dp1x1.ram of type RAMB16_S1_S1 has been replaced by RAMB16
+INFO:Xst:1901 - Instance U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[4].ram.r/s3_noinit.ram/dpram.dp1x1.ram in unit U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[4].ram.r/s3_noinit.ram/dpram.dp1x1.ram of type RAMB16_S1_S1 has been replaced by RAMB16
+INFO:Xst:1901 - Instance U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[3].ram.r/s3_noinit.ram/dpram.dp1x1.ram in unit U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[3].ram.r/s3_noinit.ram/dpram.dp1x1.ram of type RAMB16_S1_S1 has been replaced by RAMB16
+INFO:Xst:1901 - Instance U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[2].ram.r/s3_noinit.ram/dpram.dp1x1.ram in unit U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[2].ram.r/s3_noinit.ram/dpram.dp1x1.ram of type RAMB16_S1_S1 has been replaced by RAMB16
+INFO:Xst:1901 - Instance U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[1].ram.r/s3_noinit.ram/dpram.dp4x4.ram in unit U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[1].ram.r/s3_noinit.ram/dpram.dp4x4.ram of type RAMB16_S4_S4 has been replaced by RAMB16
+INFO:Xst:1901 - Instance U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[0].ram.r/s3_noinit.ram/dpram.dp1x1.ram in unit U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[0].ram.r/s3_noinit.ram/dpram.dp1x1.ram of type RAMB16_S1_S1 has been replaced by RAMB16
+INFO:Xst:1901 - Instance U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[0].ram.r/s3_init.ram/spram.ram in unit U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[0].ram.r/s3_init.ram/spram.ram of type RAMB16_S36_S36 has been replaced by RAMB16
+INFO:Xst:1901 - Instance U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[0].ram.r/s3_noinit.ram/dpram.dp36x36.ram in unit U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[0].ram.r/s3_noinit.ram/dpram.dp36x36.ram of type RAMB16_S36_S36 has been replaced by RAMB16
+
+Optimizing unit <processor> ...
+WARNING:Xst:1710 - FF/Latch <reg_h_16> (without init value) has a constant value of 0 in block <processor>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <reg_h_16> (without init value) has a constant value of 0 in block <processor>. This FF/Latch will be trimmed during the optimization process.
+
+Optimizing unit <SdCardCtrl> ...
+WARNING:Xst:1710 - FF/Latch <tx_v_0> (without init value) has a constant value of 1 in block <SdCardCtrl>. This FF/Latch will be trimmed during the optimization process.
+
+Optimizing unit <UART_TX> ...
+
+Optimizing unit <MYVGA> ...
+WARNING:Xst:2677 - Node <HDD/busy_o> of sequential type is unconnected in block <processor>.
+WARNING:Xst:2677 - Node <HDD/LEDr_3> of sequential type is unconnected in block <processor>.
+WARNING:Xst:2677 - Node <HDD/LEDr_2> of sequential type is unconnected in block <processor>.
+WARNING:Xst:2677 - Node <HDD/LEDr_1> of sequential type is unconnected in block <processor>.
+WARNING:Xst:2677 - Node <HDD/LEDr_0> of sequential type is unconnected in block <processor>.
+WARNING:Xst:2677 - Node <HDD/error_o_15> of sequential type is unconnected in block <processor>.
+WARNING:Xst:2677 - Node <HDD/error_o_14> of sequential type is unconnected in block <processor>.
+WARNING:Xst:2677 - Node <HDD/error_o_13> of sequential type is unconnected in block <processor>.
+WARNING:Xst:2677 - Node <HDD/error_o_12> of sequential type is unconnected in block <processor>.
+WARNING:Xst:2677 - Node <HDD/error_o_11> of sequential type is unconnected in block <processor>.
+WARNING:Xst:2677 - Node <HDD/error_o_10> of sequential type is unconnected in block <processor>.
+WARNING:Xst:2677 - Node <HDD/error_o_9> of sequential type is unconnected in block <processor>.
+WARNING:Xst:2677 - Node <HDD/error_o_8> of sequential type is unconnected in block <processor>.
+WARNING:Xst:2677 - Node <HDD/error_o_7> of sequential type is unconnected in block <processor>.
+WARNING:Xst:2677 - Node <HDD/error_o_6> of sequential type is unconnected in block <processor>.
+WARNING:Xst:2677 - Node <HDD/error_o_5> of sequential type is unconnected in block <processor>.
+WARNING:Xst:2677 - Node <HDD/error_o_4> of sequential type is unconnected in block <processor>.
+WARNING:Xst:2677 - Node <HDD/error_o_3> of sequential type is unconnected in block <processor>.
+WARNING:Xst:2677 - Node <HDD/error_o_1> of sequential type is unconnected in block <processor>.
+WARNING:Xst:2677 - Node <HDD/error_o_2> of sequential type is unconnected in block <processor>.
+WARNING:Xst:2677 - Node <HDD/error_o_0> of sequential type is unconnected in block <processor>.
+
+Mapping all equations...
+Building and optimizing final netlist ...
+Found area constraint ratio of 100 (+ 5) on block processor, actual ratio is 47.
+FlipFlop m_reg_0 has been replicated 2 time(s)
+FlipFlop m_reg_1 has been replicated 2 time(s)
+FlipFlop rm_t_0 has been replicated 1 time(s)
+FlipFlop rm_t_1 has been replicated 1 time(s)
+FlipFlop rm_t_2 has been replicated 1 time(s)
+
+Final Macro Processing ...
+
+=========================================================================
+Final Register Report
+
+Macro Statistics
+# Registers                                            : 526
+ Flip-Flops                                            : 526
+
+=========================================================================
+
+=========================================================================
+*                           Partition Report                            *
+=========================================================================
+
+Partition Implementation Status
+-------------------------------
+
+  No Partitions were found in this design.
+
+-------------------------------
+
+=========================================================================
+*                            Final Report                               *
+=========================================================================
+Final Results
+RTL Top Level Output File Name     : processor.ngr
+Top Level Output File Name         : processor
+Output Format                      : NGC
+Optimization Goal                  : Speed
+Keep Hierarchy                     : No
+
+Design Statistics
+# IOs                              : 16
+
+Cell Usage :
+# BELS                             : 4181
+#      GND                         : 16
+#      INV                         : 64
+#      LUT1                        : 102
+#      LUT2                        : 263
+#      LUT2_D                      : 36
+#      LUT2_L                      : 34
+#      LUT3                        : 623
+#      LUT3_D                      : 51
+#      LUT3_L                      : 48
+#      LUT4                        : 1561
+#      LUT4_D                      : 136
+#      LUT4_L                      : 200
+#      MUXCY                       : 384
+#      MUXF5                       : 212
+#      MUXF6                       : 30
+#      MUXF7                       : 1
+#      VCC                         : 4
+#      XORCY                       : 416
+# FlipFlops/Latches                : 529
+#      FD                          : 40
+#      FDE                         : 416
+#      FDR                         : 12
+#      FDRE                        : 56
+#      FDS                         : 4
+#      FDSE                        : 1
+# RAMS                             : 12
+#      RAMB16                      : 12
+# Clock Buffers                    : 3
+#      BUFG                        : 2
+#      BUFGP                       : 1
+# IO Buffers                       : 15
+#      IBUF                        : 2
+#      OBUF                        : 13
+# MULTs                            : 1
+#      MULT18X18                   : 1
+=========================================================================
+
+Device utilization summary:
+---------------------------
+
+Selected Device : 3s400pq208-4 
+
+ Number of Slices:                     1629  out of   3584    45%  
+ Number of Slice Flip Flops:            529  out of   7168     7%  
+ Number of 4 input LUTs:               3118  out of   7168    43%  
+ Number of IOs:                          16
+ Number of bonded IOBs:                  16  out of    141    11%  
+ Number of BRAMs:                        12  out of     16    75%  
+ Number of MULT18X18s:                    1  out of     16     6%  
+ Number of GCLKs:                         3  out of      8    37%  
+
+---------------------------
+Partition Resource Summary:
+---------------------------
+
+  No Partitions were found in this design.
+
+---------------------------
+
+
+=========================================================================
+TIMING REPORT
+
+NOTE: THESE TIMING NUMBERS ARE ONLY A SYNTHESIS ESTIMATE.
+      FOR ACCURATE TIMING INFORMATION PLEASE REFER TO THE TRACE REPORT
+      GENERATED AFTER PLACE-and-ROUTE.
+
+Clock Information:
+------------------
+-----------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-------+
+Clock Signal                       | Clock buffer(FF name)                                                                                                                                                                                                                               | Load  |
+-----------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-------+
+clk_i                              | BUFGP                                                                                                                                                                                                                                               | 182   |
+mian_mem/N1                        | NONE(mian_mem/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[0].ram.r/s3_noinit.ram/dpram.dp36x36.ram/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[0].ram.r/s3_noinit.ram/dpram.dp36x36.ram)| 1     |
+CLKPorcessor1                      | BUFG                                                                                                                                                                                                                                                | 337   |
+VGA/Clk_25MHz1                     | BUFG                                                                                                                                                                                                                                                | 22    |
+VGA/VGA_RAM/N1                     | NONE(VGA/VGA_RAM/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[9].ram.r/s3_noinit.ram/dpram.dp1x1.ram/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[9].ram.r/s3_noinit.ram/dpram.dp1x1.ram) | 10    |
+-----------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-------+
+INFO:Xst:2169 - HDL ADVISOR - Some clock signals were not automatically buffered by XST with BUFG/BUFR resources. Please use the buffer_type constraint in order to insert these buffers to the clock signals to help prevent skew problems.
+
+Asynchronous Control Signals Information:
+----------------------------------------
+No asynchronous control signals found in this design
+
+Timing Summary:
+---------------
+Speed Grade: -4
+
+   Minimum period: 20.111ns (Maximum Frequency: 49.723MHz)
+   Minimum input arrival time before clock: 10.781ns
+   Maximum output required time after clock: 18.170ns
+   Maximum combinational path delay: No path found
+
+Timing Detail:
+--------------
+All values displayed in nanoseconds (ns)
+
+=========================================================================
+Timing constraint: Default period analysis for Clock 'clk_i'
+  Clock period: 12.567ns (frequency: 79.573MHz)
+  Total number of paths / destination ports: 8457 / 329
+-------------------------------------------------------------------------
+Delay:               12.567ns (Levels of Logic = 7)
+  Source:            HDD/byteCnt_v_5 (FF)
+  Destination:       HDD/state_v_15 (FF)
+  Source Clock:      clk_i rising
+  Destination Clock: clk_i rising
+
+  Data Path: HDD/byteCnt_v_5 to HDD/state_v_15
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     FDE:C->Q              7   0.720   1.405  HDD/byteCnt_v_5 (HDD/byteCnt_v_5)
+     LUT3:I0->O            1   0.551   0.827  HDD/byteCnt_v_mux0000<0>1_SW0 (N2201)
+     LUT4_D:I3->O          6   0.551   1.342  HDD/byteCnt_v_mux0000<0>1 (HDD/N30)
+     LUT3:I0->O            7   0.551   1.405  HDD/error_o_8_cmp_eq000211 (HDD/rtnState_v_and0000)
+     LUT4:I0->O            4   0.551   0.985  HDD/bitCnt_v_mux0008<5>1 (HDD/bitCnt_v_mux0008<5>)
+     LUT4:I2->O            1   0.551   0.996  HDD/state_v_mux0018<3>40 (HDD/state_v_mux0018<3>40)
+     LUT4:I1->O            1   0.551   0.827  HDD/state_v_mux0018<3>49_SW0 (N843)
+     LUT4:I3->O            1   0.551   0.000  HDD/state_v_mux0018<3>49 (HDD/state_v_mux0018<3>)
+     FDRE:D                    0.203          HDD/state_v_15
+    ----------------------------------------
+    Total                     12.567ns (4.780ns logic, 7.787ns route)
+                                       (38.0% logic, 62.0% route)
+
+=========================================================================
+Timing constraint: Default period analysis for Clock 'CLKPorcessor1'
+  Clock period: 20.111ns (frequency: 49.723MHz)
+  Total number of paths / destination ports: 1021609 / 414
+-------------------------------------------------------------------------
+Delay:               20.111ns (Levels of Logic = 15)
+  Source:            rm_t_2_1 (FF)
+  Destination:       byte1_0 (FF)
+  Source Clock:      CLKPorcessor1 rising
+  Destination Clock: CLKPorcessor1 rising
+
+  Data Path: rm_t_2_1 to byte1_0
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     FDE:C->Q              1   0.720   1.140  rm_t_2_1 (rm_t_2_1)
+     LUT3_D:I0->O          4   0.551   0.943  byte0_cmp_eq00041 (byte0_cmp_eq0004)
+     LUT4_D:I3->O         60   0.551   2.208  byte0_mux0000<0>41 (N1561)
+     LUT2_D:I1->LO         1   0.551   0.126  Madd_reg_h_15_add0003_lut<5>_SW0 (N1390)
+     LUT4:I3->O           16   0.551   1.237  reg_h_5_mux0000 (Madd_reg_h_8_0_add0001_lut<5>)
+     MUXCY:DI->O           1   0.889   0.000  Madd_reg_h_15_add0003_cy<5> (Madd_reg_h_15_add0003_cy<5>)
+     MUXCY:CI->O           1   0.064   0.000  Madd_reg_h_15_add0003_cy<6> (Madd_reg_h_15_add0003_cy<6>)
+     XORCY:CI->O           2   0.904   1.216  Madd_reg_h_15_add0003_xor<7> (reg_h_15_add0003<7>)
+     LUT1:I0->O            1   0.551   0.000  Madd_reg_h_15_add0002_cy<7>_rt (Madd_reg_h_15_add0002_cy<7>_rt)
+     MUXCY:S->O            1   0.500   0.000  Madd_reg_h_15_add0002_cy<7> (Madd_reg_h_15_add0002_cy<7>)
+     XORCY:CI->O           1   0.904   0.827  Madd_reg_h_15_add0002_xor<8> (reg_h_15_add0002<8>)
+     LUT4:I3->O            3   0.551   0.975  reg_h_8_mux000286 (reg_h_8_mux000286)
+     LUT3:I2->O            8   0.551   1.109  reg_h_8_mux000292 (reg_h_8_mux0002)
+     LUT4:I3->O            1   0.551   0.000  byte1_mux0004<0>103_F (N741)
+     MUXF5:I0->O           1   0.360   0.827  byte1_mux0004<0>103 (byte1_mux0004<0>103)
+     LUT4:I3->O            1   0.551   0.000  byte1_mux0004<0>104 (byte1_mux0004<0>)
+     FDE:D                     0.203          byte1_0
+    ----------------------------------------
+    Total                     20.111ns (9.503ns logic, 10.608ns route)
+                                       (47.3% logic, 52.7% route)
+
+=========================================================================
+Timing constraint: Default period analysis for Clock 'VGA/Clk_25MHz1'
+  Clock period: 8.155ns (frequency: 122.624MHz)
+  Total number of paths / destination ports: 594 / 55
+-------------------------------------------------------------------------
+Delay:               8.155ns (Levels of Logic = 6)
+  Source:            VGA/CurrentHPos_4 (FF)
+  Destination:       VGA/CurrentVPos_10 (FF)
+  Source Clock:      VGA/Clk_25MHz1 rising
+  Destination Clock: VGA/Clk_25MHz1 rising
+
+  Data Path: VGA/CurrentHPos_4 to VGA/CurrentVPos_10
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     FDR:C->Q             11   0.720   1.483  VGA/CurrentHPos_4 (VGA/CurrentHPos_4)
+     LUT1:I0->O            1   0.551   0.000  VGA/Mcompar_HS_cmp_lt0000_cy<1>_rt (VGA/Mcompar_HS_cmp_lt0000_cy<1>_rt)
+     MUXCY:S->O            1   0.500   0.000  VGA/Mcompar_HS_cmp_lt0000_cy<1> (VGA/Mcompar_HS_cmp_lt0000_cy<1>)
+     MUXCY:CI->O           1   0.064   0.000  VGA/Mcompar_HS_cmp_lt0000_cy<2> (VGA/Mcompar_HS_cmp_lt0000_cy<2>)
+     MUXCY:CI->O           1   0.064   0.000  VGA/Mcompar_HS_cmp_lt0000_cy<3> (VGA/Mcompar_HS_cmp_lt0000_cy<3>)
+     MUXCY:CI->O          23   0.281   1.701  VGA/Mcompar_HS_cmp_lt0000_cy<4> (VGA/Mcompar_HS_cmp_lt0000_cy<4>)
+     MUXF5:S->O           11   0.621   1.144  VGA/CurrentVPos_and000031_f5 (VGA/CurrentVPos_and0000)
+     FDRE:R                    1.026          VGA/CurrentVPos_0
+    ----------------------------------------
+    Total                      8.155ns (3.827ns logic, 4.328ns route)
+                                       (46.9% logic, 53.1% route)
+
+=========================================================================
+Timing constraint: Default OFFSET IN BEFORE for Clock 'CLKPorcessor1'
+  Total number of paths / destination ports: 366 / 347
+-------------------------------------------------------------------------
+Offset:              10.781ns (Levels of Logic = 4)
+  Source:            reset_i (PAD)
+  Destination:       Xchar_0 (FF)
+  Destination Clock: CLKPorcessor1 rising
+
+  Data Path: reset_i to Xchar_0
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     IBUF:I->O           278   0.821   3.601  reset_i_IBUF (NOTreset_i_inv)
+     LUT2:I0->O            8   0.551   1.422  State_mux0001<8>111 (Xchar_not0001)
+     LUT4:I0->O            1   0.551   1.140  Xchar_and000010 (Xchar_and000010)
+     LUT2:I0->O           12   0.551   1.118  Xchar_and000023 (Xchar_and0000)
+     FDRE:R                    1.026          Xchar_0
+    ----------------------------------------
+    Total                     10.781ns (3.500ns logic, 7.281ns route)
+                                       (32.5% logic, 67.5% route)
+
+=========================================================================
+Timing constraint: Default OFFSET IN BEFORE for Clock 'clk_i'
+  Total number of paths / destination ports: 306 / 175
+-------------------------------------------------------------------------
+Offset:              9.667ns (Levels of Logic = 4)
+  Source:            reset_i (PAD)
+  Destination:       HDD/data_o_7 (FF)
+  Destination Clock: clk_i rising
+
+  Data Path: reset_i to HDD/data_o_7
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     IBUF:I->O           278   0.821   3.457  reset_i_IBUF (NOTreset_i_inv)
+     LUT3:I1->O            1   0.551   0.000  HDD/data_o_not000121 (HDD/data_o_not00012)
+     MUXF5:I1->O          88   0.360   2.242  HDD/data_o_not00012_f5 (HDD/addr_v_not0001)
+     LUT4:I2->O            8   0.551   1.083  HDD/data_o_not00011 (HDD/data_o_not0001)
+     FDE:CE                    0.602          HDD/data_o_0
+    ----------------------------------------
+    Total                      9.667ns (2.885ns logic, 6.782ns route)
+                                       (29.8% logic, 70.2% route)
+
+=========================================================================
+Timing constraint: Default OFFSET OUT AFTER for Clock 'VGA/Clk_25MHz1'
+  Total number of paths / destination ports: 263 / 3
+-------------------------------------------------------------------------
+Offset:              18.170ns (Levels of Logic = 9)
+  Source:            VGA/CurrentVPos_4 (FF)
+  Destination:       GREEN (PAD)
+  Source Clock:      VGA/Clk_25MHz1 rising
+
+  Data Path: VGA/CurrentVPos_4 to GREEN
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     FDRE:C->Q             9   0.720   1.463  VGA/CurrentVPos_4 (VGA/CurrentVPos_4)
+     LUT4:I0->O            1   0.551   0.000  VGA/Blank_or0000118_SW0_G (N1194)
+     MUXF5:I1->O           2   0.360   1.072  VGA/Blank_or0000118_SW0 (N853)
+     LUT4:I1->O           11   0.551   1.212  VGA/Blank_or0000118 (VGA/Blank_or0000118)
+     LUT3:I2->O           51   0.551   2.301  VGA/Blank_or0000130 (VGA/Blank)
+     LUT4:I0->O            1   0.551   0.000  VGA/Mmux_VGA_DATA_OUT_RAM_mux0000_4 (VGA/Mmux_VGA_DATA_OUT_RAM_mux0000_4)
+     MUXF5:I1->O           1   0.360   0.000  VGA/Mmux_VGA_DATA_OUT_RAM_mux0000_3_f5 (VGA/Mmux_VGA_DATA_OUT_RAM_mux0000_3_f5)
+     MUXF6:I1->O           1   0.342   1.140  VGA/Mmux_VGA_DATA_OUT_RAM_mux0000_2_f6 (VGA/ColorOutput<1>)
+     LUT4:I0->O            1   0.551   0.801  VGA/GREEN1 (GREEN_OBUF)
+     OBUF:I->O                 5.644          GREEN_OBUF (GREEN)
+    ----------------------------------------
+    Total                     18.170ns (10.181ns logic, 7.989ns route)
+                                       (56.0% logic, 44.0% route)
+
+=========================================================================
+Timing constraint: Default OFFSET OUT AFTER for Clock 'clk_i'
+  Total number of paths / destination ports: 46 / 5
+-------------------------------------------------------------------------
+Offset:              14.694ns (Levels of Logic = 8)
+  Source:            VGA/VGA_RAM/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/has_mux_a.A/sel_pipe_2 (FF)
+  Destination:       GREEN (PAD)
+  Source Clock:      clk_i rising
+
+  Data Path: VGA/VGA_RAM/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/has_mux_a.A/sel_pipe_2 to GREEN
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     FDE:C->Q              9   0.720   1.192  U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/has_mux_a.A/sel_pipe_2 (U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/has_mux_a.A/sel_pipe<2>)
+     LUT3:I2->O            8   0.551   1.422  U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/has_mux_a.A/Mmux_dout_mux111 (U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/has_mux_a.A/Mmux_dout_mux11)
+     LUT4:I0->O            1   0.551   0.869  U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/has_mux_a.A/Mmux_dout_mux21 (douta<1>)
+     end scope: 'VGA/VGA_RAM'
+     LUT4:I2->O            1   0.551   0.000  VGA/Mmux_VGA_DATA_OUT_RAM_mux0000_6 (VGA/Mmux_VGA_DATA_OUT_RAM_mux0000_6)
+     MUXF5:I0->O           1   0.360   0.000  VGA/Mmux_VGA_DATA_OUT_RAM_mux0000_4_f5 (VGA/Mmux_VGA_DATA_OUT_RAM_mux0000_4_f5)
+     MUXF6:I0->O           1   0.342   1.140  VGA/Mmux_VGA_DATA_OUT_RAM_mux0000_2_f6 (VGA/ColorOutput<1>)
+     LUT4:I0->O            1   0.551   0.801  VGA/GREEN1 (GREEN_OBUF)
+     OBUF:I->O                 5.644          GREEN_OBUF (GREEN)
+    ----------------------------------------
+    Total                     14.694ns (9.270ns logic, 5.424ns route)
+                                       (63.1% logic, 36.9% route)
+
+=========================================================================
+Timing constraint: Default OFFSET OUT AFTER for Clock 'CLKPorcessor1'
+  Total number of paths / destination ports: 12 / 5
+-------------------------------------------------------------------------
+Offset:              9.918ns (Levels of Logic = 5)
+  Source:            tx_char_0 (FF)
+  Destination:       TX (PAD)
+  Source Clock:      CLKPorcessor1 rising
+
+  Data Path: tx_char_0 to TX
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     FDE:C->Q              1   0.720   1.140  tx_char_0 (tx_char_0)
+     LUT2:I0->O            1   0.551   0.000  UART/Mmux_Tx_9 (UART/Mmux_Tx_9)
+     MUXF5:I0->O           1   0.360   0.000  UART/Mmux_Tx_7_f5 (UART/Mmux_Tx_7_f5)
+     MUXF6:I0->O           1   0.342   0.000  UART/Mmux_Tx_5_f6 (UART/Mmux_Tx_5_f6)
+     MUXF5:I0->O           1   0.360   0.801  UART/Number<3>_f5 (TX_OBUF)
+     OBUF:I->O                 5.644          TX_OBUF (TX)
+    ----------------------------------------
+    Total                      9.918ns (7.977ns logic, 1.941ns route)
+                                       (80.4% logic, 19.6% route)
+
+=========================================================================
+
+
+Total REAL time to Xst completion: 63.00 secs
+Total CPU time to Xst completion: 62.36 secs
+ 
+--> 
+
+Total memory usage is 395504 kilobytes
+
+Number of errors   :    0 (   0 filtered)
+Number of warnings :  261 (   0 filtered)
+Number of infos    :   15 (   0 filtered)
+

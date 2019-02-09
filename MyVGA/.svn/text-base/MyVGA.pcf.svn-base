@@ -1,0 +1,20 @@
+//! **************************************************************************
+// Written by: Map M.63c on Thu Dec 02 15:43:18 2010
+//! **************************************************************************
+
+SCHEMATIC START;
+COMP "VS" LOCATE = SITE "K13" LEVEL 1;
+COMP "RED<0>" LOCATE = SITE "C14" LEVEL 1;
+COMP "RED<1>" LOCATE = SITE "D13" LEVEL 1;
+COMP "RED<2>" LOCATE = SITE "F13" LEVEL 1;
+COMP "CLK_50MHz" LOCATE = SITE "M6" LEVEL 1;
+COMP "HS" LOCATE = SITE "J14" LEVEL 1;
+COMP "BLUE<1>" LOCATE = SITE "H13" LEVEL 1;
+COMP "BLUE<2>" LOCATE = SITE "J13" LEVEL 1;
+COMP "GREEN<0>" LOCATE = SITE "F14" LEVEL 1;
+COMP "GREEN<1>" LOCATE = SITE "G13" LEVEL 1;
+COMP "GREEN<2>" LOCATE = SITE "G14" LEVEL 1;
+NET "CLK_50MHz_BUFGP/IBUFG" BEL "CLK_50MHz_BUFGP/BUFG.GCLKMUX"
+        USELOCALCONNECT;
+SCHEMATIC END;
+

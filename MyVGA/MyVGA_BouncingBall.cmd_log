@@ -1,0 +1,12 @@
+xst -intstyle ise -ifn "D:/FPGA Example/MyVGA/MyVGA_BouncingBall.xst" -ofn "D:/FPGA Example/MyVGA/MyVGA_BouncingBall.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc pins.ucf -p xc3s400-pq208-4 "MyVGA_BouncingBall.ngc" MyVGA_BouncingBall.ngd  
+map -intstyle ise -p xc3s400-pq208-4 -cm area -ir off -pr off -c 100 -o MyVGA_BouncingBall_map.ncd MyVGA_BouncingBall.ngd MyVGA_BouncingBall.pcf 
+par -w -intstyle ise -ol high -t 1 MyVGA_BouncingBall_map.ncd MyVGA_BouncingBall.ncd MyVGA_BouncingBall.pcf 
+trce -intstyle ise -v 3 -s 4 -n 3 -fastpaths -xml MyVGA_BouncingBall.twx MyVGA_BouncingBall.ncd -o MyVGA_BouncingBall.twr MyVGA_BouncingBall.pcf -ucf pins.ucf 
+bitgen -intstyle ise -f MyVGA_BouncingBall.ut MyVGA_BouncingBall.ncd 
+xst -intstyle ise -ifn "D:/FPGA Example/MyVGA/MyVGA_BouncingBall.xst" -ofn "D:/FPGA Example/MyVGA/MyVGA_BouncingBall.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc pins.ucf -p xc3s400-pq208-4 "MyVGA_BouncingBall.ngc" MyVGA_BouncingBall.ngd  
+map -intstyle ise -p xc3s400-pq208-4 -cm area -ir off -pr off -c 100 -o MyVGA_BouncingBall_map.ncd MyVGA_BouncingBall.ngd MyVGA_BouncingBall.pcf 
+par -w -intstyle ise -ol high -t 1 MyVGA_BouncingBall_map.ncd MyVGA_BouncingBall.ncd MyVGA_BouncingBall.pcf 
+trce -intstyle ise -v 3 -s 4 -n 3 -fastpaths -xml MyVGA_BouncingBall.twx MyVGA_BouncingBall.ncd -o MyVGA_BouncingBall.twr MyVGA_BouncingBall.pcf -ucf pins.ucf 
+bitgen -intstyle ise -f MyVGA_BouncingBall.ut MyVGA_BouncingBall.ncd 

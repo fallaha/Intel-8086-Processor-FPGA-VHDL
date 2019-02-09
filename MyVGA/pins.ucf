@@ -1,0 +1,17 @@
+#NET "CLK_50MHz" LOC = "B8";
+NET "CLK_50MHz" LOC = p80; # External socketed Oscillator
+#NET "RST" LOC = "A7";
+
+
+# Pin assignment for VGA
+NET "HS"   LOC = p203  | DRIVE = 2  | PULLUP ; # Bank = 1, Signal name = HSYNC
+NET "VS"   LOC = p199  | DRIVE = 2  | PULLUP ; # Bank = 1, Signal name = VSYNC
+
+//NET "RED<2>"  LOC = "F13"  | DRIVE = 2  | PULLUP ; # Bank = 1, Signal name = RED2
+//NET "RED<1>"  LOC = "D13"  | DRIVE = 2  | PULLUP ; # Bank = 1, Signal name = RED1
+NET "RED"  LOC = p197  | DRIVE = 2  | PULLUP ; # Bank = 1, Signal name = RED0
+//NET "GREEN<2>"  LOC = "G14"  | DRIVE = 2  | PULLUP ; # Bank = 1, Signal name = GRN2
+//NET "GREEN"  LOC = "G13"  | DRIVE = 2  | PULLUP ; # Bank = 1, Signal name = GRN1 
+NET "GREEN"  LOC = p194  | DRIVE = 2  | PULLUP ; # Bank = 1, Signal name = GRN0 
+//NET "BLUE<2>"  LOC = "J13"  | DRIVE = 2  | PULLUP ; # Bank = 1, Signal name = BLU2
+NET "BLUE"  LOC = p190  | DRIVE = 2  | PULLUP ; # Bank = 1, Signal name = BLU1 

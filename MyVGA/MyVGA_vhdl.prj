@@ -1,0 +1,3 @@
+vhdl work "D:\FPGA Example\MyVGA\ipcore_dir\ram.vhd"
+vhdl work "D:\FPGA Example\MyVGA\ipcore_dir\VGACHAR.vhd"
+vhdl work "D:\FPGA Example\MyVGA\OwnVGA.vhd"

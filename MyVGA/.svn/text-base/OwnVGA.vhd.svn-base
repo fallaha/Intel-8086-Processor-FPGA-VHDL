@@ -1,0 +1,132 @@
+----------------------------------------------------------------------------------
+-- Company: 
+-- Engineer: 
+-- 
+-- Create Date:    18:39:44 09/13/2010 
+-- Design Name: 
+-- Module Name:    OwnVGA - Behavioral 
+-- Project Name: 
+-- Target Devices: 
+-- Tool versions: 
+-- Description: 
+--
+-- Dependencies: 
+--
+-- Revision: 
+-- Revision 0.01 - File Created
+-- Additional Comments: 
+--
+----------------------------------------------------------------------------------
+library IEEE;
+use IEEE.STD_LOGIC_1164.ALL;
+
+use IEEE.STD_LOGIC_ARITH.ALL;
+use IEEE.STD_LOGIC_UNSIGNED.ALL;
+
+-- Uncomment the following library declaration if using
+-- arithmetic functions with Signed or Unsigned values
+--use IEEE.NUMERIC_STD.ALL;
+
+-- Uncomment the following library declaration if instantiating
+-- any Xilinx primitives in this code.
+--library UNISIM;
+--use UNISIM.VComponents.all;
+
+entity MyVGA is
+  port ( CLK_50MHz: in std_logic;
+         VS: out std_logic;
+			HS: out std_logic;
+			RED: out std_logic_vector(2 downto 0);
+			GREEN: out std_logic_vector(2 downto 0);
+			BLUE: out std_logic_vector(2 downto 1)
+  );
+end MyVGA;
+
+architecture Behavioral of MyVGA is
+  -- VGA Definitions starts
+  constant HDisplayArea: integer:= 640; -- horizontal display area
+  constant HLimit: integer:= 800; -- maximum horizontal amount (limit)
+  constant HFrontPorch: integer:= 16; -- h. front porch
+  constant HBackPorch: integer:= 48;	-- h. back porch
+  constant HSyncWidth: integer:= 96;	-- h. pulse width
+  constant VDisplayArea: integer:= 480; -- vertical display area
+  constant VLimit: integer:= 525; -- maximum vertical amount (limit)
+  constant VFrontPorch: integer:= 10;	-- v. front porch
+  constant VBackPorch: integer:= 33;	-- v. back porch
+  constant VSyncWidth: integer:= 2;	-- v. pulse width      
+  
+  signal Clk_25MHz: std_logic := '0';  
+  signal HBlank, VBlank, Blank: std_logic := '0';
+    
+  signal CurrentHPos: std_logic_vector(10 downto 0) := (others => '0'); -- goes to 1100100000 = 800
+  signal CurrentVPos: std_logic_vector(10 downto 0) := (others => '0'); -- goes to 1000001101 = 525
+  signal ScanlineX, ScanlineY: std_logic_vector(10 downto 0);
+  
+  signal ColorOutput: std_logic_vector(7 downto 0);
+  -- VGA Definitions end
+  
+begin
+
+  Generate25MHz: process (CLK_50MHz)
+  begin
+    if rising_edge(CLK_50MHz) then
+	   Clk_25MHz <= not Clk_25MHz;
+	 end if;
+  end process Generate25MHz;
+    		
+
+  VGAPosition: process (Clk_25MHz)
+  begin
+    if rising_edge(Clk_25MHz) then
+	   if CurrentHPos < HLimit-1 then
+		  CurrentHPos <= CurrentHPos + 1;
+		else
+		  if CurrentVPos < VLimit-1 then
+		    CurrentVPos <= CurrentVPos + 1;
+		  else
+		    CurrentVPos <= (others => '0'); -- reset Vertical Position
+		  end if;
+		  CurrentHPos <= (others => '0'); -- reset Horizontal Position
+		end if;
+	 end if;
+  end process VGAPosition;
+
+  -- Timing definition for HSync, VSync and Blank (http://tinyvga.com/vga-timing/640x480@60Hz)
+     HS <= '0' when CurrentHPos < HSyncWidth else
+	        '1';
+	  
+	  VS <= '0' when CurrentVPos < VSyncWidth else
+	        '1';
+	  
+	  HBlank <= '0' when (CurrentHPos >= HSyncWidth + HFrontPorch) and (CurrentHPos < HSyncWidth + HFrontPorch + HDisplayArea) else
+	           '1';
+				  
+	  VBlank <= '0' when (CurrentVPos >= VSyncWidth + VFrontPorch) and (CurrentVPos < VSyncWidth + VFrontPorch + VDisplayArea) else
+	           '1';				  
+	  
+	  Blank <= '1' when HBlank = '1' or VBlank = '1' else
+	           '0';
+	  
+	  ScanlineX <= CurrentHPos - HSyncWidth - HFrontPorch when Blank = '0' else
+	               (others => '0');
+
+	  ScanlineY <= CurrentVPos - VSyncWidth - VFrontPorch when Blank = '0' else
+	               (others => '0');	
+
+     RED <= ColorOutput(7 downto 5) when Blank = '0' else
+            "000";	  
+     GREEN <= ColorOutput(4 downto 2) when Blank = '0' else
+            "000";				
+     BLUE <= ColorOutput(1 downto 0) when Blank = '0' else
+            "00";		
+	  
+	
+  
+ 
+  ColorOutput <= "11100000" when ScanlineX < 213 else
+                 "00011100" when ScanlineX >= 213 AND ScanlineX < 213+213 else
+                 "00000011" when ScanlineX >= 213+213 AND ScanlineX < 213+213+213 else
+                 "00000000";
+	
+end Behavioral;
+

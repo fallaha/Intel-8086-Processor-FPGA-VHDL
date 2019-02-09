@@ -1,0 +1,16 @@
+PH commonpckg NULL J:/xilinx_prj/processor/Common.vhd sub00/vhpl00 1499589118
+AR processor behavioral J:/xilinx_prj/processor/processor.vhd sub00/vhpl06 1499589132
+AR ram ram_a J:/xilinx_prj/processor/ipcore_dir/ram.vhd sub00/vhpl10 1499589121
+PB commonpckg commonpckg J:/xilinx_prj/processor/Common.vhd sub00/vhpl01 1499589119
+EN sdcardctrl NULL J:/xilinx_prj/SDC.vhd sub00/vhpl03 1499589129
+PH sdcardpckg NULL J:/xilinx_prj/SDC.vhd sub00/vhpl02 1499589128
+AR mainmemory mainmemory_a J:/xilinx_prj/processor/ipcore_dir/MainMemory.vhd sub00/vhpl08 1499589125
+EN processor NULL J:/xilinx_prj/processor/processor.vhd sub00/vhpl05 1499589131
+EN vgachar NULL J:/xilinx_prj/processor/ipcore_dir/VGACHAR.vhd sub00/vhpl11 1499589122
+AR sdcardctrl arch J:/xilinx_prj/SDC.vhd sub00/vhpl04 1499589130
+AR vgachar vgachar_a J:/xilinx_prj/processor/ipcore_dir/VGACHAR.vhd sub00/vhpl12 1499589123
+EN myvga NULL J:/xilinx_prj/processor/VGA.vhd sub00/vhpl13 1499589126
+MO UART_TX NULL UART.v vlg6B/_u_a_r_t___t_x.bin 1499589118
+EN ram NULL J:/xilinx_prj/processor/ipcore_dir/ram.vhd sub00/vhpl09 1499589120
+AR myvga behavioral J:/xilinx_prj/processor/VGA.vhd sub00/vhpl14 1499589127
+EN mainmemory NULL J:/xilinx_prj/processor/ipcore_dir/MainMemory.vhd sub00/vhpl07 1499589124

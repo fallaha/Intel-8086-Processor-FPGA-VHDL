@@ -1,0 +1,28 @@
+Command line:
+   MyVGA_BouncingBall_isim_beh.exe
+     -simmode  gui
+     -simrunnum  0
+     -socket  3952
+
+Mon May 15 17:11:58 2017
+
+
+ Elaboration Time: 0.78125 sec
+
+ Current Memory Usage: 856.777 Meg
+
+ Total Signals          : 24
+ Total Nets             : 144
+ Total Signal Drivers   : 22
+ Total Blocks           : 4
+ Total Primitive Blocks : 4
+ Total Processes        : 16
+ Total Traceable Variables  : 23
+ Total Scalar Nets and Variables : 557
+
+ Total Simulation Time: 0.8125 sec
+
+ Current Memory Usage: 856.777 Meg
+
+Mon May 15 17:12:13 2017
+

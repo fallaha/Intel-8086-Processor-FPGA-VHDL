@@ -1,0 +1,3185 @@
+--------------------------------------------------------------------------------
+-- Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
+--------------------------------------------------------------------------------
+--   ____  ____
+--  /   /\/   /
+-- /___/  \  /    Vendor: Xilinx
+-- \   \   \/     Version: P.20131013
+--  \   \         Application: netgen
+--  /   /         Filename: MyVGA_synthesis.vhd
+-- /___/   /\     Timestamp: Wed May 17 19:10:31 2017
+-- \   \  /  \ 
+--  \___\/\___\
+--             
+-- Command	: -intstyle ise -ar Structure -tm MyVGA -w -dir netgen/synthesis -ofmt vhdl -sim MyVGA.ngc MyVGA_synthesis.vhd 
+-- Device	: xc3s400-4-pq208
+-- Input file	: MyVGA.ngc
+-- Output file	: D:\FPGA Example\MyVGA\netgen\synthesis\MyVGA_synthesis.vhd
+-- # of Entities	: 1
+-- Design Name	: MyVGA
+-- Xilinx	: j:\Xilinx\14.7\ISE_DS\ISE\
+--             
+-- Purpose:    
+--     This VHDL netlist is a verification model and uses simulation 
+--     primitives which may not represent the true implementation of the 
+--     device, however the netlist is functionally correct and should not 
+--     be modified. This file cannot be synthesized and should only be used 
+--     with supported simulation tools.
+--             
+-- Reference:  
+--     Command Line Tools User Guide, Chapter 23
+--     Synthesis and Simulation Design Guide, Chapter 6
+--             
+--------------------------------------------------------------------------------
+
+
+-- synthesis translate_off
+library IEEE;
+use IEEE.STD_LOGIC_1164.ALL;
+library UNISIM;
+use UNISIM.VCOMPONENTS.ALL;
+use UNISIM.VPKG.ALL;
+
+entity MyVGA is
+  port (
+    HS : out STD_LOGIC; 
+    VS : out STD_LOGIC; 
+    CLK_50MHz : in STD_LOGIC := 'X'; 
+    BLUE : out STD_LOGIC_VECTOR ( 2 downto 1 ); 
+    GREEN : out STD_LOGIC_VECTOR ( 2 downto 0 ); 
+    RED : out STD_LOGIC_VECTOR ( 2 downto 0 ) 
+  );
+end MyVGA;
+
+architecture Structure of MyVGA is
+  component ram
+    port (
+      clka : in STD_LOGIC := 'X'; 
+      wea : in STD_LOGIC_VECTOR ( 0 downto 0 ); 
+      addra : in STD_LOGIC_VECTOR ( 7 downto 0 ); 
+      dina : in STD_LOGIC_VECTOR ( 639 downto 0 ); 
+      douta : out STD_LOGIC_VECTOR ( 639 downto 0 ) 
+    );
+  end component;
+  signal BLUE_2_OBUF_2 : STD_LOGIC; 
+  signal Blank : STD_LOGIC; 
+  signal Blank_or0000103_4 : STD_LOGIC; 
+  signal Blank_or00002_5 : STD_LOGIC; 
+  signal Blank_or000031_6 : STD_LOGIC; 
+  signal Blank_or000046_7 : STD_LOGIC; 
+  signal Blank_or000052_8 : STD_LOGIC; 
+  signal CLK_50MHz_BUFGP_10 : STD_LOGIC; 
+  signal Clk_25MHz_11 : STD_LOGIC; 
+  signal Clk_25MHz1 : STD_LOGIC; 
+  signal CurrentVPos_and0000_35 : STD_LOGIC; 
+  signal HS_OBUF_40 : STD_LOGIC; 
+  signal Mcompar_HS_cmp_lt0000_cy_1_rt_43 : STD_LOGIC; 
+  signal Mcompar_HS_cmp_lt0000_lut_0_Q_47 : STD_LOGIC; 
+  signal Mcompar_HS_cmp_lt0000_lut_2_Q_48 : STD_LOGIC; 
+  signal Mcompar_HS_cmp_lt0000_lut_3_Q_49 : STD_LOGIC; 
+  signal Mcompar_HS_cmp_lt0000_lut_4_Q : STD_LOGIC; 
+  signal Mcount_CurrentHPos_cy_1_rt_53 : STD_LOGIC; 
+  signal Mcount_CurrentHPos_cy_2_rt_55 : STD_LOGIC; 
+  signal Mcount_CurrentHPos_cy_3_rt_57 : STD_LOGIC; 
+  signal Mcount_CurrentHPos_cy_4_rt_59 : STD_LOGIC; 
+  signal Mcount_CurrentHPos_cy_5_rt_61 : STD_LOGIC; 
+  signal Mcount_CurrentHPos_cy_6_rt_63 : STD_LOGIC; 
+  signal Mcount_CurrentHPos_cy_7_rt_65 : STD_LOGIC; 
+  signal Mcount_CurrentHPos_cy_8_rt_67 : STD_LOGIC; 
+  signal Mcount_CurrentHPos_cy_9_rt_69 : STD_LOGIC; 
+  signal Mcount_CurrentHPos_xor_10_rt_71 : STD_LOGIC; 
+  signal Mcount_CurrentVPos_cy_1_rt_74 : STD_LOGIC; 
+  signal Mcount_CurrentVPos_cy_2_rt_76 : STD_LOGIC; 
+  signal Mcount_CurrentVPos_cy_3_rt_78 : STD_LOGIC; 
+  signal Mcount_CurrentVPos_cy_4_rt_80 : STD_LOGIC; 
+  signal Mcount_CurrentVPos_cy_5_rt_82 : STD_LOGIC; 
+  signal Mcount_CurrentVPos_cy_6_rt_84 : STD_LOGIC; 
+  signal Mcount_CurrentVPos_cy_7_rt_86 : STD_LOGIC; 
+  signal Mcount_CurrentVPos_cy_8_rt_88 : STD_LOGIC; 
+  signal Mcount_CurrentVPos_cy_9_rt_90 : STD_LOGIC; 
+  signal Mcount_CurrentVPos_xor_10_rt_92 : STD_LOGIC; 
+  signal N0 : STD_LOGIC; 
+  signal N1 : STD_LOGIC; 
+  signal N111 : STD_LOGIC; 
+  signal N12 : STD_LOGIC; 
+  signal N15 : STD_LOGIC; 
+  signal N17 : STD_LOGIC; 
+  signal N19 : STD_LOGIC; 
+  signal N21 : STD_LOGIC; 
+  signal N23 : STD_LOGIC; 
+  signal N25 : STD_LOGIC; 
+  signal N26 : STD_LOGIC; 
+  signal Result_0_1 : STD_LOGIC; 
+  signal Result_10_1 : STD_LOGIC; 
+  signal Result_1_1 : STD_LOGIC; 
+  signal Result_2_1 : STD_LOGIC; 
+  signal Result_3_1 : STD_LOGIC; 
+  signal Result_4_1 : STD_LOGIC; 
+  signal Result_5_1 : STD_LOGIC; 
+  signal Result_6_1 : STD_LOGIC; 
+  signal Result_7_1 : STD_LOGIC; 
+  signal Result_8_1 : STD_LOGIC; 
+  signal Result_9_1 : STD_LOGIC; 
+  signal VS_OBUF_139 : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_639_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_638_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_637_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_636_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_635_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_634_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_633_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_632_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_631_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_630_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_629_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_628_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_627_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_626_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_625_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_624_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_623_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_622_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_621_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_620_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_619_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_618_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_617_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_616_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_615_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_614_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_613_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_612_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_611_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_610_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_609_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_608_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_607_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_606_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_605_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_604_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_603_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_602_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_601_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_600_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_599_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_598_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_597_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_596_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_595_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_594_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_593_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_592_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_591_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_590_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_589_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_588_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_587_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_586_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_585_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_584_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_583_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_582_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_581_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_580_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_579_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_578_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_577_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_576_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_575_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_574_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_573_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_572_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_571_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_570_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_569_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_568_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_567_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_566_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_565_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_564_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_563_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_562_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_561_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_560_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_559_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_558_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_557_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_556_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_555_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_554_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_553_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_552_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_551_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_550_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_549_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_548_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_547_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_546_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_545_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_544_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_543_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_542_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_541_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_540_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_539_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_538_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_537_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_536_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_535_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_534_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_533_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_532_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_531_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_530_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_529_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_528_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_527_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_526_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_525_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_524_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_523_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_522_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_521_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_520_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_519_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_518_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_517_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_516_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_515_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_514_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_513_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_512_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_511_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_510_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_509_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_508_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_507_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_506_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_505_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_504_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_503_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_502_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_501_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_500_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_499_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_498_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_497_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_496_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_495_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_494_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_493_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_492_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_491_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_490_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_489_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_488_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_487_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_486_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_485_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_484_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_483_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_482_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_481_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_480_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_479_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_478_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_477_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_476_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_475_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_474_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_473_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_472_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_471_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_470_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_469_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_468_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_467_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_466_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_465_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_464_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_463_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_462_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_461_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_460_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_459_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_458_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_457_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_456_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_455_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_454_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_453_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_452_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_451_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_450_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_449_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_448_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_447_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_446_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_445_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_444_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_443_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_442_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_441_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_440_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_439_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_438_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_437_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_436_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_435_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_434_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_433_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_432_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_431_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_430_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_429_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_428_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_427_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_426_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_425_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_424_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_423_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_422_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_421_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_420_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_419_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_418_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_417_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_416_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_415_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_414_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_413_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_412_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_411_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_410_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_409_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_408_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_407_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_406_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_405_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_404_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_403_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_402_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_401_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_400_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_399_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_398_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_397_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_396_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_395_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_394_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_393_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_392_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_391_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_390_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_389_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_388_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_387_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_386_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_385_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_384_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_383_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_382_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_381_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_380_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_379_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_378_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_377_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_376_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_375_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_374_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_373_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_372_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_371_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_370_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_369_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_368_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_367_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_366_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_365_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_364_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_363_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_362_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_361_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_360_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_359_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_358_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_357_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_356_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_355_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_354_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_353_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_352_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_351_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_350_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_349_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_348_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_347_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_346_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_345_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_344_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_343_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_342_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_341_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_340_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_339_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_338_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_337_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_336_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_335_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_334_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_333_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_332_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_331_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_330_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_329_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_328_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_327_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_326_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_325_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_324_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_323_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_322_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_321_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_320_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_319_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_318_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_317_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_316_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_315_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_314_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_313_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_312_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_311_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_310_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_309_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_308_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_307_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_306_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_305_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_304_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_303_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_302_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_301_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_300_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_299_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_298_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_297_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_296_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_295_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_294_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_293_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_292_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_291_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_290_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_289_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_288_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_287_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_286_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_285_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_284_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_283_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_282_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_281_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_280_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_279_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_278_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_277_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_276_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_275_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_274_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_273_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_272_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_271_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_270_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_269_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_268_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_267_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_266_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_265_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_264_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_263_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_262_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_261_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_260_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_259_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_258_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_257_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_256_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_255_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_254_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_253_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_252_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_251_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_250_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_249_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_248_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_247_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_246_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_245_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_244_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_243_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_242_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_241_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_240_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_239_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_238_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_237_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_236_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_235_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_234_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_233_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_232_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_231_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_230_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_229_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_228_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_227_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_226_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_225_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_224_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_223_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_222_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_221_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_220_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_219_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_218_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_217_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_216_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_215_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_214_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_213_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_212_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_211_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_210_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_209_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_208_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_207_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_206_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_205_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_204_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_203_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_202_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_201_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_200_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_199_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_198_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_197_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_196_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_195_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_194_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_193_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_192_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_191_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_190_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_189_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_188_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_187_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_186_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_185_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_184_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_183_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_182_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_181_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_180_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_179_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_178_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_177_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_176_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_175_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_174_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_173_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_172_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_171_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_170_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_169_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_168_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_167_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_166_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_165_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_164_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_163_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_162_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_161_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_160_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_159_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_158_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_157_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_156_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_155_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_154_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_153_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_152_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_151_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_150_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_149_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_148_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_147_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_146_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_145_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_144_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_143_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_142_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_141_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_140_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_139_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_138_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_137_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_136_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_135_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_134_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_133_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_132_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_131_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_130_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_129_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_128_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_127_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_126_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_125_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_124_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_123_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_122_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_121_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_120_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_119_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_118_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_117_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_116_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_115_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_114_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_113_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_112_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_111_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_110_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_109_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_108_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_107_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_106_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_105_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_104_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_103_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_102_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_101_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_100_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_99_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_98_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_97_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_96_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_95_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_94_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_93_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_92_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_91_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_90_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_89_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_88_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_87_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_86_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_85_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_84_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_83_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_82_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_81_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_80_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_79_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_78_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_77_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_76_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_75_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_74_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_73_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_72_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_71_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_70_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_69_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_68_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_67_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_66_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_65_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_64_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_63_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_62_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_61_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_60_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_59_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_58_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_57_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_56_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_55_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_54_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_53_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_52_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_51_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_50_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_49_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_48_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_47_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_46_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_45_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_44_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_43_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_42_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_41_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_40_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_39_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_38_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_37_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_36_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_35_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_34_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_33_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_32_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_31_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_30_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_29_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_28_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_27_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_26_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_25_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_24_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_23_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_22_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_21_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_20_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_19_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_18_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_17_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_16_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_15_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_14_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_13_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_12_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_11_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_10_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_9_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_8_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_7_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_6_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_5_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_4_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_3_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_2_UNCONNECTED : STD_LOGIC; 
+  signal NLW_VGA_RAM_douta_1_UNCONNECTED : STD_LOGIC; 
+  signal CurrentHPos : STD_LOGIC_VECTOR ( 10 downto 0 ); 
+  signal CurrentVPos : STD_LOGIC_VECTOR ( 10 downto 0 ); 
+  signal Mcompar_HS_cmp_lt0000_cy : STD_LOGIC_VECTOR ( 4 downto 0 ); 
+  signal Mcount_CurrentHPos_cy : STD_LOGIC_VECTOR ( 9 downto 0 ); 
+  signal Mcount_CurrentHPos_lut : STD_LOGIC_VECTOR ( 0 downto 0 ); 
+  signal Mcount_CurrentVPos_cy : STD_LOGIC_VECTOR ( 9 downto 0 ); 
+  signal Mcount_CurrentVPos_lut : STD_LOGIC_VECTOR ( 0 downto 0 ); 
+  signal Result : STD_LOGIC_VECTOR ( 10 downto 0 ); 
+  signal ScanlineY : STD_LOGIC_VECTOR ( 7 downto 0 ); 
+  signal VGA_DATA_OUT_RAM : STD_LOGIC_VECTOR ( 0 downto 0 ); 
+begin
+  XST_GND : GND
+    port map (
+      G => N0
+    );
+  XST_VCC : VCC
+    port map (
+      P => N1
+    );
+  CurrentHPos_0 : FDR
+    generic map(
+      INIT => '0'
+    )
+    port map (
+      C => Clk_25MHz_11,
+      D => Result(0),
+      R => Mcompar_HS_cmp_lt0000_cy(4),
+      Q => CurrentHPos(0)
+    );
+  CurrentHPos_1 : FDR
+    generic map(
+      INIT => '0'
+    )
+    port map (
+      C => Clk_25MHz_11,
+      D => Result(1),
+      R => Mcompar_HS_cmp_lt0000_cy(4),
+      Q => CurrentHPos(1)
+    );
+  CurrentHPos_2 : FDR
+    generic map(
+      INIT => '0'
+    )
+    port map (
+      C => Clk_25MHz_11,
+      D => Result(2),
+      R => Mcompar_HS_cmp_lt0000_cy(4),
+      Q => CurrentHPos(2)
+    );
+  CurrentHPos_3 : FDR
+    generic map(
+      INIT => '0'
+    )
+    port map (
+      C => Clk_25MHz_11,
+      D => Result(3),
+      R => Mcompar_HS_cmp_lt0000_cy(4),
+      Q => CurrentHPos(3)
+    );
+  CurrentHPos_4 : FDR
+    generic map(
+      INIT => '0'
+    )
+    port map (
+      C => Clk_25MHz_11,
+      D => Result(4),
+      R => Mcompar_HS_cmp_lt0000_cy(4),
+      Q => CurrentHPos(4)
+    );
+  CurrentHPos_5 : FDR
+    generic map(
+      INIT => '0'
+    )
+    port map (
+      C => Clk_25MHz_11,
+      D => Result(5),
+      R => Mcompar_HS_cmp_lt0000_cy(4),
+      Q => CurrentHPos(5)
+    );
+  CurrentHPos_6 : FDR
+    generic map(
+      INIT => '0'
+    )
+    port map (
+      C => Clk_25MHz_11,
+      D => Result(6),
+      R => Mcompar_HS_cmp_lt0000_cy(4),
+      Q => CurrentHPos(6)
+    );
+  CurrentHPos_7 : FDR
+    generic map(
+      INIT => '0'
+    )
+    port map (
+      C => Clk_25MHz_11,
+      D => Result(7),
+      R => Mcompar_HS_cmp_lt0000_cy(4),
+      Q => CurrentHPos(7)
+    );
+  CurrentHPos_8 : FDR
+    generic map(
+      INIT => '0'
+    )
+    port map (
+      C => Clk_25MHz_11,
+      D => Result(8),
+      R => Mcompar_HS_cmp_lt0000_cy(4),
+      Q => CurrentHPos(8)
+    );
+  CurrentHPos_9 : FDR
+    generic map(
+      INIT => '0'
+    )
+    port map (
+      C => Clk_25MHz_11,
+      D => Result(9),
+      R => Mcompar_HS_cmp_lt0000_cy(4),
+      Q => CurrentHPos(9)
+    );
+  CurrentHPos_10 : FDR
+    generic map(
+      INIT => '0'
+    )
+    port map (
+      C => Clk_25MHz_11,
+      D => Result(10),
+      R => Mcompar_HS_cmp_lt0000_cy(4),
+      Q => CurrentHPos(10)
+    );
+  CurrentVPos_0 : FDRE
+    generic map(
+      INIT => '0'
+    )
+    port map (
+      C => Clk_25MHz_11,
+      CE => Mcompar_HS_cmp_lt0000_cy(4),
+      D => Result_0_1,
+      R => CurrentVPos_and0000_35,
+      Q => CurrentVPos(0)
+    );
+  CurrentVPos_1 : FDRE
+    generic map(
+      INIT => '0'
+    )
+    port map (
+      C => Clk_25MHz_11,
+      CE => Mcompar_HS_cmp_lt0000_cy(4),
+      D => Result_1_1,
+      R => CurrentVPos_and0000_35,
+      Q => CurrentVPos(1)
+    );
+  CurrentVPos_2 : FDRE
+    generic map(
+      INIT => '0'
+    )
+    port map (
+      C => Clk_25MHz_11,
+      CE => Mcompar_HS_cmp_lt0000_cy(4),
+      D => Result_2_1,
+      R => CurrentVPos_and0000_35,
+      Q => CurrentVPos(2)
+    );
+  CurrentVPos_3 : FDRE
+    generic map(
+      INIT => '0'
+    )
+    port map (
+      C => Clk_25MHz_11,
+      CE => Mcompar_HS_cmp_lt0000_cy(4),
+      D => Result_3_1,
+      R => CurrentVPos_and0000_35,
+      Q => CurrentVPos(3)
+    );
+  CurrentVPos_4 : FDRE
+    generic map(
+      INIT => '0'
+    )
+    port map (
+      C => Clk_25MHz_11,
+      CE => Mcompar_HS_cmp_lt0000_cy(4),
+      D => Result_4_1,
+      R => CurrentVPos_and0000_35,
+      Q => CurrentVPos(4)
+    );
+  CurrentVPos_5 : FDRE
+    generic map(
+      INIT => '0'
+    )
+    port map (
+      C => Clk_25MHz_11,
+      CE => Mcompar_HS_cmp_lt0000_cy(4),
+      D => Result_5_1,
+      R => CurrentVPos_and0000_35,
+      Q => CurrentVPos(5)
+    );
+  CurrentVPos_6 : FDRE
+    generic map(
+      INIT => '0'
+    )
+    port map (
+      C => Clk_25MHz_11,
+      CE => Mcompar_HS_cmp_lt0000_cy(4),
+      D => Result_6_1,
+      R => CurrentVPos_and0000_35,
+      Q => CurrentVPos(6)
+    );
+  CurrentVPos_7 : FDRE
+    generic map(
+      INIT => '0'
+    )
+    port map (
+      C => Clk_25MHz_11,
+      CE => Mcompar_HS_cmp_lt0000_cy(4),
+      D => Result_7_1,
+      R => CurrentVPos_and0000_35,
+      Q => CurrentVPos(7)
+    );
+  CurrentVPos_8 : FDRE
+    generic map(
+      INIT => '0'
+    )
+    port map (
+      C => Clk_25MHz_11,
+      CE => Mcompar_HS_cmp_lt0000_cy(4),
+      D => Result_8_1,
+      R => CurrentVPos_and0000_35,
+      Q => CurrentVPos(8)
+    );
+  CurrentVPos_9 : FDRE
+    generic map(
+      INIT => '0'
+    )
+    port map (
+      C => Clk_25MHz_11,
+      CE => Mcompar_HS_cmp_lt0000_cy(4),
+      D => Result_9_1,
+      R => CurrentVPos_and0000_35,
+      Q => CurrentVPos(9)
+    );
+  CurrentVPos_10 : FDRE
+    generic map(
+      INIT => '0'
+    )
+    port map (
+      C => Clk_25MHz_11,
+      CE => Mcompar_HS_cmp_lt0000_cy(4),
+      D => Result_10_1,
+      R => CurrentVPos_and0000_35,
+      Q => CurrentVPos(10)
+    );
+  Mcompar_HS_cmp_lt0000_lut_0_Q : LUT4
+    generic map(
+      INIT => X"8000"
+    )
+    port map (
+      I0 => CurrentHPos(0),
+      I1 => CurrentHPos(1),
+      I2 => CurrentHPos(2),
+      I3 => CurrentHPos(3),
+      O => Mcompar_HS_cmp_lt0000_lut_0_Q_47
+    );
+  Mcompar_HS_cmp_lt0000_cy_0_Q : MUXCY
+    port map (
+      CI => N1,
+      DI => N0,
+      S => Mcompar_HS_cmp_lt0000_lut_0_Q_47,
+      O => Mcompar_HS_cmp_lt0000_cy(0)
+    );
+  Mcompar_HS_cmp_lt0000_cy_1_Q : MUXCY
+    port map (
+      CI => Mcompar_HS_cmp_lt0000_cy(0),
+      DI => N0,
+      S => Mcompar_HS_cmp_lt0000_cy_1_rt_43,
+      O => Mcompar_HS_cmp_lt0000_cy(1)
+    );
+  Mcompar_HS_cmp_lt0000_lut_2_Q : LUT3
+    generic map(
+      INIT => X"01"
+    )
+    port map (
+      I0 => CurrentHPos(5),
+      I1 => CurrentHPos(6),
+      I2 => CurrentHPos(7),
+      O => Mcompar_HS_cmp_lt0000_lut_2_Q_48
+    );
+  Mcompar_HS_cmp_lt0000_cy_2_Q : MUXCY
+    port map (
+      CI => Mcompar_HS_cmp_lt0000_cy(1),
+      DI => N1,
+      S => Mcompar_HS_cmp_lt0000_lut_2_Q_48,
+      O => Mcompar_HS_cmp_lt0000_cy(2)
+    );
+  Mcompar_HS_cmp_lt0000_lut_3_Q : LUT2
+    generic map(
+      INIT => X"8"
+    )
+    port map (
+      I0 => CurrentHPos(8),
+      I1 => CurrentHPos(9),
+      O => Mcompar_HS_cmp_lt0000_lut_3_Q_49
+    );
+  Mcompar_HS_cmp_lt0000_cy_3_Q : MUXCY
+    port map (
+      CI => Mcompar_HS_cmp_lt0000_cy(2),
+      DI => N0,
+      S => Mcompar_HS_cmp_lt0000_lut_3_Q_49,
+      O => Mcompar_HS_cmp_lt0000_cy(3)
+    );
+  Mcompar_HS_cmp_lt0000_cy_4_Q : MUXCY
+    port map (
+      CI => Mcompar_HS_cmp_lt0000_cy(3),
+      DI => N1,
+      S => Mcompar_HS_cmp_lt0000_lut_4_Q,
+      O => Mcompar_HS_cmp_lt0000_cy(4)
+    );
+  Mcount_CurrentVPos_cy_0_Q : MUXCY
+    port map (
+      CI => N0,
+      DI => N1,
+      S => Mcount_CurrentVPos_lut(0),
+      O => Mcount_CurrentVPos_cy(0)
+    );
+  Mcount_CurrentVPos_xor_0_Q : XORCY
+    port map (
+      CI => N0,
+      LI => Mcount_CurrentVPos_lut(0),
+      O => Result_0_1
+    );
+  Mcount_CurrentVPos_cy_1_Q : MUXCY
+    port map (
+      CI => Mcount_CurrentVPos_cy(0),
+      DI => N0,
+      S => Mcount_CurrentVPos_cy_1_rt_74,
+      O => Mcount_CurrentVPos_cy(1)
+    );
+  Mcount_CurrentVPos_xor_1_Q : XORCY
+    port map (
+      CI => Mcount_CurrentVPos_cy(0),
+      LI => Mcount_CurrentVPos_cy_1_rt_74,
+      O => Result_1_1
+    );
+  Mcount_CurrentVPos_cy_2_Q : MUXCY
+    port map (
+      CI => Mcount_CurrentVPos_cy(1),
+      DI => N0,
+      S => Mcount_CurrentVPos_cy_2_rt_76,
+      O => Mcount_CurrentVPos_cy(2)
+    );
+  Mcount_CurrentVPos_xor_2_Q : XORCY
+    port map (
+      CI => Mcount_CurrentVPos_cy(1),
+      LI => Mcount_CurrentVPos_cy_2_rt_76,
+      O => Result_2_1
+    );
+  Mcount_CurrentVPos_cy_3_Q : MUXCY
+    port map (
+      CI => Mcount_CurrentVPos_cy(2),
+      DI => N0,
+      S => Mcount_CurrentVPos_cy_3_rt_78,
+      O => Mcount_CurrentVPos_cy(3)
+    );
+  Mcount_CurrentVPos_xor_3_Q : XORCY
+    port map (
+      CI => Mcount_CurrentVPos_cy(2),
+      LI => Mcount_CurrentVPos_cy_3_rt_78,
+      O => Result_3_1
+    );
+  Mcount_CurrentVPos_cy_4_Q : MUXCY
+    port map (
+      CI => Mcount_CurrentVPos_cy(3),
+      DI => N0,
+      S => Mcount_CurrentVPos_cy_4_rt_80,
+      O => Mcount_CurrentVPos_cy(4)
+    );
+  Mcount_CurrentVPos_xor_4_Q : XORCY
+    port map (
+      CI => Mcount_CurrentVPos_cy(3),
+      LI => Mcount_CurrentVPos_cy_4_rt_80,
+      O => Result_4_1
+    );
+  Mcount_CurrentVPos_cy_5_Q : MUXCY
+    port map (
+      CI => Mcount_CurrentVPos_cy(4),
+      DI => N0,
+      S => Mcount_CurrentVPos_cy_5_rt_82,
+      O => Mcount_CurrentVPos_cy(5)
+    );
+  Mcount_CurrentVPos_xor_5_Q : XORCY
+    port map (
+      CI => Mcount_CurrentVPos_cy(4),
+      LI => Mcount_CurrentVPos_cy_5_rt_82,
+      O => Result_5_1
+    );
+  Mcount_CurrentVPos_cy_6_Q : MUXCY
+    port map (
+      CI => Mcount_CurrentVPos_cy(5),
+      DI => N0,
+      S => Mcount_CurrentVPos_cy_6_rt_84,
+      O => Mcount_CurrentVPos_cy(6)
+    );
+  Mcount_CurrentVPos_xor_6_Q : XORCY
+    port map (
+      CI => Mcount_CurrentVPos_cy(5),
+      LI => Mcount_CurrentVPos_cy_6_rt_84,
+      O => Result_6_1
+    );
+  Mcount_CurrentVPos_cy_7_Q : MUXCY
+    port map (
+      CI => Mcount_CurrentVPos_cy(6),
+      DI => N0,
+      S => Mcount_CurrentVPos_cy_7_rt_86,
+      O => Mcount_CurrentVPos_cy(7)
+    );
+  Mcount_CurrentVPos_xor_7_Q : XORCY
+    port map (
+      CI => Mcount_CurrentVPos_cy(6),
+      LI => Mcount_CurrentVPos_cy_7_rt_86,
+      O => Result_7_1
+    );
+  Mcount_CurrentVPos_cy_8_Q : MUXCY
+    port map (
+      CI => Mcount_CurrentVPos_cy(7),
+      DI => N0,
+      S => Mcount_CurrentVPos_cy_8_rt_88,
+      O => Mcount_CurrentVPos_cy(8)
+    );
+  Mcount_CurrentVPos_xor_8_Q : XORCY
+    port map (
+      CI => Mcount_CurrentVPos_cy(7),
+      LI => Mcount_CurrentVPos_cy_8_rt_88,
+      O => Result_8_1
+    );
+  Mcount_CurrentVPos_cy_9_Q : MUXCY
+    port map (
+      CI => Mcount_CurrentVPos_cy(8),
+      DI => N0,
+      S => Mcount_CurrentVPos_cy_9_rt_90,
+      O => Mcount_CurrentVPos_cy(9)
+    );
+  Mcount_CurrentVPos_xor_9_Q : XORCY
+    port map (
+      CI => Mcount_CurrentVPos_cy(8),
+      LI => Mcount_CurrentVPos_cy_9_rt_90,
+      O => Result_9_1
+    );
+  Mcount_CurrentVPos_xor_10_Q : XORCY
+    port map (
+      CI => Mcount_CurrentVPos_cy(9),
+      LI => Mcount_CurrentVPos_xor_10_rt_92,
+      O => Result_10_1
+    );
+  Mcount_CurrentHPos_cy_0_Q : MUXCY
+    port map (
+      CI => N0,
+      DI => N1,
+      S => Mcount_CurrentHPos_lut(0),
+      O => Mcount_CurrentHPos_cy(0)
+    );
+  Mcount_CurrentHPos_xor_0_Q : XORCY
+    port map (
+      CI => N0,
+      LI => Mcount_CurrentHPos_lut(0),
+      O => Result(0)
+    );
+  Mcount_CurrentHPos_cy_1_Q : MUXCY
+    port map (
+      CI => Mcount_CurrentHPos_cy(0),
+      DI => N0,
+      S => Mcount_CurrentHPos_cy_1_rt_53,
+      O => Mcount_CurrentHPos_cy(1)
+    );
+  Mcount_CurrentHPos_xor_1_Q : XORCY
+    port map (
+      CI => Mcount_CurrentHPos_cy(0),
+      LI => Mcount_CurrentHPos_cy_1_rt_53,
+      O => Result(1)
+    );
+  Mcount_CurrentHPos_cy_2_Q : MUXCY
+    port map (
+      CI => Mcount_CurrentHPos_cy(1),
+      DI => N0,
+      S => Mcount_CurrentHPos_cy_2_rt_55,
+      O => Mcount_CurrentHPos_cy(2)
+    );
+  Mcount_CurrentHPos_xor_2_Q : XORCY
+    port map (
+      CI => Mcount_CurrentHPos_cy(1),
+      LI => Mcount_CurrentHPos_cy_2_rt_55,
+      O => Result(2)
+    );
+  Mcount_CurrentHPos_cy_3_Q : MUXCY
+    port map (
+      CI => Mcount_CurrentHPos_cy(2),
+      DI => N0,
+      S => Mcount_CurrentHPos_cy_3_rt_57,
+      O => Mcount_CurrentHPos_cy(3)
+    );
+  Mcount_CurrentHPos_xor_3_Q : XORCY
+    port map (
+      CI => Mcount_CurrentHPos_cy(2),
+      LI => Mcount_CurrentHPos_cy_3_rt_57,
+      O => Result(3)
+    );
+  Mcount_CurrentHPos_cy_4_Q : MUXCY
+    port map (
+      CI => Mcount_CurrentHPos_cy(3),
+      DI => N0,
+      S => Mcount_CurrentHPos_cy_4_rt_59,
+      O => Mcount_CurrentHPos_cy(4)
+    );
+  Mcount_CurrentHPos_xor_4_Q : XORCY
+    port map (
+      CI => Mcount_CurrentHPos_cy(3),
+      LI => Mcount_CurrentHPos_cy_4_rt_59,
+      O => Result(4)
+    );
+  Mcount_CurrentHPos_cy_5_Q : MUXCY
+    port map (
+      CI => Mcount_CurrentHPos_cy(4),
+      DI => N0,
+      S => Mcount_CurrentHPos_cy_5_rt_61,
+      O => Mcount_CurrentHPos_cy(5)
+    );
+  Mcount_CurrentHPos_xor_5_Q : XORCY
+    port map (
+      CI => Mcount_CurrentHPos_cy(4),
+      LI => Mcount_CurrentHPos_cy_5_rt_61,
+      O => Result(5)
+    );
+  Mcount_CurrentHPos_cy_6_Q : MUXCY
+    port map (
+      CI => Mcount_CurrentHPos_cy(5),
+      DI => N0,
+      S => Mcount_CurrentHPos_cy_6_rt_63,
+      O => Mcount_CurrentHPos_cy(6)
+    );
+  Mcount_CurrentHPos_xor_6_Q : XORCY
+    port map (
+      CI => Mcount_CurrentHPos_cy(5),
+      LI => Mcount_CurrentHPos_cy_6_rt_63,
+      O => Result(6)
+    );
+  Mcount_CurrentHPos_cy_7_Q : MUXCY
+    port map (
+      CI => Mcount_CurrentHPos_cy(6),
+      DI => N0,
+      S => Mcount_CurrentHPos_cy_7_rt_65,
+      O => Mcount_CurrentHPos_cy(7)
+    );
+  Mcount_CurrentHPos_xor_7_Q : XORCY
+    port map (
+      CI => Mcount_CurrentHPos_cy(6),
+      LI => Mcount_CurrentHPos_cy_7_rt_65,
+      O => Result(7)
+    );
+  Mcount_CurrentHPos_cy_8_Q : MUXCY
+    port map (
+      CI => Mcount_CurrentHPos_cy(7),
+      DI => N0,
+      S => Mcount_CurrentHPos_cy_8_rt_67,
+      O => Mcount_CurrentHPos_cy(8)
+    );
+  Mcount_CurrentHPos_xor_8_Q : XORCY
+    port map (
+      CI => Mcount_CurrentHPos_cy(7),
+      LI => Mcount_CurrentHPos_cy_8_rt_67,
+      O => Result(8)
+    );
+  Mcount_CurrentHPos_cy_9_Q : MUXCY
+    port map (
+      CI => Mcount_CurrentHPos_cy(8),
+      DI => N0,
+      S => Mcount_CurrentHPos_cy_9_rt_69,
+      O => Mcount_CurrentHPos_cy(9)
+    );
+  Mcount_CurrentHPos_xor_9_Q : XORCY
+    port map (
+      CI => Mcount_CurrentHPos_cy(8),
+      LI => Mcount_CurrentHPos_cy_9_rt_69,
+      O => Result(9)
+    );
+  Mcount_CurrentHPos_xor_10_Q : XORCY
+    port map (
+      CI => Mcount_CurrentHPos_cy(9),
+      LI => Mcount_CurrentHPos_xor_10_rt_71,
+      O => Result(10)
+    );
+  ScanlineY_5_1 : LUT3
+    generic map(
+      INIT => X"14"
+    )
+    port map (
+      I0 => Blank,
+      I1 => CurrentVPos(5),
+      I2 => N111,
+      O => ScanlineY(5)
+    );
+  ScanlineY_3_1 : LUT3
+    generic map(
+      INIT => X"14"
+    )
+    port map (
+      I0 => Blank,
+      I1 => CurrentVPos(2),
+      I2 => CurrentVPos(3),
+      O => ScanlineY(3)
+    );
+  ScanlineY_6_1 : LUT4
+    generic map(
+      INIT => X"4414"
+    )
+    port map (
+      I0 => Blank,
+      I1 => CurrentVPos(6),
+      I2 => N111,
+      I3 => CurrentVPos(5),
+      O => ScanlineY(6)
+    );
+  ScanlineY_4_1 : LUT4
+    generic map(
+      INIT => X"4111"
+    )
+    port map (
+      I0 => Blank,
+      I1 => CurrentVPos(4),
+      I2 => CurrentVPos(2),
+      I3 => CurrentVPos(3),
+      O => ScanlineY(4)
+    );
+  HS_SW0 : LUT3
+    generic map(
+      INIT => X"FE"
+    )
+    port map (
+      I0 => CurrentHPos(10),
+      I1 => CurrentHPos(9),
+      I2 => CurrentHPos(7),
+      O => N15
+    );
+  HS_80 : LUT4
+    generic map(
+      INIT => X"FFF8"
+    )
+    port map (
+      I0 => CurrentHPos(5),
+      I1 => CurrentHPos(6),
+      I2 => CurrentHPos(8),
+      I3 => N15,
+      O => HS_OBUF_40
+    );
+  VS_SW0 : LUT4
+    generic map(
+      INIT => X"FFFE"
+    )
+    port map (
+      I0 => CurrentVPos(2),
+      I1 => CurrentVPos(9),
+      I2 => CurrentVPos(10),
+      I3 => CurrentVPos(1),
+      O => N17
+    );
+  VS_82 : LUT4
+    generic map(
+      INIT => X"FFFE"
+    )
+    port map (
+      I0 => N12,
+      I1 => CurrentVPos(4),
+      I2 => CurrentVPos(3),
+      I3 => N17,
+      O => VS_OBUF_139
+    );
+  Blank_or00002 : LUT3
+    generic map(
+      INIT => X"FE"
+    )
+    port map (
+      I0 => CurrentHPos(10),
+      I1 => CurrentVPos(10),
+      I2 => CurrentVPos(9),
+      O => Blank_or00002_5
+    );
+  Blank_or000046 : LUT4
+    generic map(
+      INIT => X"8000"
+    )
+    port map (
+      I0 => CurrentHPos(4),
+      I1 => CurrentHPos(5),
+      I2 => CurrentHPos(6),
+      I3 => CurrentHPos(7),
+      O => Blank_or000046_7
+    );
+  Blank_or000052 : LUT3
+    generic map(
+      INIT => X"A8"
+    )
+    port map (
+      I0 => CurrentHPos(9),
+      I1 => CurrentHPos(8),
+      I2 => Blank_or000046_7,
+      O => Blank_or000052_8
+    );
+  Blank_or0000113 : LUT3
+    generic map(
+      INIT => X"FE"
+    )
+    port map (
+      I0 => Blank_or000031_6,
+      I1 => Blank_or000052_8,
+      I2 => Blank_or0000103_4,
+      O => Blank
+    );
+  Blank_or000062 : LUT3
+    generic map(
+      INIT => X"15"
+    )
+    port map (
+      I0 => CurrentVPos(4),
+      I1 => CurrentVPos(2),
+      I2 => CurrentVPos(3),
+      O => N111
+    );
+  VS11 : LUT4
+    generic map(
+      INIT => X"FFFE"
+    )
+    port map (
+      I0 => CurrentVPos(8),
+      I1 => CurrentVPos(7),
+      I2 => CurrentVPos(6),
+      I3 => CurrentVPos(5),
+      O => N12
+    );
+  HS_OBUF : OBUF
+    port map (
+      I => HS_OBUF_40,
+      O => HS
+    );
+  VS_OBUF : OBUF
+    port map (
+      I => VS_OBUF_139,
+      O => VS
+    );
+  BLUE_2_OBUF : OBUF
+    port map (
+      I => BLUE_2_OBUF_2,
+      O => BLUE(2)
+    );
+  BLUE_1_OBUF : OBUF
+    port map (
+      I => BLUE_2_OBUF_2,
+      O => BLUE(1)
+    );
+  GREEN_2_OBUF : OBUF
+    port map (
+      I => BLUE_2_OBUF_2,
+      O => GREEN(2)
+    );
+  GREEN_1_OBUF : OBUF
+    port map (
+      I => BLUE_2_OBUF_2,
+      O => GREEN(1)
+    );
+  GREEN_0_OBUF : OBUF
+    port map (
+      I => BLUE_2_OBUF_2,
+      O => GREEN(0)
+    );
+  RED_2_OBUF : OBUF
+    port map (
+      I => BLUE_2_OBUF_2,
+      O => RED(2)
+    );
+  RED_1_OBUF : OBUF
+    port map (
+      I => BLUE_2_OBUF_2,
+      O => RED(1)
+    );
+  RED_0_OBUF : OBUF
+    port map (
+      I => BLUE_2_OBUF_2,
+      O => RED(0)
+    );
+  Clk_25MHz : FDR
+    generic map(
+      INIT => '0'
+    )
+    port map (
+      C => CLK_50MHz_BUFGP_10,
+      D => N1,
+      R => Clk_25MHz1,
+      Q => Clk_25MHz1
+    );
+  Mcompar_HS_cmp_lt0000_cy_1_rt : LUT1
+    generic map(
+      INIT => X"2"
+    )
+    port map (
+      I0 => CurrentHPos(4),
+      O => Mcompar_HS_cmp_lt0000_cy_1_rt_43
+    );
+  Mcount_CurrentVPos_cy_1_rt : LUT1
+    generic map(
+      INIT => X"2"
+    )
+    port map (
+      I0 => CurrentVPos(1),
+      O => Mcount_CurrentVPos_cy_1_rt_74
+    );
+  Mcount_CurrentVPos_cy_2_rt : LUT1
+    generic map(
+      INIT => X"2"
+    )
+    port map (
+      I0 => CurrentVPos(2),
+      O => Mcount_CurrentVPos_cy_2_rt_76
+    );
+  Mcount_CurrentVPos_cy_3_rt : LUT1
+    generic map(
+      INIT => X"2"
+    )
+    port map (
+      I0 => CurrentVPos(3),
+      O => Mcount_CurrentVPos_cy_3_rt_78
+    );
+  Mcount_CurrentVPos_cy_4_rt : LUT1
+    generic map(
+      INIT => X"2"
+    )
+    port map (
+      I0 => CurrentVPos(4),
+      O => Mcount_CurrentVPos_cy_4_rt_80
+    );
+  Mcount_CurrentVPos_cy_5_rt : LUT1
+    generic map(
+      INIT => X"2"
+    )
+    port map (
+      I0 => CurrentVPos(5),
+      O => Mcount_CurrentVPos_cy_5_rt_82
+    );
+  Mcount_CurrentVPos_cy_6_rt : LUT1
+    generic map(
+      INIT => X"2"
+    )
+    port map (
+      I0 => CurrentVPos(6),
+      O => Mcount_CurrentVPos_cy_6_rt_84
+    );
+  Mcount_CurrentVPos_cy_7_rt : LUT1
+    generic map(
+      INIT => X"2"
+    )
+    port map (
+      I0 => CurrentVPos(7),
+      O => Mcount_CurrentVPos_cy_7_rt_86
+    );
+  Mcount_CurrentVPos_cy_8_rt : LUT1
+    generic map(
+      INIT => X"2"
+    )
+    port map (
+      I0 => CurrentVPos(8),
+      O => Mcount_CurrentVPos_cy_8_rt_88
+    );
+  Mcount_CurrentVPos_cy_9_rt : LUT1
+    generic map(
+      INIT => X"2"
+    )
+    port map (
+      I0 => CurrentVPos(9),
+      O => Mcount_CurrentVPos_cy_9_rt_90
+    );
+  Mcount_CurrentHPos_cy_1_rt : LUT1
+    generic map(
+      INIT => X"2"
+    )
+    port map (
+      I0 => CurrentHPos(1),
+      O => Mcount_CurrentHPos_cy_1_rt_53
+    );
+  Mcount_CurrentHPos_cy_2_rt : LUT1
+    generic map(
+      INIT => X"2"
+    )
+    port map (
+      I0 => CurrentHPos(2),
+      O => Mcount_CurrentHPos_cy_2_rt_55
+    );
+  Mcount_CurrentHPos_cy_3_rt : LUT1
+    generic map(
+      INIT => X"2"
+    )
+    port map (
+      I0 => CurrentHPos(3),
+      O => Mcount_CurrentHPos_cy_3_rt_57
+    );
+  Mcount_CurrentHPos_cy_4_rt : LUT1
+    generic map(
+      INIT => X"2"
+    )
+    port map (
+      I0 => CurrentHPos(4),
+      O => Mcount_CurrentHPos_cy_4_rt_59
+    );
+  Mcount_CurrentHPos_cy_5_rt : LUT1
+    generic map(
+      INIT => X"2"
+    )
+    port map (
+      I0 => CurrentHPos(5),
+      O => Mcount_CurrentHPos_cy_5_rt_61
+    );
+  Mcount_CurrentHPos_cy_6_rt : LUT1
+    generic map(
+      INIT => X"2"
+    )
+    port map (
+      I0 => CurrentHPos(6),
+      O => Mcount_CurrentHPos_cy_6_rt_63
+    );
+  Mcount_CurrentHPos_cy_7_rt : LUT1
+    generic map(
+      INIT => X"2"
+    )
+    port map (
+      I0 => CurrentHPos(7),
+      O => Mcount_CurrentHPos_cy_7_rt_65
+    );
+  Mcount_CurrentHPos_cy_8_rt : LUT1
+    generic map(
+      INIT => X"2"
+    )
+    port map (
+      I0 => CurrentHPos(8),
+      O => Mcount_CurrentHPos_cy_8_rt_67
+    );
+  Mcount_CurrentHPos_cy_9_rt : LUT1
+    generic map(
+      INIT => X"2"
+    )
+    port map (
+      I0 => CurrentHPos(9),
+      O => Mcount_CurrentHPos_cy_9_rt_69
+    );
+  Mcount_CurrentVPos_xor_10_rt : LUT1
+    generic map(
+      INIT => X"2"
+    )
+    port map (
+      I0 => CurrentVPos(10),
+      O => Mcount_CurrentVPos_xor_10_rt_92
+    );
+  Mcount_CurrentHPos_xor_10_rt : LUT1
+    generic map(
+      INIT => X"2"
+    )
+    port map (
+      I0 => CurrentHPos(10),
+      O => Mcount_CurrentHPos_xor_10_rt_71
+    );
+  CurrentVPos_and0000 : LUT4
+    generic map(
+      INIT => X"EA00"
+    )
+    port map (
+      I0 => CurrentVPos(10),
+      I1 => CurrentVPos(9),
+      I2 => N19,
+      I3 => Mcompar_HS_cmp_lt0000_cy(4),
+      O => CurrentVPos_and0000_35
+    );
+  Blank_or000031_SW0 : LUT4
+    generic map(
+      INIT => X"FF80"
+    )
+    port map (
+      I0 => CurrentHPos(4),
+      I1 => CurrentHPos(5),
+      I2 => CurrentHPos(6),
+      I3 => CurrentHPos(9),
+      O => N21
+    );
+  Blank_or000031 : LUT4
+    generic map(
+      INIT => X"FF01"
+    )
+    port map (
+      I0 => CurrentHPos(7),
+      I1 => CurrentHPos(8),
+      I2 => N21,
+      I3 => Blank_or00002_5,
+      O => Blank_or000031_6
+    );
+  ScanlineY_2_1 : LUT4
+    generic map(
+      INIT => X"0001"
+    )
+    port map (
+      I0 => Blank_or000031_6,
+      I1 => Blank_or000052_8,
+      I2 => Blank_or0000103_4,
+      I3 => CurrentVPos(2),
+      O => ScanlineY(2)
+    );
+  ScanlineY_1_1 : LUT4
+    generic map(
+      INIT => X"0100"
+    )
+    port map (
+      I0 => Blank_or000031_6,
+      I1 => Blank_or000052_8,
+      I2 => Blank_or0000103_4,
+      I3 => CurrentVPos(1),
+      O => ScanlineY(1)
+    );
+  ScanlineY_0_1 : LUT4
+    generic map(
+      INIT => X"0100"
+    )
+    port map (
+      I0 => Blank_or000031_6,
+      I1 => Blank_or000052_8,
+      I2 => Blank_or0000103_4,
+      I3 => CurrentVPos(0),
+      O => ScanlineY(0)
+    );
+  ScanlineY_7_SW1 : LUT4
+    generic map(
+      INIT => X"5655"
+    )
+    port map (
+      I0 => CurrentVPos(7),
+      I1 => CurrentVPos(5),
+      I2 => CurrentVPos(6),
+      I3 => N111,
+      O => N23
+    );
+  ScanlineY_7_Q : LUT4
+    generic map(
+      INIT => X"0001"
+    )
+    port map (
+      I0 => Blank_or0000103_4,
+      I1 => Blank_or000031_6,
+      I2 => Blank_or000052_8,
+      I3 => N23,
+      O => ScanlineY(7)
+    );
+  BLUE_2_1 : LUT4
+    generic map(
+      INIT => X"0100"
+    )
+    port map (
+      I0 => Blank_or000031_6,
+      I1 => Blank_or000052_8,
+      I2 => Blank_or0000103_4,
+      I3 => VGA_DATA_OUT_RAM(0),
+      O => BLUE_2_OBUF_2
+    );
+  Clk_25MHz_BUFG : BUFG
+    port map (
+      I => Clk_25MHz1,
+      O => Clk_25MHz_11
+    );
+  CLK_50MHz_BUFGP : BUFGP
+    port map (
+      I => CLK_50MHz,
+      O => CLK_50MHz_BUFGP_10
+    );
+  Mcompar_HS_cmp_lt0000_lut_4_INV_0 : INV
+    port map (
+      I => CurrentHPos(10),
+      O => Mcompar_HS_cmp_lt0000_lut_4_Q
+    );
+  Mcount_CurrentVPos_lut_0_INV_0 : INV
+    port map (
+      I => CurrentVPos(0),
+      O => Mcount_CurrentVPos_lut(0)
+    );
+  Mcount_CurrentHPos_lut_0_INV_0 : INV
+    port map (
+      I => CurrentHPos(0),
+      O => Mcount_CurrentHPos_lut(0)
+    );
+  Blank_or0000103 : MUXF5
+    port map (
+      I0 => N25,
+      I1 => N26,
+      S => CurrentVPos(6),
+      O => Blank_or0000103_4
+    );
+  Blank_or0000103_F : LUT4
+    generic map(
+      INIT => X"0100"
+    )
+    port map (
+      I0 => CurrentVPos(5),
+      I1 => CurrentVPos(7),
+      I2 => CurrentVPos(8),
+      I3 => N111,
+      O => N25
+    );
+  Blank_or0000103_G : LUT4
+    generic map(
+      INIT => X"2000"
+    )
+    port map (
+      I0 => CurrentVPos(5),
+      I1 => N111,
+      I2 => CurrentVPos(7),
+      I3 => CurrentVPos(8),
+      O => N26
+    );
+  CurrentVPos_and0000_SW0 : LUT4_L
+    generic map(
+      INIT => X"FFEA"
+    )
+    port map (
+      I0 => CurrentVPos(4),
+      I1 => CurrentVPos(3),
+      I2 => CurrentVPos(2),
+      I3 => N12,
+      LO => N19
+    );
+  VGA_RAM : ram
+    port map (
+      clka => CLK_50MHz_BUFGP_10,
+      wea(0) => N0,
+      addra(7) => ScanlineY(7),
+      addra(6) => ScanlineY(6),
+      addra(5) => ScanlineY(5),
+      addra(4) => ScanlineY(4),
+      addra(3) => ScanlineY(3),
+      addra(2) => ScanlineY(2),
+      addra(1) => ScanlineY(1),
+      addra(0) => ScanlineY(0),
+      dina(639) => N0,
+      dina(638) => N0,
+      dina(637) => N0,
+      dina(636) => N0,
+      dina(635) => N0,
+      dina(634) => N0,
+      dina(633) => N0,
+      dina(632) => N0,
+      dina(631) => N0,
+      dina(630) => N0,
+      dina(629) => N0,
+      dina(628) => N0,
+      dina(627) => N0,
+      dina(626) => N0,
+      dina(625) => N0,
+      dina(624) => N0,
+      dina(623) => N0,
+      dina(622) => N0,
+      dina(621) => N0,
+      dina(620) => N0,
+      dina(619) => N0,
+      dina(618) => N0,
+      dina(617) => N0,
+      dina(616) => N0,
+      dina(615) => N0,
+      dina(614) => N0,
+      dina(613) => N0,
+      dina(612) => N0,
+      dina(611) => N0,
+      dina(610) => N0,
+      dina(609) => N0,
+      dina(608) => N0,
+      dina(607) => N0,
+      dina(606) => N0,
+      dina(605) => N0,
+      dina(604) => N0,
+      dina(603) => N0,
+      dina(602) => N0,
+      dina(601) => N0,
+      dina(600) => N0,
+      dina(599) => N0,
+      dina(598) => N0,
+      dina(597) => N0,
+      dina(596) => N0,
+      dina(595) => N0,
+      dina(594) => N0,
+      dina(593) => N0,
+      dina(592) => N0,
+      dina(591) => N0,
+      dina(590) => N0,
+      dina(589) => N0,
+      dina(588) => N0,
+      dina(587) => N0,
+      dina(586) => N0,
+      dina(585) => N0,
+      dina(584) => N0,
+      dina(583) => N0,
+      dina(582) => N0,
+      dina(581) => N0,
+      dina(580) => N0,
+      dina(579) => N0,
+      dina(578) => N0,
+      dina(577) => N0,
+      dina(576) => N0,
+      dina(575) => N0,
+      dina(574) => N0,
+      dina(573) => N0,
+      dina(572) => N0,
+      dina(571) => N0,
+      dina(570) => N0,
+      dina(569) => N0,
+      dina(568) => N0,
+      dina(567) => N0,
+      dina(566) => N0,
+      dina(565) => N0,
+      dina(564) => N0,
+      dina(563) => N0,
+      dina(562) => N0,
+      dina(561) => N0,
+      dina(560) => N0,
+      dina(559) => N0,
+      dina(558) => N0,
+      dina(557) => N0,
+      dina(556) => N0,
+      dina(555) => N0,
+      dina(554) => N0,
+      dina(553) => N0,
+      dina(552) => N0,
+      dina(551) => N0,
+      dina(550) => N0,
+      dina(549) => N0,
+      dina(548) => N0,
+      dina(547) => N0,
+      dina(546) => N0,
+      dina(545) => N0,
+      dina(544) => N0,
+      dina(543) => N0,
+      dina(542) => N0,
+      dina(541) => N0,
+      dina(540) => N0,
+      dina(539) => N0,
+      dina(538) => N0,
+      dina(537) => N0,
+      dina(536) => N0,
+      dina(535) => N0,
+      dina(534) => N0,
+      dina(533) => N0,
+      dina(532) => N0,
+      dina(531) => N0,
+      dina(530) => N0,
+      dina(529) => N0,
+      dina(528) => N0,
+      dina(527) => N0,
+      dina(526) => N0,
+      dina(525) => N0,
+      dina(524) => N0,
+      dina(523) => N0,
+      dina(522) => N0,
+      dina(521) => N0,
+      dina(520) => N0,
+      dina(519) => N0,
+      dina(518) => N0,
+      dina(517) => N0,
+      dina(516) => N0,
+      dina(515) => N0,
+      dina(514) => N0,
+      dina(513) => N0,
+      dina(512) => N0,
+      dina(511) => N0,
+      dina(510) => N0,
+      dina(509) => N0,
+      dina(508) => N0,
+      dina(507) => N0,
+      dina(506) => N0,
+      dina(505) => N0,
+      dina(504) => N0,
+      dina(503) => N0,
+      dina(502) => N0,
+      dina(501) => N0,
+      dina(500) => N0,
+      dina(499) => N0,
+      dina(498) => N0,
+      dina(497) => N0,
+      dina(496) => N0,
+      dina(495) => N0,
+      dina(494) => N0,
+      dina(493) => N0,
+      dina(492) => N0,
+      dina(491) => N0,
+      dina(490) => N0,
+      dina(489) => N0,
+      dina(488) => N0,
+      dina(487) => N0,
+      dina(486) => N0,
+      dina(485) => N0,
+      dina(484) => N0,
+      dina(483) => N0,
+      dina(482) => N0,
+      dina(481) => N0,
+      dina(480) => N0,
+      dina(479) => N0,
+      dina(478) => N0,
+      dina(477) => N0,
+      dina(476) => N0,
+      dina(475) => N0,
+      dina(474) => N0,
+      dina(473) => N0,
+      dina(472) => N0,
+      dina(471) => N0,
+      dina(470) => N0,
+      dina(469) => N0,
+      dina(468) => N0,
+      dina(467) => N0,
+      dina(466) => N0,
+      dina(465) => N0,
+      dina(464) => N0,
+      dina(463) => N0,
+      dina(462) => N0,
+      dina(461) => N0,
+      dina(460) => N0,
+      dina(459) => N0,
+      dina(458) => N0,
+      dina(457) => N0,
+      dina(456) => N0,
+      dina(455) => N0,
+      dina(454) => N0,
+      dina(453) => N0,
+      dina(452) => N0,
+      dina(451) => N0,
+      dina(450) => N0,
+      dina(449) => N0,
+      dina(448) => N0,
+      dina(447) => N0,
+      dina(446) => N0,
+      dina(445) => N0,
+      dina(444) => N0,
+      dina(443) => N0,
+      dina(442) => N0,
+      dina(441) => N0,
+      dina(440) => N0,
+      dina(439) => N0,
+      dina(438) => N0,
+      dina(437) => N0,
+      dina(436) => N0,
+      dina(435) => N0,
+      dina(434) => N0,
+      dina(433) => N0,
+      dina(432) => N0,
+      dina(431) => N0,
+      dina(430) => N0,
+      dina(429) => N0,
+      dina(428) => N0,
+      dina(427) => N0,
+      dina(426) => N0,
+      dina(425) => N0,
+      dina(424) => N0,
+      dina(423) => N0,
+      dina(422) => N0,
+      dina(421) => N0,
+      dina(420) => N0,
+      dina(419) => N0,
+      dina(418) => N0,
+      dina(417) => N0,
+      dina(416) => N0,
+      dina(415) => N0,
+      dina(414) => N0,
+      dina(413) => N0,
+      dina(412) => N0,
+      dina(411) => N0,
+      dina(410) => N0,
+      dina(409) => N0,
+      dina(408) => N0,
+      dina(407) => N0,
+      dina(406) => N0,
+      dina(405) => N0,
+      dina(404) => N0,
+      dina(403) => N0,
+      dina(402) => N0,
+      dina(401) => N0,
+      dina(400) => N0,
+      dina(399) => N0,
+      dina(398) => N0,
+      dina(397) => N0,
+      dina(396) => N0,
+      dina(395) => N0,
+      dina(394) => N0,
+      dina(393) => N0,
+      dina(392) => N0,
+      dina(391) => N0,
+      dina(390) => N0,
+      dina(389) => N0,
+      dina(388) => N0,
+      dina(387) => N0,
+      dina(386) => N0,
+      dina(385) => N0,
+      dina(384) => N0,
+      dina(383) => N0,
+      dina(382) => N0,
+      dina(381) => N0,
+      dina(380) => N0,
+      dina(379) => N0,
+      dina(378) => N0,
+      dina(377) => N0,
+      dina(376) => N0,
+      dina(375) => N0,
+      dina(374) => N0,
+      dina(373) => N0,
+      dina(372) => N0,
+      dina(371) => N0,
+      dina(370) => N0,
+      dina(369) => N0,
+      dina(368) => N0,
+      dina(367) => N0,
+      dina(366) => N0,
+      dina(365) => N0,
+      dina(364) => N0,
+      dina(363) => N0,
+      dina(362) => N0,
+      dina(361) => N0,
+      dina(360) => N0,
+      dina(359) => N0,
+      dina(358) => N0,
+      dina(357) => N0,
+      dina(356) => N0,
+      dina(355) => N0,
+      dina(354) => N0,
+      dina(353) => N0,
+      dina(352) => N0,
+      dina(351) => N0,
+      dina(350) => N0,
+      dina(349) => N0,
+      dina(348) => N0,
+      dina(347) => N0,
+      dina(346) => N0,
+      dina(345) => N0,
+      dina(344) => N0,
+      dina(343) => N0,
+      dina(342) => N0,
+      dina(341) => N0,
+      dina(340) => N0,
+      dina(339) => N0,
+      dina(338) => N0,
+      dina(337) => N0,
+      dina(336) => N0,
+      dina(335) => N0,
+      dina(334) => N0,
+      dina(333) => N0,
+      dina(332) => N0,
+      dina(331) => N0,
+      dina(330) => N0,
+      dina(329) => N0,
+      dina(328) => N0,
+      dina(327) => N0,
+      dina(326) => N0,
+      dina(325) => N0,
+      dina(324) => N0,
+      dina(323) => N0,
+      dina(322) => N0,
+      dina(321) => N0,
+      dina(320) => N0,
+      dina(319) => N0,
+      dina(318) => N0,
+      dina(317) => N0,
+      dina(316) => N0,
+      dina(315) => N0,
+      dina(314) => N0,
+      dina(313) => N0,
+      dina(312) => N0,
+      dina(311) => N0,
+      dina(310) => N0,
+      dina(309) => N0,
+      dina(308) => N0,
+      dina(307) => N0,
+      dina(306) => N0,
+      dina(305) => N0,
+      dina(304) => N0,
+      dina(303) => N0,
+      dina(302) => N0,
+      dina(301) => N0,
+      dina(300) => N0,
+      dina(299) => N0,
+      dina(298) => N0,
+      dina(297) => N0,
+      dina(296) => N0,
+      dina(295) => N0,
+      dina(294) => N0,
+      dina(293) => N0,
+      dina(292) => N0,
+      dina(291) => N0,
+      dina(290) => N0,
+      dina(289) => N0,
+      dina(288) => N0,
+      dina(287) => N0,
+      dina(286) => N0,
+      dina(285) => N0,
+      dina(284) => N0,
+      dina(283) => N0,
+      dina(282) => N0,
+      dina(281) => N0,
+      dina(280) => N0,
+      dina(279) => N0,
+      dina(278) => N0,
+      dina(277) => N0,
+      dina(276) => N0,
+      dina(275) => N0,
+      dina(274) => N0,
+      dina(273) => N0,
+      dina(272) => N0,
+      dina(271) => N0,
+      dina(270) => N0,
+      dina(269) => N0,
+      dina(268) => N0,
+      dina(267) => N0,
+      dina(266) => N0,
+      dina(265) => N0,
+      dina(264) => N0,
+      dina(263) => N0,
+      dina(262) => N0,
+      dina(261) => N0,
+      dina(260) => N0,
+      dina(259) => N0,
+      dina(258) => N0,
+      dina(257) => N0,
+      dina(256) => N0,
+      dina(255) => N0,
+      dina(254) => N0,
+      dina(253) => N0,
+      dina(252) => N0,
+      dina(251) => N0,
+      dina(250) => N0,
+      dina(249) => N0,
+      dina(248) => N0,
+      dina(247) => N0,
+      dina(246) => N0,
+      dina(245) => N0,
+      dina(244) => N0,
+      dina(243) => N0,
+      dina(242) => N0,
+      dina(241) => N0,
+      dina(240) => N0,
+      dina(239) => N0,
+      dina(238) => N0,
+      dina(237) => N0,
+      dina(236) => N0,
+      dina(235) => N0,
+      dina(234) => N0,
+      dina(233) => N0,
+      dina(232) => N0,
+      dina(231) => N0,
+      dina(230) => N0,
+      dina(229) => N0,
+      dina(228) => N0,
+      dina(227) => N0,
+      dina(226) => N0,
+      dina(225) => N0,
+      dina(224) => N0,
+      dina(223) => N0,
+      dina(222) => N0,
+      dina(221) => N0,
+      dina(220) => N0,
+      dina(219) => N0,
+      dina(218) => N0,
+      dina(217) => N0,
+      dina(216) => N0,
+      dina(215) => N0,
+      dina(214) => N0,
+      dina(213) => N0,
+      dina(212) => N0,
+      dina(211) => N0,
+      dina(210) => N0,
+      dina(209) => N0,
+      dina(208) => N0,
+      dina(207) => N0,
+      dina(206) => N0,
+      dina(205) => N0,
+      dina(204) => N0,
+      dina(203) => N0,
+      dina(202) => N0,
+      dina(201) => N0,
+      dina(200) => N0,
+      dina(199) => N0,
+      dina(198) => N0,
+      dina(197) => N0,
+      dina(196) => N0,
+      dina(195) => N0,
+      dina(194) => N0,
+      dina(193) => N0,
+      dina(192) => N0,
+      dina(191) => N0,
+      dina(190) => N0,
+      dina(189) => N0,
+      dina(188) => N0,
+      dina(187) => N0,
+      dina(186) => N0,
+      dina(185) => N0,
+      dina(184) => N0,
+      dina(183) => N0,
+      dina(182) => N0,
+      dina(181) => N0,
+      dina(180) => N0,
+      dina(179) => N0,
+      dina(178) => N0,
+      dina(177) => N0,
+      dina(176) => N0,
+      dina(175) => N0,
+      dina(174) => N0,
+      dina(173) => N0,
+      dina(172) => N0,
+      dina(171) => N0,
+      dina(170) => N0,
+      dina(169) => N0,
+      dina(168) => N0,
+      dina(167) => N0,
+      dina(166) => N0,
+      dina(165) => N0,
+      dina(164) => N0,
+      dina(163) => N0,
+      dina(162) => N0,
+      dina(161) => N0,
+      dina(160) => N0,
+      dina(159) => N0,
+      dina(158) => N0,
+      dina(157) => N0,
+      dina(156) => N0,
+      dina(155) => N0,
+      dina(154) => N0,
+      dina(153) => N0,
+      dina(152) => N0,
+      dina(151) => N0,
+      dina(150) => N0,
+      dina(149) => N0,
+      dina(148) => N0,
+      dina(147) => N0,
+      dina(146) => N0,
+      dina(145) => N0,
+      dina(144) => N0,
+      dina(143) => N0,
+      dina(142) => N0,
+      dina(141) => N0,
+      dina(140) => N0,
+      dina(139) => N0,
+      dina(138) => N0,
+      dina(137) => N0,
+      dina(136) => N0,
+      dina(135) => N0,
+      dina(134) => N0,
+      dina(133) => N0,
+      dina(132) => N0,
+      dina(131) => N0,
+      dina(130) => N0,
+      dina(129) => N0,
+      dina(128) => N0,
+      dina(127) => N0,
+      dina(126) => N0,
+      dina(125) => N0,
+      dina(124) => N0,
+      dina(123) => N0,
+      dina(122) => N0,
+      dina(121) => N0,
+      dina(120) => N0,
+      dina(119) => N0,
+      dina(118) => N0,
+      dina(117) => N0,
+      dina(116) => N0,
+      dina(115) => N0,
+      dina(114) => N0,
+      dina(113) => N0,
+      dina(112) => N0,
+      dina(111) => N0,
+      dina(110) => N0,
+      dina(109) => N0,
+      dina(108) => N0,
+      dina(107) => N0,
+      dina(106) => N0,
+      dina(105) => N0,
+      dina(104) => N0,
+      dina(103) => N0,
+      dina(102) => N0,
+      dina(101) => N0,
+      dina(100) => N0,
+      dina(99) => N0,
+      dina(98) => N0,
+      dina(97) => N0,
+      dina(96) => N0,
+      dina(95) => N0,
+      dina(94) => N0,
+      dina(93) => N0,
+      dina(92) => N0,
+      dina(91) => N0,
+      dina(90) => N0,
+      dina(89) => N0,
+      dina(88) => N0,
+      dina(87) => N0,
+      dina(86) => N0,
+      dina(85) => N0,
+      dina(84) => N0,
+      dina(83) => N0,
+      dina(82) => N0,
+      dina(81) => N0,
+      dina(80) => N0,
+      dina(79) => N0,
+      dina(78) => N0,
+      dina(77) => N0,
+      dina(76) => N0,
+      dina(75) => N0,
+      dina(74) => N0,
+      dina(73) => N0,
+      dina(72) => N0,
+      dina(71) => N0,
+      dina(70) => N0,
+      dina(69) => N0,
+      dina(68) => N0,
+      dina(67) => N0,
+      dina(66) => N0,
+      dina(65) => N0,
+      dina(64) => N0,
+      dina(63) => N0,
+      dina(62) => N0,
+      dina(61) => N0,
+      dina(60) => N0,
+      dina(59) => N0,
+      dina(58) => N0,
+      dina(57) => N0,
+      dina(56) => N0,
+      dina(55) => N0,
+      dina(54) => N0,
+      dina(53) => N0,
+      dina(52) => N0,
+      dina(51) => N0,
+      dina(50) => N0,
+      dina(49) => N0,
+      dina(48) => N0,
+      dina(47) => N0,
+      dina(46) => N0,
+      dina(45) => N0,
+      dina(44) => N0,
+      dina(43) => N0,
+      dina(42) => N0,
+      dina(41) => N0,
+      dina(40) => N0,
+      dina(39) => N0,
+      dina(38) => N0,
+      dina(37) => N0,
+      dina(36) => N0,
+      dina(35) => N0,
+      dina(34) => N0,
+      dina(33) => N0,
+      dina(32) => N0,
+      dina(31) => N0,
+      dina(30) => N0,
+      dina(29) => N0,
+      dina(28) => N0,
+      dina(27) => N0,
+      dina(26) => N0,
+      dina(25) => N0,
+      dina(24) => N0,
+      dina(23) => N0,
+      dina(22) => N0,
+      dina(21) => N0,
+      dina(20) => N0,
+      dina(19) => N0,
+      dina(18) => N0,
+      dina(17) => N0,
+      dina(16) => N0,
+      dina(15) => N0,
+      dina(14) => N0,
+      dina(13) => N0,
+      dina(12) => N0,
+      dina(11) => N0,
+      dina(10) => N0,
+      dina(9) => N0,
+      dina(8) => N0,
+      dina(7) => N0,
+      dina(6) => N0,
+      dina(5) => N0,
+      dina(4) => N0,
+      dina(3) => N0,
+      dina(2) => N0,
+      dina(1) => N0,
+      dina(0) => N0,
+      douta(639) => NLW_VGA_RAM_douta_639_UNCONNECTED,
+      douta(638) => NLW_VGA_RAM_douta_638_UNCONNECTED,
+      douta(637) => NLW_VGA_RAM_douta_637_UNCONNECTED,
+      douta(636) => NLW_VGA_RAM_douta_636_UNCONNECTED,
+      douta(635) => NLW_VGA_RAM_douta_635_UNCONNECTED,
+      douta(634) => NLW_VGA_RAM_douta_634_UNCONNECTED,
+      douta(633) => NLW_VGA_RAM_douta_633_UNCONNECTED,
+      douta(632) => NLW_VGA_RAM_douta_632_UNCONNECTED,
+      douta(631) => NLW_VGA_RAM_douta_631_UNCONNECTED,
+      douta(630) => NLW_VGA_RAM_douta_630_UNCONNECTED,
+      douta(629) => NLW_VGA_RAM_douta_629_UNCONNECTED,
+      douta(628) => NLW_VGA_RAM_douta_628_UNCONNECTED,
+      douta(627) => NLW_VGA_RAM_douta_627_UNCONNECTED,
+      douta(626) => NLW_VGA_RAM_douta_626_UNCONNECTED,
+      douta(625) => NLW_VGA_RAM_douta_625_UNCONNECTED,
+      douta(624) => NLW_VGA_RAM_douta_624_UNCONNECTED,
+      douta(623) => NLW_VGA_RAM_douta_623_UNCONNECTED,
+      douta(622) => NLW_VGA_RAM_douta_622_UNCONNECTED,
+      douta(621) => NLW_VGA_RAM_douta_621_UNCONNECTED,
+      douta(620) => NLW_VGA_RAM_douta_620_UNCONNECTED,
+      douta(619) => NLW_VGA_RAM_douta_619_UNCONNECTED,
+      douta(618) => NLW_VGA_RAM_douta_618_UNCONNECTED,
+      douta(617) => NLW_VGA_RAM_douta_617_UNCONNECTED,
+      douta(616) => NLW_VGA_RAM_douta_616_UNCONNECTED,
+      douta(615) => NLW_VGA_RAM_douta_615_UNCONNECTED,
+      douta(614) => NLW_VGA_RAM_douta_614_UNCONNECTED,
+      douta(613) => NLW_VGA_RAM_douta_613_UNCONNECTED,
+      douta(612) => NLW_VGA_RAM_douta_612_UNCONNECTED,
+      douta(611) => NLW_VGA_RAM_douta_611_UNCONNECTED,
+      douta(610) => NLW_VGA_RAM_douta_610_UNCONNECTED,
+      douta(609) => NLW_VGA_RAM_douta_609_UNCONNECTED,
+      douta(608) => NLW_VGA_RAM_douta_608_UNCONNECTED,
+      douta(607) => NLW_VGA_RAM_douta_607_UNCONNECTED,
+      douta(606) => NLW_VGA_RAM_douta_606_UNCONNECTED,
+      douta(605) => NLW_VGA_RAM_douta_605_UNCONNECTED,
+      douta(604) => NLW_VGA_RAM_douta_604_UNCONNECTED,
+      douta(603) => NLW_VGA_RAM_douta_603_UNCONNECTED,
+      douta(602) => NLW_VGA_RAM_douta_602_UNCONNECTED,
+      douta(601) => NLW_VGA_RAM_douta_601_UNCONNECTED,
+      douta(600) => NLW_VGA_RAM_douta_600_UNCONNECTED,
+      douta(599) => NLW_VGA_RAM_douta_599_UNCONNECTED,
+      douta(598) => NLW_VGA_RAM_douta_598_UNCONNECTED,
+      douta(597) => NLW_VGA_RAM_douta_597_UNCONNECTED,
+      douta(596) => NLW_VGA_RAM_douta_596_UNCONNECTED,
+      douta(595) => NLW_VGA_RAM_douta_595_UNCONNECTED,
+      douta(594) => NLW_VGA_RAM_douta_594_UNCONNECTED,
+      douta(593) => NLW_VGA_RAM_douta_593_UNCONNECTED,
+      douta(592) => NLW_VGA_RAM_douta_592_UNCONNECTED,
+      douta(591) => NLW_VGA_RAM_douta_591_UNCONNECTED,
+      douta(590) => NLW_VGA_RAM_douta_590_UNCONNECTED,
+      douta(589) => NLW_VGA_RAM_douta_589_UNCONNECTED,
+      douta(588) => NLW_VGA_RAM_douta_588_UNCONNECTED,
+      douta(587) => NLW_VGA_RAM_douta_587_UNCONNECTED,
+      douta(586) => NLW_VGA_RAM_douta_586_UNCONNECTED,
+      douta(585) => NLW_VGA_RAM_douta_585_UNCONNECTED,
+      douta(584) => NLW_VGA_RAM_douta_584_UNCONNECTED,
+      douta(583) => NLW_VGA_RAM_douta_583_UNCONNECTED,
+      douta(582) => NLW_VGA_RAM_douta_582_UNCONNECTED,
+      douta(581) => NLW_VGA_RAM_douta_581_UNCONNECTED,
+      douta(580) => NLW_VGA_RAM_douta_580_UNCONNECTED,
+      douta(579) => NLW_VGA_RAM_douta_579_UNCONNECTED,
+      douta(578) => NLW_VGA_RAM_douta_578_UNCONNECTED,
+      douta(577) => NLW_VGA_RAM_douta_577_UNCONNECTED,
+      douta(576) => NLW_VGA_RAM_douta_576_UNCONNECTED,
+      douta(575) => NLW_VGA_RAM_douta_575_UNCONNECTED,
+      douta(574) => NLW_VGA_RAM_douta_574_UNCONNECTED,
+      douta(573) => NLW_VGA_RAM_douta_573_UNCONNECTED,
+      douta(572) => NLW_VGA_RAM_douta_572_UNCONNECTED,
+      douta(571) => NLW_VGA_RAM_douta_571_UNCONNECTED,
+      douta(570) => NLW_VGA_RAM_douta_570_UNCONNECTED,
+      douta(569) => NLW_VGA_RAM_douta_569_UNCONNECTED,
+      douta(568) => NLW_VGA_RAM_douta_568_UNCONNECTED,
+      douta(567) => NLW_VGA_RAM_douta_567_UNCONNECTED,
+      douta(566) => NLW_VGA_RAM_douta_566_UNCONNECTED,
+      douta(565) => NLW_VGA_RAM_douta_565_UNCONNECTED,
+      douta(564) => NLW_VGA_RAM_douta_564_UNCONNECTED,
+      douta(563) => NLW_VGA_RAM_douta_563_UNCONNECTED,
+      douta(562) => NLW_VGA_RAM_douta_562_UNCONNECTED,
+      douta(561) => NLW_VGA_RAM_douta_561_UNCONNECTED,
+      douta(560) => NLW_VGA_RAM_douta_560_UNCONNECTED,
+      douta(559) => NLW_VGA_RAM_douta_559_UNCONNECTED,
+      douta(558) => NLW_VGA_RAM_douta_558_UNCONNECTED,
+      douta(557) => NLW_VGA_RAM_douta_557_UNCONNECTED,
+      douta(556) => NLW_VGA_RAM_douta_556_UNCONNECTED,
+      douta(555) => NLW_VGA_RAM_douta_555_UNCONNECTED,
+      douta(554) => NLW_VGA_RAM_douta_554_UNCONNECTED,
+      douta(553) => NLW_VGA_RAM_douta_553_UNCONNECTED,
+      douta(552) => NLW_VGA_RAM_douta_552_UNCONNECTED,
+      douta(551) => NLW_VGA_RAM_douta_551_UNCONNECTED,
+      douta(550) => NLW_VGA_RAM_douta_550_UNCONNECTED,
+      douta(549) => NLW_VGA_RAM_douta_549_UNCONNECTED,
+      douta(548) => NLW_VGA_RAM_douta_548_UNCONNECTED,
+      douta(547) => NLW_VGA_RAM_douta_547_UNCONNECTED,
+      douta(546) => NLW_VGA_RAM_douta_546_UNCONNECTED,
+      douta(545) => NLW_VGA_RAM_douta_545_UNCONNECTED,
+      douta(544) => NLW_VGA_RAM_douta_544_UNCONNECTED,
+      douta(543) => NLW_VGA_RAM_douta_543_UNCONNECTED,
+      douta(542) => NLW_VGA_RAM_douta_542_UNCONNECTED,
+      douta(541) => NLW_VGA_RAM_douta_541_UNCONNECTED,
+      douta(540) => NLW_VGA_RAM_douta_540_UNCONNECTED,
+      douta(539) => NLW_VGA_RAM_douta_539_UNCONNECTED,
+      douta(538) => NLW_VGA_RAM_douta_538_UNCONNECTED,
+      douta(537) => NLW_VGA_RAM_douta_537_UNCONNECTED,
+      douta(536) => NLW_VGA_RAM_douta_536_UNCONNECTED,
+      douta(535) => NLW_VGA_RAM_douta_535_UNCONNECTED,
+      douta(534) => NLW_VGA_RAM_douta_534_UNCONNECTED,
+      douta(533) => NLW_VGA_RAM_douta_533_UNCONNECTED,
+      douta(532) => NLW_VGA_RAM_douta_532_UNCONNECTED,
+      douta(531) => NLW_VGA_RAM_douta_531_UNCONNECTED,
+      douta(530) => NLW_VGA_RAM_douta_530_UNCONNECTED,
+      douta(529) => NLW_VGA_RAM_douta_529_UNCONNECTED,
+      douta(528) => NLW_VGA_RAM_douta_528_UNCONNECTED,
+      douta(527) => NLW_VGA_RAM_douta_527_UNCONNECTED,
+      douta(526) => NLW_VGA_RAM_douta_526_UNCONNECTED,
+      douta(525) => NLW_VGA_RAM_douta_525_UNCONNECTED,
+      douta(524) => NLW_VGA_RAM_douta_524_UNCONNECTED,
+      douta(523) => NLW_VGA_RAM_douta_523_UNCONNECTED,
+      douta(522) => NLW_VGA_RAM_douta_522_UNCONNECTED,
+      douta(521) => NLW_VGA_RAM_douta_521_UNCONNECTED,
+      douta(520) => NLW_VGA_RAM_douta_520_UNCONNECTED,
+      douta(519) => NLW_VGA_RAM_douta_519_UNCONNECTED,
+      douta(518) => NLW_VGA_RAM_douta_518_UNCONNECTED,
+      douta(517) => NLW_VGA_RAM_douta_517_UNCONNECTED,
+      douta(516) => NLW_VGA_RAM_douta_516_UNCONNECTED,
+      douta(515) => NLW_VGA_RAM_douta_515_UNCONNECTED,
+      douta(514) => NLW_VGA_RAM_douta_514_UNCONNECTED,
+      douta(513) => NLW_VGA_RAM_douta_513_UNCONNECTED,
+      douta(512) => NLW_VGA_RAM_douta_512_UNCONNECTED,
+      douta(511) => NLW_VGA_RAM_douta_511_UNCONNECTED,
+      douta(510) => NLW_VGA_RAM_douta_510_UNCONNECTED,
+      douta(509) => NLW_VGA_RAM_douta_509_UNCONNECTED,
+      douta(508) => NLW_VGA_RAM_douta_508_UNCONNECTED,
+      douta(507) => NLW_VGA_RAM_douta_507_UNCONNECTED,
+      douta(506) => NLW_VGA_RAM_douta_506_UNCONNECTED,
+      douta(505) => NLW_VGA_RAM_douta_505_UNCONNECTED,
+      douta(504) => NLW_VGA_RAM_douta_504_UNCONNECTED,
+      douta(503) => NLW_VGA_RAM_douta_503_UNCONNECTED,
+      douta(502) => NLW_VGA_RAM_douta_502_UNCONNECTED,
+      douta(501) => NLW_VGA_RAM_douta_501_UNCONNECTED,
+      douta(500) => NLW_VGA_RAM_douta_500_UNCONNECTED,
+      douta(499) => NLW_VGA_RAM_douta_499_UNCONNECTED,
+      douta(498) => NLW_VGA_RAM_douta_498_UNCONNECTED,
+      douta(497) => NLW_VGA_RAM_douta_497_UNCONNECTED,
+      douta(496) => NLW_VGA_RAM_douta_496_UNCONNECTED,
+      douta(495) => NLW_VGA_RAM_douta_495_UNCONNECTED,
+      douta(494) => NLW_VGA_RAM_douta_494_UNCONNECTED,
+      douta(493) => NLW_VGA_RAM_douta_493_UNCONNECTED,
+      douta(492) => NLW_VGA_RAM_douta_492_UNCONNECTED,
+      douta(491) => NLW_VGA_RAM_douta_491_UNCONNECTED,
+      douta(490) => NLW_VGA_RAM_douta_490_UNCONNECTED,
+      douta(489) => NLW_VGA_RAM_douta_489_UNCONNECTED,
+      douta(488) => NLW_VGA_RAM_douta_488_UNCONNECTED,
+      douta(487) => NLW_VGA_RAM_douta_487_UNCONNECTED,
+      douta(486) => NLW_VGA_RAM_douta_486_UNCONNECTED,
+      douta(485) => NLW_VGA_RAM_douta_485_UNCONNECTED,
+      douta(484) => NLW_VGA_RAM_douta_484_UNCONNECTED,
+      douta(483) => NLW_VGA_RAM_douta_483_UNCONNECTED,
+      douta(482) => NLW_VGA_RAM_douta_482_UNCONNECTED,
+      douta(481) => NLW_VGA_RAM_douta_481_UNCONNECTED,
+      douta(480) => NLW_VGA_RAM_douta_480_UNCONNECTED,
+      douta(479) => NLW_VGA_RAM_douta_479_UNCONNECTED,
+      douta(478) => NLW_VGA_RAM_douta_478_UNCONNECTED,
+      douta(477) => NLW_VGA_RAM_douta_477_UNCONNECTED,
+      douta(476) => NLW_VGA_RAM_douta_476_UNCONNECTED,
+      douta(475) => NLW_VGA_RAM_douta_475_UNCONNECTED,
+      douta(474) => NLW_VGA_RAM_douta_474_UNCONNECTED,
+      douta(473) => NLW_VGA_RAM_douta_473_UNCONNECTED,
+      douta(472) => NLW_VGA_RAM_douta_472_UNCONNECTED,
+      douta(471) => NLW_VGA_RAM_douta_471_UNCONNECTED,
+      douta(470) => NLW_VGA_RAM_douta_470_UNCONNECTED,
+      douta(469) => NLW_VGA_RAM_douta_469_UNCONNECTED,
+      douta(468) => NLW_VGA_RAM_douta_468_UNCONNECTED,
+      douta(467) => NLW_VGA_RAM_douta_467_UNCONNECTED,
+      douta(466) => NLW_VGA_RAM_douta_466_UNCONNECTED,
+      douta(465) => NLW_VGA_RAM_douta_465_UNCONNECTED,
+      douta(464) => NLW_VGA_RAM_douta_464_UNCONNECTED,
+      douta(463) => NLW_VGA_RAM_douta_463_UNCONNECTED,
+      douta(462) => NLW_VGA_RAM_douta_462_UNCONNECTED,
+      douta(461) => NLW_VGA_RAM_douta_461_UNCONNECTED,
+      douta(460) => NLW_VGA_RAM_douta_460_UNCONNECTED,
+      douta(459) => NLW_VGA_RAM_douta_459_UNCONNECTED,
+      douta(458) => NLW_VGA_RAM_douta_458_UNCONNECTED,
+      douta(457) => NLW_VGA_RAM_douta_457_UNCONNECTED,
+      douta(456) => NLW_VGA_RAM_douta_456_UNCONNECTED,
+      douta(455) => NLW_VGA_RAM_douta_455_UNCONNECTED,
+      douta(454) => NLW_VGA_RAM_douta_454_UNCONNECTED,
+      douta(453) => NLW_VGA_RAM_douta_453_UNCONNECTED,
+      douta(452) => NLW_VGA_RAM_douta_452_UNCONNECTED,
+      douta(451) => NLW_VGA_RAM_douta_451_UNCONNECTED,
+      douta(450) => NLW_VGA_RAM_douta_450_UNCONNECTED,
+      douta(449) => NLW_VGA_RAM_douta_449_UNCONNECTED,
+      douta(448) => NLW_VGA_RAM_douta_448_UNCONNECTED,
+      douta(447) => NLW_VGA_RAM_douta_447_UNCONNECTED,
+      douta(446) => NLW_VGA_RAM_douta_446_UNCONNECTED,
+      douta(445) => NLW_VGA_RAM_douta_445_UNCONNECTED,
+      douta(444) => NLW_VGA_RAM_douta_444_UNCONNECTED,
+      douta(443) => NLW_VGA_RAM_douta_443_UNCONNECTED,
+      douta(442) => NLW_VGA_RAM_douta_442_UNCONNECTED,
+      douta(441) => NLW_VGA_RAM_douta_441_UNCONNECTED,
+      douta(440) => NLW_VGA_RAM_douta_440_UNCONNECTED,
+      douta(439) => NLW_VGA_RAM_douta_439_UNCONNECTED,
+      douta(438) => NLW_VGA_RAM_douta_438_UNCONNECTED,
+      douta(437) => NLW_VGA_RAM_douta_437_UNCONNECTED,
+      douta(436) => NLW_VGA_RAM_douta_436_UNCONNECTED,
+      douta(435) => NLW_VGA_RAM_douta_435_UNCONNECTED,
+      douta(434) => NLW_VGA_RAM_douta_434_UNCONNECTED,
+      douta(433) => NLW_VGA_RAM_douta_433_UNCONNECTED,
+      douta(432) => NLW_VGA_RAM_douta_432_UNCONNECTED,
+      douta(431) => NLW_VGA_RAM_douta_431_UNCONNECTED,
+      douta(430) => NLW_VGA_RAM_douta_430_UNCONNECTED,
+      douta(429) => NLW_VGA_RAM_douta_429_UNCONNECTED,
+      douta(428) => NLW_VGA_RAM_douta_428_UNCONNECTED,
+      douta(427) => NLW_VGA_RAM_douta_427_UNCONNECTED,
+      douta(426) => NLW_VGA_RAM_douta_426_UNCONNECTED,
+      douta(425) => NLW_VGA_RAM_douta_425_UNCONNECTED,
+      douta(424) => NLW_VGA_RAM_douta_424_UNCONNECTED,
+      douta(423) => NLW_VGA_RAM_douta_423_UNCONNECTED,
+      douta(422) => NLW_VGA_RAM_douta_422_UNCONNECTED,
+      douta(421) => NLW_VGA_RAM_douta_421_UNCONNECTED,
+      douta(420) => NLW_VGA_RAM_douta_420_UNCONNECTED,
+      douta(419) => NLW_VGA_RAM_douta_419_UNCONNECTED,
+      douta(418) => NLW_VGA_RAM_douta_418_UNCONNECTED,
+      douta(417) => NLW_VGA_RAM_douta_417_UNCONNECTED,
+      douta(416) => NLW_VGA_RAM_douta_416_UNCONNECTED,
+      douta(415) => NLW_VGA_RAM_douta_415_UNCONNECTED,
+      douta(414) => NLW_VGA_RAM_douta_414_UNCONNECTED,
+      douta(413) => NLW_VGA_RAM_douta_413_UNCONNECTED,
+      douta(412) => NLW_VGA_RAM_douta_412_UNCONNECTED,
+      douta(411) => NLW_VGA_RAM_douta_411_UNCONNECTED,
+      douta(410) => NLW_VGA_RAM_douta_410_UNCONNECTED,
+      douta(409) => NLW_VGA_RAM_douta_409_UNCONNECTED,
+      douta(408) => NLW_VGA_RAM_douta_408_UNCONNECTED,
+      douta(407) => NLW_VGA_RAM_douta_407_UNCONNECTED,
+      douta(406) => NLW_VGA_RAM_douta_406_UNCONNECTED,
+      douta(405) => NLW_VGA_RAM_douta_405_UNCONNECTED,
+      douta(404) => NLW_VGA_RAM_douta_404_UNCONNECTED,
+      douta(403) => NLW_VGA_RAM_douta_403_UNCONNECTED,
+      douta(402) => NLW_VGA_RAM_douta_402_UNCONNECTED,
+      douta(401) => NLW_VGA_RAM_douta_401_UNCONNECTED,
+      douta(400) => NLW_VGA_RAM_douta_400_UNCONNECTED,
+      douta(399) => NLW_VGA_RAM_douta_399_UNCONNECTED,
+      douta(398) => NLW_VGA_RAM_douta_398_UNCONNECTED,
+      douta(397) => NLW_VGA_RAM_douta_397_UNCONNECTED,
+      douta(396) => NLW_VGA_RAM_douta_396_UNCONNECTED,
+      douta(395) => NLW_VGA_RAM_douta_395_UNCONNECTED,
+      douta(394) => NLW_VGA_RAM_douta_394_UNCONNECTED,
+      douta(393) => NLW_VGA_RAM_douta_393_UNCONNECTED,
+      douta(392) => NLW_VGA_RAM_douta_392_UNCONNECTED,
+      douta(391) => NLW_VGA_RAM_douta_391_UNCONNECTED,
+      douta(390) => NLW_VGA_RAM_douta_390_UNCONNECTED,
+      douta(389) => NLW_VGA_RAM_douta_389_UNCONNECTED,
+      douta(388) => NLW_VGA_RAM_douta_388_UNCONNECTED,
+      douta(387) => NLW_VGA_RAM_douta_387_UNCONNECTED,
+      douta(386) => NLW_VGA_RAM_douta_386_UNCONNECTED,
+      douta(385) => NLW_VGA_RAM_douta_385_UNCONNECTED,
+      douta(384) => NLW_VGA_RAM_douta_384_UNCONNECTED,
+      douta(383) => NLW_VGA_RAM_douta_383_UNCONNECTED,
+      douta(382) => NLW_VGA_RAM_douta_382_UNCONNECTED,
+      douta(381) => NLW_VGA_RAM_douta_381_UNCONNECTED,
+      douta(380) => NLW_VGA_RAM_douta_380_UNCONNECTED,
+      douta(379) => NLW_VGA_RAM_douta_379_UNCONNECTED,
+      douta(378) => NLW_VGA_RAM_douta_378_UNCONNECTED,
+      douta(377) => NLW_VGA_RAM_douta_377_UNCONNECTED,
+      douta(376) => NLW_VGA_RAM_douta_376_UNCONNECTED,
+      douta(375) => NLW_VGA_RAM_douta_375_UNCONNECTED,
+      douta(374) => NLW_VGA_RAM_douta_374_UNCONNECTED,
+      douta(373) => NLW_VGA_RAM_douta_373_UNCONNECTED,
+      douta(372) => NLW_VGA_RAM_douta_372_UNCONNECTED,
+      douta(371) => NLW_VGA_RAM_douta_371_UNCONNECTED,
+      douta(370) => NLW_VGA_RAM_douta_370_UNCONNECTED,
+      douta(369) => NLW_VGA_RAM_douta_369_UNCONNECTED,
+      douta(368) => NLW_VGA_RAM_douta_368_UNCONNECTED,
+      douta(367) => NLW_VGA_RAM_douta_367_UNCONNECTED,
+      douta(366) => NLW_VGA_RAM_douta_366_UNCONNECTED,
+      douta(365) => NLW_VGA_RAM_douta_365_UNCONNECTED,
+      douta(364) => NLW_VGA_RAM_douta_364_UNCONNECTED,
+      douta(363) => NLW_VGA_RAM_douta_363_UNCONNECTED,
+      douta(362) => NLW_VGA_RAM_douta_362_UNCONNECTED,
+      douta(361) => NLW_VGA_RAM_douta_361_UNCONNECTED,
+      douta(360) => NLW_VGA_RAM_douta_360_UNCONNECTED,
+      douta(359) => NLW_VGA_RAM_douta_359_UNCONNECTED,
+      douta(358) => NLW_VGA_RAM_douta_358_UNCONNECTED,
+      douta(357) => NLW_VGA_RAM_douta_357_UNCONNECTED,
+      douta(356) => NLW_VGA_RAM_douta_356_UNCONNECTED,
+      douta(355) => NLW_VGA_RAM_douta_355_UNCONNECTED,
+      douta(354) => NLW_VGA_RAM_douta_354_UNCONNECTED,
+      douta(353) => NLW_VGA_RAM_douta_353_UNCONNECTED,
+      douta(352) => NLW_VGA_RAM_douta_352_UNCONNECTED,
+      douta(351) => NLW_VGA_RAM_douta_351_UNCONNECTED,
+      douta(350) => NLW_VGA_RAM_douta_350_UNCONNECTED,
+      douta(349) => NLW_VGA_RAM_douta_349_UNCONNECTED,
+      douta(348) => NLW_VGA_RAM_douta_348_UNCONNECTED,
+      douta(347) => NLW_VGA_RAM_douta_347_UNCONNECTED,
+      douta(346) => NLW_VGA_RAM_douta_346_UNCONNECTED,
+      douta(345) => NLW_VGA_RAM_douta_345_UNCONNECTED,
+      douta(344) => NLW_VGA_RAM_douta_344_UNCONNECTED,
+      douta(343) => NLW_VGA_RAM_douta_343_UNCONNECTED,
+      douta(342) => NLW_VGA_RAM_douta_342_UNCONNECTED,
+      douta(341) => NLW_VGA_RAM_douta_341_UNCONNECTED,
+      douta(340) => NLW_VGA_RAM_douta_340_UNCONNECTED,
+      douta(339) => NLW_VGA_RAM_douta_339_UNCONNECTED,
+      douta(338) => NLW_VGA_RAM_douta_338_UNCONNECTED,
+      douta(337) => NLW_VGA_RAM_douta_337_UNCONNECTED,
+      douta(336) => NLW_VGA_RAM_douta_336_UNCONNECTED,
+      douta(335) => NLW_VGA_RAM_douta_335_UNCONNECTED,
+      douta(334) => NLW_VGA_RAM_douta_334_UNCONNECTED,
+      douta(333) => NLW_VGA_RAM_douta_333_UNCONNECTED,
+      douta(332) => NLW_VGA_RAM_douta_332_UNCONNECTED,
+      douta(331) => NLW_VGA_RAM_douta_331_UNCONNECTED,
+      douta(330) => NLW_VGA_RAM_douta_330_UNCONNECTED,
+      douta(329) => NLW_VGA_RAM_douta_329_UNCONNECTED,
+      douta(328) => NLW_VGA_RAM_douta_328_UNCONNECTED,
+      douta(327) => NLW_VGA_RAM_douta_327_UNCONNECTED,
+      douta(326) => NLW_VGA_RAM_douta_326_UNCONNECTED,
+      douta(325) => NLW_VGA_RAM_douta_325_UNCONNECTED,
+      douta(324) => NLW_VGA_RAM_douta_324_UNCONNECTED,
+      douta(323) => NLW_VGA_RAM_douta_323_UNCONNECTED,
+      douta(322) => NLW_VGA_RAM_douta_322_UNCONNECTED,
+      douta(321) => NLW_VGA_RAM_douta_321_UNCONNECTED,
+      douta(320) => NLW_VGA_RAM_douta_320_UNCONNECTED,
+      douta(319) => NLW_VGA_RAM_douta_319_UNCONNECTED,
+      douta(318) => NLW_VGA_RAM_douta_318_UNCONNECTED,
+      douta(317) => NLW_VGA_RAM_douta_317_UNCONNECTED,
+      douta(316) => NLW_VGA_RAM_douta_316_UNCONNECTED,
+      douta(315) => NLW_VGA_RAM_douta_315_UNCONNECTED,
+      douta(314) => NLW_VGA_RAM_douta_314_UNCONNECTED,
+      douta(313) => NLW_VGA_RAM_douta_313_UNCONNECTED,
+      douta(312) => NLW_VGA_RAM_douta_312_UNCONNECTED,
+      douta(311) => NLW_VGA_RAM_douta_311_UNCONNECTED,
+      douta(310) => NLW_VGA_RAM_douta_310_UNCONNECTED,
+      douta(309) => NLW_VGA_RAM_douta_309_UNCONNECTED,
+      douta(308) => NLW_VGA_RAM_douta_308_UNCONNECTED,
+      douta(307) => NLW_VGA_RAM_douta_307_UNCONNECTED,
+      douta(306) => NLW_VGA_RAM_douta_306_UNCONNECTED,
+      douta(305) => NLW_VGA_RAM_douta_305_UNCONNECTED,
+      douta(304) => NLW_VGA_RAM_douta_304_UNCONNECTED,
+      douta(303) => NLW_VGA_RAM_douta_303_UNCONNECTED,
+      douta(302) => NLW_VGA_RAM_douta_302_UNCONNECTED,
+      douta(301) => NLW_VGA_RAM_douta_301_UNCONNECTED,
+      douta(300) => NLW_VGA_RAM_douta_300_UNCONNECTED,
+      douta(299) => NLW_VGA_RAM_douta_299_UNCONNECTED,
+      douta(298) => NLW_VGA_RAM_douta_298_UNCONNECTED,
+      douta(297) => NLW_VGA_RAM_douta_297_UNCONNECTED,
+      douta(296) => NLW_VGA_RAM_douta_296_UNCONNECTED,
+      douta(295) => NLW_VGA_RAM_douta_295_UNCONNECTED,
+      douta(294) => NLW_VGA_RAM_douta_294_UNCONNECTED,
+      douta(293) => NLW_VGA_RAM_douta_293_UNCONNECTED,
+      douta(292) => NLW_VGA_RAM_douta_292_UNCONNECTED,
+      douta(291) => NLW_VGA_RAM_douta_291_UNCONNECTED,
+      douta(290) => NLW_VGA_RAM_douta_290_UNCONNECTED,
+      douta(289) => NLW_VGA_RAM_douta_289_UNCONNECTED,
+      douta(288) => NLW_VGA_RAM_douta_288_UNCONNECTED,
+      douta(287) => NLW_VGA_RAM_douta_287_UNCONNECTED,
+      douta(286) => NLW_VGA_RAM_douta_286_UNCONNECTED,
+      douta(285) => NLW_VGA_RAM_douta_285_UNCONNECTED,
+      douta(284) => NLW_VGA_RAM_douta_284_UNCONNECTED,
+      douta(283) => NLW_VGA_RAM_douta_283_UNCONNECTED,
+      douta(282) => NLW_VGA_RAM_douta_282_UNCONNECTED,
+      douta(281) => NLW_VGA_RAM_douta_281_UNCONNECTED,
+      douta(280) => NLW_VGA_RAM_douta_280_UNCONNECTED,
+      douta(279) => NLW_VGA_RAM_douta_279_UNCONNECTED,
+      douta(278) => NLW_VGA_RAM_douta_278_UNCONNECTED,
+      douta(277) => NLW_VGA_RAM_douta_277_UNCONNECTED,
+      douta(276) => NLW_VGA_RAM_douta_276_UNCONNECTED,
+      douta(275) => NLW_VGA_RAM_douta_275_UNCONNECTED,
+      douta(274) => NLW_VGA_RAM_douta_274_UNCONNECTED,
+      douta(273) => NLW_VGA_RAM_douta_273_UNCONNECTED,
+      douta(272) => NLW_VGA_RAM_douta_272_UNCONNECTED,
+      douta(271) => NLW_VGA_RAM_douta_271_UNCONNECTED,
+      douta(270) => NLW_VGA_RAM_douta_270_UNCONNECTED,
+      douta(269) => NLW_VGA_RAM_douta_269_UNCONNECTED,
+      douta(268) => NLW_VGA_RAM_douta_268_UNCONNECTED,
+      douta(267) => NLW_VGA_RAM_douta_267_UNCONNECTED,
+      douta(266) => NLW_VGA_RAM_douta_266_UNCONNECTED,
+      douta(265) => NLW_VGA_RAM_douta_265_UNCONNECTED,
+      douta(264) => NLW_VGA_RAM_douta_264_UNCONNECTED,
+      douta(263) => NLW_VGA_RAM_douta_263_UNCONNECTED,
+      douta(262) => NLW_VGA_RAM_douta_262_UNCONNECTED,
+      douta(261) => NLW_VGA_RAM_douta_261_UNCONNECTED,
+      douta(260) => NLW_VGA_RAM_douta_260_UNCONNECTED,
+      douta(259) => NLW_VGA_RAM_douta_259_UNCONNECTED,
+      douta(258) => NLW_VGA_RAM_douta_258_UNCONNECTED,
+      douta(257) => NLW_VGA_RAM_douta_257_UNCONNECTED,
+      douta(256) => NLW_VGA_RAM_douta_256_UNCONNECTED,
+      douta(255) => NLW_VGA_RAM_douta_255_UNCONNECTED,
+      douta(254) => NLW_VGA_RAM_douta_254_UNCONNECTED,
+      douta(253) => NLW_VGA_RAM_douta_253_UNCONNECTED,
+      douta(252) => NLW_VGA_RAM_douta_252_UNCONNECTED,
+      douta(251) => NLW_VGA_RAM_douta_251_UNCONNECTED,
+      douta(250) => NLW_VGA_RAM_douta_250_UNCONNECTED,
+      douta(249) => NLW_VGA_RAM_douta_249_UNCONNECTED,
+      douta(248) => NLW_VGA_RAM_douta_248_UNCONNECTED,
+      douta(247) => NLW_VGA_RAM_douta_247_UNCONNECTED,
+      douta(246) => NLW_VGA_RAM_douta_246_UNCONNECTED,
+      douta(245) => NLW_VGA_RAM_douta_245_UNCONNECTED,
+      douta(244) => NLW_VGA_RAM_douta_244_UNCONNECTED,
+      douta(243) => NLW_VGA_RAM_douta_243_UNCONNECTED,
+      douta(242) => NLW_VGA_RAM_douta_242_UNCONNECTED,
+      douta(241) => NLW_VGA_RAM_douta_241_UNCONNECTED,
+      douta(240) => NLW_VGA_RAM_douta_240_UNCONNECTED,
+      douta(239) => NLW_VGA_RAM_douta_239_UNCONNECTED,
+      douta(238) => NLW_VGA_RAM_douta_238_UNCONNECTED,
+      douta(237) => NLW_VGA_RAM_douta_237_UNCONNECTED,
+      douta(236) => NLW_VGA_RAM_douta_236_UNCONNECTED,
+      douta(235) => NLW_VGA_RAM_douta_235_UNCONNECTED,
+      douta(234) => NLW_VGA_RAM_douta_234_UNCONNECTED,
+      douta(233) => NLW_VGA_RAM_douta_233_UNCONNECTED,
+      douta(232) => NLW_VGA_RAM_douta_232_UNCONNECTED,
+      douta(231) => NLW_VGA_RAM_douta_231_UNCONNECTED,
+      douta(230) => NLW_VGA_RAM_douta_230_UNCONNECTED,
+      douta(229) => NLW_VGA_RAM_douta_229_UNCONNECTED,
+      douta(228) => NLW_VGA_RAM_douta_228_UNCONNECTED,
+      douta(227) => NLW_VGA_RAM_douta_227_UNCONNECTED,
+      douta(226) => NLW_VGA_RAM_douta_226_UNCONNECTED,
+      douta(225) => NLW_VGA_RAM_douta_225_UNCONNECTED,
+      douta(224) => NLW_VGA_RAM_douta_224_UNCONNECTED,
+      douta(223) => NLW_VGA_RAM_douta_223_UNCONNECTED,
+      douta(222) => NLW_VGA_RAM_douta_222_UNCONNECTED,
+      douta(221) => NLW_VGA_RAM_douta_221_UNCONNECTED,
+      douta(220) => NLW_VGA_RAM_douta_220_UNCONNECTED,
+      douta(219) => NLW_VGA_RAM_douta_219_UNCONNECTED,
+      douta(218) => NLW_VGA_RAM_douta_218_UNCONNECTED,
+      douta(217) => NLW_VGA_RAM_douta_217_UNCONNECTED,
+      douta(216) => NLW_VGA_RAM_douta_216_UNCONNECTED,
+      douta(215) => NLW_VGA_RAM_douta_215_UNCONNECTED,
+      douta(214) => NLW_VGA_RAM_douta_214_UNCONNECTED,
+      douta(213) => NLW_VGA_RAM_douta_213_UNCONNECTED,
+      douta(212) => NLW_VGA_RAM_douta_212_UNCONNECTED,
+      douta(211) => NLW_VGA_RAM_douta_211_UNCONNECTED,
+      douta(210) => NLW_VGA_RAM_douta_210_UNCONNECTED,
+      douta(209) => NLW_VGA_RAM_douta_209_UNCONNECTED,
+      douta(208) => NLW_VGA_RAM_douta_208_UNCONNECTED,
+      douta(207) => NLW_VGA_RAM_douta_207_UNCONNECTED,
+      douta(206) => NLW_VGA_RAM_douta_206_UNCONNECTED,
+      douta(205) => NLW_VGA_RAM_douta_205_UNCONNECTED,
+      douta(204) => NLW_VGA_RAM_douta_204_UNCONNECTED,
+      douta(203) => NLW_VGA_RAM_douta_203_UNCONNECTED,
+      douta(202) => NLW_VGA_RAM_douta_202_UNCONNECTED,
+      douta(201) => NLW_VGA_RAM_douta_201_UNCONNECTED,
+      douta(200) => NLW_VGA_RAM_douta_200_UNCONNECTED,
+      douta(199) => NLW_VGA_RAM_douta_199_UNCONNECTED,
+      douta(198) => NLW_VGA_RAM_douta_198_UNCONNECTED,
+      douta(197) => NLW_VGA_RAM_douta_197_UNCONNECTED,
+      douta(196) => NLW_VGA_RAM_douta_196_UNCONNECTED,
+      douta(195) => NLW_VGA_RAM_douta_195_UNCONNECTED,
+      douta(194) => NLW_VGA_RAM_douta_194_UNCONNECTED,
+      douta(193) => NLW_VGA_RAM_douta_193_UNCONNECTED,
+      douta(192) => NLW_VGA_RAM_douta_192_UNCONNECTED,
+      douta(191) => NLW_VGA_RAM_douta_191_UNCONNECTED,
+      douta(190) => NLW_VGA_RAM_douta_190_UNCONNECTED,
+      douta(189) => NLW_VGA_RAM_douta_189_UNCONNECTED,
+      douta(188) => NLW_VGA_RAM_douta_188_UNCONNECTED,
+      douta(187) => NLW_VGA_RAM_douta_187_UNCONNECTED,
+      douta(186) => NLW_VGA_RAM_douta_186_UNCONNECTED,
+      douta(185) => NLW_VGA_RAM_douta_185_UNCONNECTED,
+      douta(184) => NLW_VGA_RAM_douta_184_UNCONNECTED,
+      douta(183) => NLW_VGA_RAM_douta_183_UNCONNECTED,
+      douta(182) => NLW_VGA_RAM_douta_182_UNCONNECTED,
+      douta(181) => NLW_VGA_RAM_douta_181_UNCONNECTED,
+      douta(180) => NLW_VGA_RAM_douta_180_UNCONNECTED,
+      douta(179) => NLW_VGA_RAM_douta_179_UNCONNECTED,
+      douta(178) => NLW_VGA_RAM_douta_178_UNCONNECTED,
+      douta(177) => NLW_VGA_RAM_douta_177_UNCONNECTED,
+      douta(176) => NLW_VGA_RAM_douta_176_UNCONNECTED,
+      douta(175) => NLW_VGA_RAM_douta_175_UNCONNECTED,
+      douta(174) => NLW_VGA_RAM_douta_174_UNCONNECTED,
+      douta(173) => NLW_VGA_RAM_douta_173_UNCONNECTED,
+      douta(172) => NLW_VGA_RAM_douta_172_UNCONNECTED,
+      douta(171) => NLW_VGA_RAM_douta_171_UNCONNECTED,
+      douta(170) => NLW_VGA_RAM_douta_170_UNCONNECTED,
+      douta(169) => NLW_VGA_RAM_douta_169_UNCONNECTED,
+      douta(168) => NLW_VGA_RAM_douta_168_UNCONNECTED,
+      douta(167) => NLW_VGA_RAM_douta_167_UNCONNECTED,
+      douta(166) => NLW_VGA_RAM_douta_166_UNCONNECTED,
+      douta(165) => NLW_VGA_RAM_douta_165_UNCONNECTED,
+      douta(164) => NLW_VGA_RAM_douta_164_UNCONNECTED,
+      douta(163) => NLW_VGA_RAM_douta_163_UNCONNECTED,
+      douta(162) => NLW_VGA_RAM_douta_162_UNCONNECTED,
+      douta(161) => NLW_VGA_RAM_douta_161_UNCONNECTED,
+      douta(160) => NLW_VGA_RAM_douta_160_UNCONNECTED,
+      douta(159) => NLW_VGA_RAM_douta_159_UNCONNECTED,
+      douta(158) => NLW_VGA_RAM_douta_158_UNCONNECTED,
+      douta(157) => NLW_VGA_RAM_douta_157_UNCONNECTED,
+      douta(156) => NLW_VGA_RAM_douta_156_UNCONNECTED,
+      douta(155) => NLW_VGA_RAM_douta_155_UNCONNECTED,
+      douta(154) => NLW_VGA_RAM_douta_154_UNCONNECTED,
+      douta(153) => NLW_VGA_RAM_douta_153_UNCONNECTED,
+      douta(152) => NLW_VGA_RAM_douta_152_UNCONNECTED,
+      douta(151) => NLW_VGA_RAM_douta_151_UNCONNECTED,
+      douta(150) => NLW_VGA_RAM_douta_150_UNCONNECTED,
+      douta(149) => NLW_VGA_RAM_douta_149_UNCONNECTED,
+      douta(148) => NLW_VGA_RAM_douta_148_UNCONNECTED,
+      douta(147) => NLW_VGA_RAM_douta_147_UNCONNECTED,
+      douta(146) => NLW_VGA_RAM_douta_146_UNCONNECTED,
+      douta(145) => NLW_VGA_RAM_douta_145_UNCONNECTED,
+      douta(144) => NLW_VGA_RAM_douta_144_UNCONNECTED,
+      douta(143) => NLW_VGA_RAM_douta_143_UNCONNECTED,
+      douta(142) => NLW_VGA_RAM_douta_142_UNCONNECTED,
+      douta(141) => NLW_VGA_RAM_douta_141_UNCONNECTED,
+      douta(140) => NLW_VGA_RAM_douta_140_UNCONNECTED,
+      douta(139) => NLW_VGA_RAM_douta_139_UNCONNECTED,
+      douta(138) => NLW_VGA_RAM_douta_138_UNCONNECTED,
+      douta(137) => NLW_VGA_RAM_douta_137_UNCONNECTED,
+      douta(136) => NLW_VGA_RAM_douta_136_UNCONNECTED,
+      douta(135) => NLW_VGA_RAM_douta_135_UNCONNECTED,
+      douta(134) => NLW_VGA_RAM_douta_134_UNCONNECTED,
+      douta(133) => NLW_VGA_RAM_douta_133_UNCONNECTED,
+      douta(132) => NLW_VGA_RAM_douta_132_UNCONNECTED,
+      douta(131) => NLW_VGA_RAM_douta_131_UNCONNECTED,
+      douta(130) => NLW_VGA_RAM_douta_130_UNCONNECTED,
+      douta(129) => NLW_VGA_RAM_douta_129_UNCONNECTED,
+      douta(128) => NLW_VGA_RAM_douta_128_UNCONNECTED,
+      douta(127) => NLW_VGA_RAM_douta_127_UNCONNECTED,
+      douta(126) => NLW_VGA_RAM_douta_126_UNCONNECTED,
+      douta(125) => NLW_VGA_RAM_douta_125_UNCONNECTED,
+      douta(124) => NLW_VGA_RAM_douta_124_UNCONNECTED,
+      douta(123) => NLW_VGA_RAM_douta_123_UNCONNECTED,
+      douta(122) => NLW_VGA_RAM_douta_122_UNCONNECTED,
+      douta(121) => NLW_VGA_RAM_douta_121_UNCONNECTED,
+      douta(120) => NLW_VGA_RAM_douta_120_UNCONNECTED,
+      douta(119) => NLW_VGA_RAM_douta_119_UNCONNECTED,
+      douta(118) => NLW_VGA_RAM_douta_118_UNCONNECTED,
+      douta(117) => NLW_VGA_RAM_douta_117_UNCONNECTED,
+      douta(116) => NLW_VGA_RAM_douta_116_UNCONNECTED,
+      douta(115) => NLW_VGA_RAM_douta_115_UNCONNECTED,
+      douta(114) => NLW_VGA_RAM_douta_114_UNCONNECTED,
+      douta(113) => NLW_VGA_RAM_douta_113_UNCONNECTED,
+      douta(112) => NLW_VGA_RAM_douta_112_UNCONNECTED,
+      douta(111) => NLW_VGA_RAM_douta_111_UNCONNECTED,
+      douta(110) => NLW_VGA_RAM_douta_110_UNCONNECTED,
+      douta(109) => NLW_VGA_RAM_douta_109_UNCONNECTED,
+      douta(108) => NLW_VGA_RAM_douta_108_UNCONNECTED,
+      douta(107) => NLW_VGA_RAM_douta_107_UNCONNECTED,
+      douta(106) => NLW_VGA_RAM_douta_106_UNCONNECTED,
+      douta(105) => NLW_VGA_RAM_douta_105_UNCONNECTED,
+      douta(104) => NLW_VGA_RAM_douta_104_UNCONNECTED,
+      douta(103) => NLW_VGA_RAM_douta_103_UNCONNECTED,
+      douta(102) => NLW_VGA_RAM_douta_102_UNCONNECTED,
+      douta(101) => NLW_VGA_RAM_douta_101_UNCONNECTED,
+      douta(100) => NLW_VGA_RAM_douta_100_UNCONNECTED,
+      douta(99) => NLW_VGA_RAM_douta_99_UNCONNECTED,
+      douta(98) => NLW_VGA_RAM_douta_98_UNCONNECTED,
+      douta(97) => NLW_VGA_RAM_douta_97_UNCONNECTED,
+      douta(96) => NLW_VGA_RAM_douta_96_UNCONNECTED,
+      douta(95) => NLW_VGA_RAM_douta_95_UNCONNECTED,
+      douta(94) => NLW_VGA_RAM_douta_94_UNCONNECTED,
+      douta(93) => NLW_VGA_RAM_douta_93_UNCONNECTED,
+      douta(92) => NLW_VGA_RAM_douta_92_UNCONNECTED,
+      douta(91) => NLW_VGA_RAM_douta_91_UNCONNECTED,
+      douta(90) => NLW_VGA_RAM_douta_90_UNCONNECTED,
+      douta(89) => NLW_VGA_RAM_douta_89_UNCONNECTED,
+      douta(88) => NLW_VGA_RAM_douta_88_UNCONNECTED,
+      douta(87) => NLW_VGA_RAM_douta_87_UNCONNECTED,
+      douta(86) => NLW_VGA_RAM_douta_86_UNCONNECTED,
+      douta(85) => NLW_VGA_RAM_douta_85_UNCONNECTED,
+      douta(84) => NLW_VGA_RAM_douta_84_UNCONNECTED,
+      douta(83) => NLW_VGA_RAM_douta_83_UNCONNECTED,
+      douta(82) => NLW_VGA_RAM_douta_82_UNCONNECTED,
+      douta(81) => NLW_VGA_RAM_douta_81_UNCONNECTED,
+      douta(80) => NLW_VGA_RAM_douta_80_UNCONNECTED,
+      douta(79) => NLW_VGA_RAM_douta_79_UNCONNECTED,
+      douta(78) => NLW_VGA_RAM_douta_78_UNCONNECTED,
+      douta(77) => NLW_VGA_RAM_douta_77_UNCONNECTED,
+      douta(76) => NLW_VGA_RAM_douta_76_UNCONNECTED,
+      douta(75) => NLW_VGA_RAM_douta_75_UNCONNECTED,
+      douta(74) => NLW_VGA_RAM_douta_74_UNCONNECTED,
+      douta(73) => NLW_VGA_RAM_douta_73_UNCONNECTED,
+      douta(72) => NLW_VGA_RAM_douta_72_UNCONNECTED,
+      douta(71) => NLW_VGA_RAM_douta_71_UNCONNECTED,
+      douta(70) => NLW_VGA_RAM_douta_70_UNCONNECTED,
+      douta(69) => NLW_VGA_RAM_douta_69_UNCONNECTED,
+      douta(68) => NLW_VGA_RAM_douta_68_UNCONNECTED,
+      douta(67) => NLW_VGA_RAM_douta_67_UNCONNECTED,
+      douta(66) => NLW_VGA_RAM_douta_66_UNCONNECTED,
+      douta(65) => NLW_VGA_RAM_douta_65_UNCONNECTED,
+      douta(64) => NLW_VGA_RAM_douta_64_UNCONNECTED,
+      douta(63) => NLW_VGA_RAM_douta_63_UNCONNECTED,
+      douta(62) => NLW_VGA_RAM_douta_62_UNCONNECTED,
+      douta(61) => NLW_VGA_RAM_douta_61_UNCONNECTED,
+      douta(60) => NLW_VGA_RAM_douta_60_UNCONNECTED,
+      douta(59) => NLW_VGA_RAM_douta_59_UNCONNECTED,
+      douta(58) => NLW_VGA_RAM_douta_58_UNCONNECTED,
+      douta(57) => NLW_VGA_RAM_douta_57_UNCONNECTED,
+      douta(56) => NLW_VGA_RAM_douta_56_UNCONNECTED,
+      douta(55) => NLW_VGA_RAM_douta_55_UNCONNECTED,
+      douta(54) => NLW_VGA_RAM_douta_54_UNCONNECTED,
+      douta(53) => NLW_VGA_RAM_douta_53_UNCONNECTED,
+      douta(52) => NLW_VGA_RAM_douta_52_UNCONNECTED,
+      douta(51) => NLW_VGA_RAM_douta_51_UNCONNECTED,
+      douta(50) => NLW_VGA_RAM_douta_50_UNCONNECTED,
+      douta(49) => NLW_VGA_RAM_douta_49_UNCONNECTED,
+      douta(48) => NLW_VGA_RAM_douta_48_UNCONNECTED,
+      douta(47) => NLW_VGA_RAM_douta_47_UNCONNECTED,
+      douta(46) => NLW_VGA_RAM_douta_46_UNCONNECTED,
+      douta(45) => NLW_VGA_RAM_douta_45_UNCONNECTED,
+      douta(44) => NLW_VGA_RAM_douta_44_UNCONNECTED,
+      douta(43) => NLW_VGA_RAM_douta_43_UNCONNECTED,
+      douta(42) => NLW_VGA_RAM_douta_42_UNCONNECTED,
+      douta(41) => NLW_VGA_RAM_douta_41_UNCONNECTED,
+      douta(40) => NLW_VGA_RAM_douta_40_UNCONNECTED,
+      douta(39) => NLW_VGA_RAM_douta_39_UNCONNECTED,
+      douta(38) => NLW_VGA_RAM_douta_38_UNCONNECTED,
+      douta(37) => NLW_VGA_RAM_douta_37_UNCONNECTED,
+      douta(36) => NLW_VGA_RAM_douta_36_UNCONNECTED,
+      douta(35) => NLW_VGA_RAM_douta_35_UNCONNECTED,
+      douta(34) => NLW_VGA_RAM_douta_34_UNCONNECTED,
+      douta(33) => NLW_VGA_RAM_douta_33_UNCONNECTED,
+      douta(32) => NLW_VGA_RAM_douta_32_UNCONNECTED,
+      douta(31) => NLW_VGA_RAM_douta_31_UNCONNECTED,
+      douta(30) => NLW_VGA_RAM_douta_30_UNCONNECTED,
+      douta(29) => NLW_VGA_RAM_douta_29_UNCONNECTED,
+      douta(28) => NLW_VGA_RAM_douta_28_UNCONNECTED,
+      douta(27) => NLW_VGA_RAM_douta_27_UNCONNECTED,
+      douta(26) => NLW_VGA_RAM_douta_26_UNCONNECTED,
+      douta(25) => NLW_VGA_RAM_douta_25_UNCONNECTED,
+      douta(24) => NLW_VGA_RAM_douta_24_UNCONNECTED,
+      douta(23) => NLW_VGA_RAM_douta_23_UNCONNECTED,
+      douta(22) => NLW_VGA_RAM_douta_22_UNCONNECTED,
+      douta(21) => NLW_VGA_RAM_douta_21_UNCONNECTED,
+      douta(20) => NLW_VGA_RAM_douta_20_UNCONNECTED,
+      douta(19) => NLW_VGA_RAM_douta_19_UNCONNECTED,
+      douta(18) => NLW_VGA_RAM_douta_18_UNCONNECTED,
+      douta(17) => NLW_VGA_RAM_douta_17_UNCONNECTED,
+      douta(16) => NLW_VGA_RAM_douta_16_UNCONNECTED,
+      douta(15) => NLW_VGA_RAM_douta_15_UNCONNECTED,
+      douta(14) => NLW_VGA_RAM_douta_14_UNCONNECTED,
+      douta(13) => NLW_VGA_RAM_douta_13_UNCONNECTED,
+      douta(12) => NLW_VGA_RAM_douta_12_UNCONNECTED,
+      douta(11) => NLW_VGA_RAM_douta_11_UNCONNECTED,
+      douta(10) => NLW_VGA_RAM_douta_10_UNCONNECTED,
+      douta(9) => NLW_VGA_RAM_douta_9_UNCONNECTED,
+      douta(8) => NLW_VGA_RAM_douta_8_UNCONNECTED,
+      douta(7) => NLW_VGA_RAM_douta_7_UNCONNECTED,
+      douta(6) => NLW_VGA_RAM_douta_6_UNCONNECTED,
+      douta(5) => NLW_VGA_RAM_douta_5_UNCONNECTED,
+      douta(4) => NLW_VGA_RAM_douta_4_UNCONNECTED,
+      douta(3) => NLW_VGA_RAM_douta_3_UNCONNECTED,
+      douta(2) => NLW_VGA_RAM_douta_2_UNCONNECTED,
+      douta(1) => NLW_VGA_RAM_douta_1_UNCONNECTED,
+      douta(0) => VGA_DATA_OUT_RAM(0)
+    );
+
+end Structure;
+
+-- synthesis translate_on

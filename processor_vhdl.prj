@@ -1,0 +1,7 @@
+vhdl work "J:\xilinx_prj\processor\ipcore_dir\MainMemory.vhd"
+vhdl work "J:\xilinx_prj\processor\ipcore_dir\VGACHAR.vhd"
+vhdl work "J:\xilinx_prj\processor\ipcore_dir\ram.vhd"
+vhdl work "J:\xilinx_prj\processor\Common.vhd"
+vhdl work "J:\xilinx_prj\SDC.vhd"
+vhdl work "J:\xilinx_prj\processor\VGA.vhd"
+vhdl work "J:\xilinx_prj\processor\processor.vhd"

@@ -1,0 +1,8 @@
+vhdl work "ipcore_dir/MainMemory.vhd"
+vhdl work "ipcore_dir/VGACHAR.vhd"
+vhdl work "ipcore_dir/ram.vhd"
+vhdl work "Common.vhd"
+vhdl work "../SDC.vhd"
+vhdl work "VGA.vhd"
+verilog work "UART.v"
+vhdl work "processor.vhd"

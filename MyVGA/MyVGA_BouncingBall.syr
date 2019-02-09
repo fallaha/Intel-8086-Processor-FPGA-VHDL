@@ -1,0 +1,513 @@
+Release 14.7 - xst P.20131013 (nt64)
+Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
+--> Parameter TMPDIR set to xst/projnav.tmp
+
+
+Total REAL time to Xst completion: 1.00 secs
+Total CPU time to Xst completion: 0.15 secs
+ 
+--> Parameter xsthdpdir set to xst
+
+
+Total REAL time to Xst completion: 1.00 secs
+Total CPU time to Xst completion: 0.15 secs
+ 
+--> Reading design: MyVGA_BouncingBall.prj
+
+TABLE OF CONTENTS
+  1) Synthesis Options Summary
+  2) HDL Compilation
+  3) Design Hierarchy Analysis
+  4) HDL Analysis
+  5) HDL Synthesis
+     5.1) HDL Synthesis Report
+  6) Advanced HDL Synthesis
+     6.1) Advanced HDL Synthesis Report
+  7) Low Level Synthesis
+  8) Partition Report
+  9) Final Report
+	9.1) Device utilization summary
+	9.2) Partition Resource Summary
+	9.3) TIMING REPORT
+
+
+=========================================================================
+*                      Synthesis Options Summary                        *
+=========================================================================
+---- Source Parameters
+Input File Name                    : "MyVGA_BouncingBall.prj"
+Input Format                       : mixed
+Ignore Synthesis Constraint File   : NO
+
+---- Target Parameters
+Output File Name                   : "MyVGA_BouncingBall"
+Output Format                      : NGC
+Target Device                      : xc3s400-4-pq208
+
+---- Source Options
+Top Module Name                    : MyVGA_BouncingBall
+Automatic FSM Extraction           : YES
+FSM Encoding Algorithm             : Auto
+Safe Implementation                : No
+FSM Style                          : LUT
+RAM Extraction                     : Yes
+RAM Style                          : Auto
+ROM Extraction                     : Yes
+Mux Style                          : Auto
+Decoder Extraction                 : YES
+Priority Encoder Extraction        : Yes
+Shift Register Extraction          : YES
+Logical Shifter Extraction         : YES
+XOR Collapsing                     : YES
+ROM Style                          : Auto
+Mux Extraction                     : Yes
+Resource Sharing                   : YES
+Asynchronous To Synchronous        : NO
+Multiplier Style                   : Auto
+Automatic Register Balancing       : No
+
+---- Target Options
+Add IO Buffers                     : YES
+Global Maximum Fanout              : 500
+Add Generic Clock Buffer(BUFG)     : 8
+Register Duplication               : YES
+Slice Packing                      : YES
+Optimize Instantiated Primitives   : NO
+Use Clock Enable                   : Yes
+Use Synchronous Set                : Yes
+Use Synchronous Reset              : Yes
+Pack IO Registers into IOBs        : Auto
+Equivalent register Removal        : YES
+
+---- General Options
+Optimization Goal                  : Speed
+Optimization Effort                : 1
+Keep Hierarchy                     : No
+Netlist Hierarchy                  : As_Optimized
+RTL Output                         : Yes
+Global Optimization                : AllClockNets
+Read Cores                         : YES
+Write Timing Constraints           : NO
+Cross Clock Analysis               : NO
+Hierarchy Separator                : /
+Bus Delimiter                      : <>
+Case Specifier                     : Maintain
+Slice Utilization Ratio            : 100
+BRAM Utilization Ratio             : 100
+Verilog 2001                       : YES
+Auto BRAM Packing                  : NO
+Slice Utilization Ratio Delta      : 5
+
+=========================================================================
+
+
+=========================================================================
+*                          HDL Compilation                              *
+=========================================================================
+Compiling vhdl file "D:/FPGA Example/MyVGA/OwnVGA.vhd" in Library work.
+Entity <myvga_bouncingball> compiled.
+Entity <myvga_bouncingball> (Architecture <behavioral>) compiled.
+
+=========================================================================
+*                     Design Hierarchy Analysis                         *
+=========================================================================
+Analyzing hierarchy for entity <MyVGA_BouncingBall> in library <work> (architecture <behavioral>).
+
+
+=========================================================================
+*                            HDL Analysis                               *
+=========================================================================
+Analyzing Entity <MyVGA_BouncingBall> in library <work> (Architecture <behavioral>).
+Entity <MyVGA_BouncingBall> analyzed. Unit <MyVGA_BouncingBall> generated.
+
+
+=========================================================================
+*                           HDL Synthesis                               *
+=========================================================================
+
+Performing bidirectional port resolution...
+
+Synthesizing Unit <MyVGA_BouncingBall>.
+    Related source file is "D:/FPGA Example/MyVGA/OwnVGA.vhd".
+    Found 1-bit register for signal <Clk_25MHz>.
+    Found 10-bit adder for signal <ColorOutput$add0000> created at line 168.
+    Found 10-bit adder for signal <ColorOutput$add0001> created at line 168.
+    Found 11-bit comparator greatequal for signal <ColorOutput$cmp_ge0000> created at line 168.
+    Found 11-bit comparator greatequal for signal <ColorOutput$cmp_ge0001> created at line 168.
+    Found 11-bit comparator less for signal <ColorOutput$cmp_lt0000> created at line 168.
+    Found 11-bit comparator less for signal <ColorOutput$cmp_lt0001> created at line 168.
+    Found 3-bit register for signal <ColorSelect>.
+    Found 11-bit up counter for signal <CurrentHPos>.
+    Found 12-bit comparator less for signal <CurrentHPos$cmp_lt0000> created at line 125.
+    Found 11-bit up counter for signal <CurrentVPos>.
+    Found 12-bit comparator less for signal <CurrentVPos$cmp_lt0000> created at line 128.
+    Found 12-bit comparator greatequal for signal <HBlank$cmp_ge0000> created at line 145.
+    Found 12-bit comparator less for signal <HBlank$cmp_lt0000> created at line 145.
+    Found 12-bit comparator less for signal <HS$cmp_lt0000> created at line 139.
+    Found 31-bit up counter for signal <Prescaler>.
+    Found 11-bit subtractor for signal <ScanlineX$addsub0000> created at line 154.
+    Found 11-bit subtractor for signal <ScanlineX$addsub0001> created at line 154.
+    Found 11-bit subtractor for signal <ScanlineY$addsub0000> created at line 157.
+    Found 11-bit subtractor for signal <ScanlineY$addsub0001> created at line 157.
+    Found 10-bit updown counter for signal <SquareX>.
+    Found 10-bit comparator greatequal for signal <SquareX$cmp_ge0000> created at line 80.
+    Found 10-bit comparator lessequal for signal <SquareX$cmp_le0000> created at line 87.
+    Found 1-bit register for signal <SquareXMoveDir>.
+    Found 10-bit comparator greater for signal <SquareXMoveDir$cmp_gt0000> created at line 87.
+    Found 10-bit comparator less for signal <SquareXMoveDir$cmp_lt0000> created at line 80.
+    Found 10-bit updown counter for signal <SquareY>.
+    Found 10-bit comparator greatequal for signal <SquareY$cmp_ge0000> created at line 96.
+    Found 10-bit comparator lessequal for signal <SquareY$cmp_le0000> created at line 103.
+    Found 1-bit register for signal <SquareYMoveDir>.
+    Found 10-bit comparator greater for signal <SquareYMoveDir$cmp_gt0000> created at line 103.
+    Found 10-bit comparator less for signal <SquareYMoveDir$cmp_lt0000> created at line 96.
+    Found 12-bit comparator greatequal for signal <VBlank$cmp_ge0000> created at line 148.
+    Found 12-bit comparator less for signal <VBlank$cmp_lt0000> created at line 148.
+    Found 12-bit comparator less for signal <VS$cmp_lt0000> created at line 142.
+    Summary:
+	inferred   5 Counter(s).
+	inferred   3 D-type flip-flop(s).
+	inferred   6 Adder/Subtractor(s).
+	inferred  20 Comparator(s).
+Unit <MyVGA_BouncingBall> synthesized.
+
+
+=========================================================================
+HDL Synthesis Report
+
+Macro Statistics
+# Adders/Subtractors                                   : 6
+ 10-bit adder                                          : 2
+ 11-bit subtractor                                     : 4
+# Counters                                             : 5
+ 10-bit updown counter                                 : 2
+ 11-bit up counter                                     : 2
+ 31-bit up counter                                     : 1
+# Registers                                            : 4
+ 1-bit register                                        : 3
+ 3-bit register                                        : 1
+# Comparators                                          : 20
+ 10-bit comparator greatequal                          : 2
+ 10-bit comparator greater                             : 2
+ 10-bit comparator less                                : 2
+ 10-bit comparator lessequal                           : 2
+ 11-bit comparator greatequal                          : 2
+ 11-bit comparator less                                : 2
+ 12-bit comparator greatequal                          : 2
+ 12-bit comparator less                                : 6
+
+=========================================================================
+
+=========================================================================
+*                       Advanced HDL Synthesis                          *
+=========================================================================
+
+
+=========================================================================
+Advanced HDL Synthesis Report
+
+Macro Statistics
+# Adders/Subtractors                                   : 6
+ 10-bit adder                                          : 2
+ 11-bit subtractor                                     : 4
+# Counters                                             : 5
+ 10-bit updown counter                                 : 2
+ 11-bit up counter                                     : 2
+ 31-bit up counter                                     : 1
+# Registers                                            : 6
+ Flip-Flops                                            : 6
+# Comparators                                          : 20
+ 10-bit comparator greatequal                          : 2
+ 10-bit comparator greater                             : 2
+ 10-bit comparator less                                : 2
+ 10-bit comparator lessequal                           : 2
+ 11-bit comparator greatequal                          : 2
+ 11-bit comparator less                                : 2
+ 12-bit comparator greatequal                          : 2
+ 12-bit comparator less                                : 6
+
+=========================================================================
+
+=========================================================================
+*                         Low Level Synthesis                           *
+=========================================================================
+
+Optimizing unit <MyVGA_BouncingBall> ...
+
+Mapping all equations...
+Building and optimizing final netlist ...
+Found area constraint ratio of 100 (+ 5) on block MyVGA_BouncingBall, actual ratio is 4.
+
+Final Macro Processing ...
+
+=========================================================================
+Final Register Report
+
+Macro Statistics
+# Registers                                            : 79
+ Flip-Flops                                            : 79
+
+=========================================================================
+
+=========================================================================
+*                           Partition Report                            *
+=========================================================================
+
+Partition Implementation Status
+-------------------------------
+
+  No Partitions were found in this design.
+
+-------------------------------
+
+=========================================================================
+*                            Final Report                               *
+=========================================================================
+Final Results
+RTL Top Level Output File Name     : MyVGA_BouncingBall.ngr
+Top Level Output File Name         : MyVGA_BouncingBall
+Output Format                      : NGC
+Optimization Goal                  : Speed
+Keep Hierarchy                     : No
+
+Design Statistics
+# IOs                              : 12
+
+Cell Usage :
+# BELS                             : 497
+#      GND                         : 1
+#      INV                         : 7
+#      LUT1                        : 31
+#      LUT2                        : 81
+#      LUT2_L                      : 1
+#      LUT3                        : 51
+#      LUT3_D                      : 1
+#      LUT4                        : 78
+#      LUT4_D                      : 4
+#      MULT_AND                    : 40
+#      MUXCY                       : 125
+#      MUXF5                       : 3
+#      VCC                         : 1
+#      XORCY                       : 73
+# FlipFlops/Latches                : 79
+#      FDC                         : 42
+#      FDCE                        : 27
+#      FDPE                        : 9
+#      FDR                         : 1
+# Clock Buffers                    : 2
+#      BUFG                        : 1
+#      BUFGP                       : 1
+# IO Buffers                       : 11
+#      IBUF                        : 1
+#      OBUF                        : 10
+=========================================================================
+
+Device utilization summary:
+---------------------------
+
+Selected Device : 3s400pq208-4 
+
+ Number of Slices:                      138  out of   3584     3%  
+ Number of Slice Flip Flops:             79  out of   7168     1%  
+ Number of 4 input LUTs:                254  out of   7168     3%  
+ Number of IOs:                          12
+ Number of bonded IOBs:                  12  out of    141     8%  
+ Number of GCLKs:                         2  out of      8    25%  
+
+---------------------------
+Partition Resource Summary:
+---------------------------
+
+  No Partitions were found in this design.
+
+---------------------------
+
+
+=========================================================================
+TIMING REPORT
+
+NOTE: THESE TIMING NUMBERS ARE ONLY A SYNTHESIS ESTIMATE.
+      FOR ACCURATE TIMING INFORMATION PLEASE REFER TO THE TRACE REPORT
+      GENERATED AFTER PLACE-and-ROUTE.
+
+Clock Information:
+------------------
+-----------------------------------+------------------------+-------+
+Clock Signal                       | Clock buffer(FF name)  | Load  |
+-----------------------------------+------------------------+-------+
+CLK_50MHz                          | BUFGP                  | 57    |
+Clk_25MHz1                         | BUFG                   | 22    |
+-----------------------------------+------------------------+-------+
+
+Asynchronous Control Signals Information:
+----------------------------------------
+-----------------------------------+------------------------+-------+
+Control Signal                     | Buffer(FF name)        | Load  |
+-----------------------------------+------------------------+-------+
+RESET                              | IBUF                   | 78    |
+-----------------------------------+------------------------+-------+
+
+Timing Summary:
+---------------
+Speed Grade: -4
+
+   Minimum period: 8.547ns (Maximum Frequency: 116.994MHz)
+   Minimum input arrival time before clock: No path found
+   Maximum output required time after clock: 22.877ns
+   Maximum combinational path delay: No path found
+
+Timing Detail:
+--------------
+All values displayed in nanoseconds (ns)
+
+=========================================================================
+Timing constraint: Default period analysis for Clock 'CLK_50MHz'
+  Clock period: 8.547ns (frequency: 116.994MHz)
+  Total number of paths / destination ports: 3752 / 82
+-------------------------------------------------------------------------
+Delay:               8.547ns (Levels of Logic = 11)
+  Source:            Prescaler_8 (FF)
+  Destination:       SquareX_1 (FF)
+  Source Clock:      CLK_50MHz rising
+  Destination Clock: CLK_50MHz rising
+
+  Data Path: Prescaler_8 to SquareX_1
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     FDC:C->Q              2   0.720   1.216  Prescaler_8 (Prescaler_8)
+     LUT3:I0->O            1   0.551   0.000  Prescaler_cmp_eq0000_wg_lut<0> (Prescaler_cmp_eq0000_wg_lut<0>)
+     MUXCY:S->O            1   0.500   0.000  Prescaler_cmp_eq0000_wg_cy<0> (Prescaler_cmp_eq0000_wg_cy<0>)
+     MUXCY:CI->O           1   0.064   0.000  Prescaler_cmp_eq0000_wg_cy<1> (Prescaler_cmp_eq0000_wg_cy<1>)
+     MUXCY:CI->O           1   0.064   0.000  Prescaler_cmp_eq0000_wg_cy<2> (Prescaler_cmp_eq0000_wg_cy<2>)
+     MUXCY:CI->O           1   0.064   0.000  Prescaler_cmp_eq0000_wg_cy<3> (Prescaler_cmp_eq0000_wg_cy<3>)
+     MUXCY:CI->O           1   0.064   0.000  Prescaler_cmp_eq0000_wg_cy<4> (Prescaler_cmp_eq0000_wg_cy<4>)
+     MUXCY:CI->O           1   0.064   0.000  Prescaler_cmp_eq0000_wg_cy<5> (Prescaler_cmp_eq0000_wg_cy<5>)
+     MUXCY:CI->O           1   0.064   0.000  Prescaler_cmp_eq0000_wg_cy<6> (Prescaler_cmp_eq0000_wg_cy<6>)
+     MUXCY:CI->O          38   0.303   2.226  Prescaler_cmp_eq0000_wg_cy<7> (Prescaler_cmp_eq0000)
+     LUT4:I0->O            1   0.551   0.000  SquareX_not0001100_F (N83)
+     MUXF5:I0->O          10   0.360   1.134  SquareX_not0001100 (SquareX_not0001)
+     FDCE:CE                   0.602          SquareX_1
+    ----------------------------------------
+    Total                      8.547ns (3.971ns logic, 4.576ns route)
+                                       (46.5% logic, 53.5% route)
+
+=========================================================================
+Timing constraint: Default period analysis for Clock 'Clk_25MHz1'
+  Clock period: 8.402ns (frequency: 119.019MHz)
+  Total number of paths / destination ports: 1781 / 33
+-------------------------------------------------------------------------
+Delay:               8.402ns (Levels of Logic = 17)
+  Source:            CurrentHPos_4 (FF)
+  Destination:       CurrentHPos_10 (FF)
+  Source Clock:      Clk_25MHz1 rising
+  Destination Clock: Clk_25MHz1 rising
+
+  Data Path: CurrentHPos_4 to CurrentHPos_10
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     FDC:C->Q              8   0.720   1.422  CurrentHPos_4 (CurrentHPos_4)
+     LUT1:I0->O            1   0.551   0.000  Mcompar_HBlank_cmp_ge0000_cy<1>_rt (Mcompar_HBlank_cmp_ge0000_cy<1>_rt)
+     MUXCY:S->O            1   0.500   0.000  Mcompar_HBlank_cmp_ge0000_cy<1> (Mcompar_HBlank_cmp_ge0000_cy<1>)
+     MUXCY:CI->O           1   0.064   0.000  Mcompar_HBlank_cmp_ge0000_cy<2> (Mcompar_HBlank_cmp_ge0000_cy<2>)
+     MUXCY:CI->O           1   0.064   0.000  Mcompar_HBlank_cmp_ge0000_cy<3> (Mcompar_HBlank_cmp_ge0000_cy<3>)
+     MUXCY:CI->O          23   0.281   1.701  Mcompar_HBlank_cmp_ge0000_cy<4> (Mcompar_HBlank_cmp_ge0000_cy<4>)
+     INV:I->O              1   0.551   0.801  Mcompar_HBlank_cmp_ge0000_cy<4>_inv_INV_0 (CurrentHPos_not0001_inv)
+     MUXCY:CI->O           1   0.064   0.000  Mcount_CurrentHPos_cy<0> (Mcount_CurrentHPos_cy<0>)
+     MUXCY:CI->O           1   0.064   0.000  Mcount_CurrentHPos_cy<1> (Mcount_CurrentHPos_cy<1>)
+     MUXCY:CI->O           1   0.064   0.000  Mcount_CurrentHPos_cy<2> (Mcount_CurrentHPos_cy<2>)
+     MUXCY:CI->O           1   0.064   0.000  Mcount_CurrentHPos_cy<3> (Mcount_CurrentHPos_cy<3>)
+     MUXCY:CI->O           1   0.064   0.000  Mcount_CurrentHPos_cy<4> (Mcount_CurrentHPos_cy<4>)
+     MUXCY:CI->O           1   0.064   0.000  Mcount_CurrentHPos_cy<5> (Mcount_CurrentHPos_cy<5>)
+     MUXCY:CI->O           1   0.064   0.000  Mcount_CurrentHPos_cy<6> (Mcount_CurrentHPos_cy<6>)
+     MUXCY:CI->O           1   0.064   0.000  Mcount_CurrentHPos_cy<7> (Mcount_CurrentHPos_cy<7>)
+     MUXCY:CI->O           1   0.064   0.000  Mcount_CurrentHPos_cy<8> (Mcount_CurrentHPos_cy<8>)
+     MUXCY:CI->O           0   0.064   0.000  Mcount_CurrentHPos_cy<9> (Mcount_CurrentHPos_cy<9>)
+     XORCY:CI->O           1   0.904   0.000  Mcount_CurrentHPos_xor<10> (Mcount_CurrentHPos10)
+     FDC:D                     0.203          CurrentHPos_10
+    ----------------------------------------
+    Total                      8.402ns (4.478ns logic, 3.924ns route)
+                                       (53.3% logic, 46.7% route)
+
+=========================================================================
+Timing constraint: Default OFFSET OUT AFTER for Clock 'Clk_25MHz1'
+  Total number of paths / destination ports: 20328 / 10
+-------------------------------------------------------------------------
+Offset:              22.877ns (Levels of Logic = 20)
+  Source:            CurrentVPos_6 (FF)
+  Destination:       GREEN<2> (PAD)
+  Source Clock:      Clk_25MHz1 rising
+
+  Data Path: CurrentVPos_6 to GREEN<2>
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     FDCE:C->Q             6   0.720   1.342  CurrentVPos_6 (CurrentVPos_6)
+     LUT2:I0->O            1   0.551   0.827  Msub_ScanlineY_addsub0001_xor<9>121_SW0 (N33)
+     LUT4_D:I3->O         15   0.551   1.214  Msub_ScanlineY_addsub0001_xor<9>121 (N16)
+     LUT4:I3->O            4   0.551   0.985  Blank_or000070 (Blank_or000070)
+     LUT3:I2->O           40   0.551   2.238  ScanlineX<0>11 (ScanlineX<0>_mand)
+     LUT3:I0->O            1   0.551   0.000  Mcompar_ColorOutput_cmp_ge0000_lut<0> (Mcompar_ColorOutput_cmp_ge0000_lut<0>)
+     MUXCY:S->O            1   0.500   0.000  Mcompar_ColorOutput_cmp_ge0000_cy<0> (Mcompar_ColorOutput_cmp_ge0000_cy<0>)
+     MUXCY:CI->O           1   0.064   0.000  Mcompar_ColorOutput_cmp_ge0000_cy<1> (Mcompar_ColorOutput_cmp_ge0000_cy<1>)
+     MUXCY:CI->O           1   0.064   0.000  Mcompar_ColorOutput_cmp_ge0000_cy<2> (Mcompar_ColorOutput_cmp_ge0000_cy<2>)
+     MUXCY:CI->O           1   0.064   0.000  Mcompar_ColorOutput_cmp_ge0000_cy<3> (Mcompar_ColorOutput_cmp_ge0000_cy<3>)
+     MUXCY:CI->O           1   0.064   0.000  Mcompar_ColorOutput_cmp_ge0000_cy<4> (Mcompar_ColorOutput_cmp_ge0000_cy<4>)
+     MUXCY:CI->O           1   0.064   0.000  Mcompar_ColorOutput_cmp_ge0000_cy<5> (Mcompar_ColorOutput_cmp_ge0000_cy<5>)
+     MUXCY:CI->O           1   0.064   0.000  Mcompar_ColorOutput_cmp_ge0000_cy<6> (Mcompar_ColorOutput_cmp_ge0000_cy<6>)
+     MUXCY:CI->O           1   0.064   0.000  Mcompar_ColorOutput_cmp_ge0000_cy<7> (Mcompar_ColorOutput_cmp_ge0000_cy<7>)
+     MUXCY:CI->O           1   0.064   0.000  Mcompar_ColorOutput_cmp_ge0000_cy<8> (Mcompar_ColorOutput_cmp_ge0000_cy<8>)
+     MUXCY:CI->O           1   0.064   0.000  Mcompar_ColorOutput_cmp_ge0000_cy<9> (Mcompar_ColorOutput_cmp_ge0000_cy<9>)
+     MUXCY:CI->O           1   0.303   1.140  Mcompar_ColorOutput_cmp_ge0000_cy<10> (ColorOutput_cmp_ge0000)
+     LUT4:I0->O            3   0.551   1.246  RED<1>111 (N181)
+     LUT4:I0->O            1   0.551   0.827  GREEN<1>_SW1 (N75)
+     LUT4:I3->O            3   0.551   0.907  GREEN<1> (GREEN_1_OBUF)
+     OBUF:I->O                 5.644          GREEN_2_OBUF (GREEN<2>)
+    ----------------------------------------
+    Total                     22.877ns (12.151ns logic, 10.726ns route)
+                                       (53.1% logic, 46.9% route)
+
+=========================================================================
+Timing constraint: Default OFFSET OUT AFTER for Clock 'CLK_50MHz'
+  Total number of paths / destination ports: 1062 / 8
+-------------------------------------------------------------------------
+Offset:              20.874ns (Levels of Logic = 11)
+  Source:            SquareY_2 (FF)
+  Destination:       GREEN<2> (PAD)
+  Source Clock:      CLK_50MHz rising
+
+  Data Path: SquareY_2 to GREEN<2>
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     FDCE:C->Q             8   0.720   1.422  SquareY_2 (SquareY_2)
+     LUT3:I0->O            4   0.551   1.112  Madd_ColorOutput_add0001_cy<2>11 (Madd_ColorOutput_add0001_cy<2>)
+     LUT3:I1->O            3   0.551   0.975  Madd_ColorOutput_add0001_cy<4>11 (Madd_ColorOutput_add0001_cy<4>)
+     LUT3:I2->O            2   0.551   0.945  Madd_ColorOutput_add0001_cy<8>111 (Madd_ColorOutput_add0001_cy<6>)
+     LUT3:I2->O            1   0.551   0.869  Madd_ColorOutput_add0001_cy<8>12 (Madd_ColorOutput_add0001_cy<8>)
+     LUT4:I2->O            1   0.551   0.000  Mcompar_ColorOutput_cmp_lt0001_lut<9> (Mcompar_ColorOutput_cmp_lt0001_lut<9>)
+     MUXCY:S->O            1   0.500   0.000  Mcompar_ColorOutput_cmp_lt0001_cy<9> (Mcompar_ColorOutput_cmp_lt0001_cy<9>)
+     MUXCY:CI->O           1   0.303   0.996  Mcompar_ColorOutput_cmp_lt0001_cy<10> (Mcompar_ColorOutput_cmp_lt0001_cy<10>)
+     LUT4:I1->O            3   0.551   1.246  RED<1>111 (N181)
+     LUT4:I0->O            1   0.551   0.827  GREEN<1>_SW1 (N75)
+     LUT4:I3->O            3   0.551   0.907  GREEN<1> (GREEN_1_OBUF)
+     OBUF:I->O                 5.644          GREEN_2_OBUF (GREEN<2>)
+    ----------------------------------------
+    Total                     20.874ns (11.575ns logic, 9.299ns route)
+                                       (55.5% logic, 44.5% route)
+
+=========================================================================
+
+
+Total REAL time to Xst completion: 7.00 secs
+Total CPU time to Xst completion: 6.66 secs
+ 
+--> 
+
+Total memory usage is 309844 kilobytes
+
+Number of errors   :    0 (   0 filtered)
+Number of warnings :    0 (   0 filtered)
+Number of infos    :    0 (   0 filtered)
+

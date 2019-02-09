@@ -1,0 +1,11 @@
+AR ram ram_a "D:/FPGA Example/MyVGA/ipcore_dir/ram.vhd" sub00/vhpl05 1495723451
+EN showchar NULL "D:/FPGA Example/MyVGA/ShowChar.vhd" sub00/vhpl09 1495715939
+EN myvga_bouncingball NULL "D:/FPGA Example/MyVGA/OwnVGA.vhd" sub00/vhpl02 1494846800
+EN vgachar NULL "D:/FPGA Example/MyVGA/ipcore_dir/VGACHAR.vhd" sub00/vhpl06 1495723452
+AR vgachar behavioral "D:/FPGA Example/MyVGA/VGACHAR.vhd" sub00/vhpl07 1495133128
+AR vgachar vgachar_a "D:/FPGA Example/MyVGA/ipcore_dir/VGACHAR.vhd" sub00/vhpl08 1495723453
+EN myvga NULL "D:/FPGA Example/MyVGA/OwnVGA.vhd" sub00/vhpl00 1495723454
+AR showchar behavioral "D:/FPGA Example/MyVGA/ShowChar.vhd" sub00/vhpl10 1495715940
+EN ram NULL "D:/FPGA Example/MyVGA/ipcore_dir/ram.vhd" sub00/vhpl04 1495723450
+AR myvga behavioral "D:/FPGA Example/MyVGA/OwnVGA.vhd" sub00/vhpl01 1495723455
+AR myvga_bouncingball behavioral "D:/FPGA Example/MyVGA/OwnVGA.vhd" sub00/vhpl03 1494846801

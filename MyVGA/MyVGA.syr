@@ -1,0 +1,518 @@
+Release 14.7 - xst P.20131013 (nt64)
+Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
+--> Parameter TMPDIR set to xst/projnav.tmp
+
+
+Total REAL time to Xst completion: 0.00 secs
+Total CPU time to Xst completion: 0.12 secs
+ 
+--> Parameter xsthdpdir set to xst
+
+
+Total REAL time to Xst completion: 0.00 secs
+Total CPU time to Xst completion: 0.12 secs
+ 
+--> Reading design: MyVGA.prj
+
+TABLE OF CONTENTS
+  1) Synthesis Options Summary
+  2) HDL Compilation
+  3) Design Hierarchy Analysis
+  4) HDL Analysis
+  5) HDL Synthesis
+     5.1) HDL Synthesis Report
+  6) Advanced HDL Synthesis
+     6.1) Advanced HDL Synthesis Report
+  7) Low Level Synthesis
+  8) Partition Report
+  9) Final Report
+	9.1) Device utilization summary
+	9.2) Partition Resource Summary
+	9.3) TIMING REPORT
+
+
+=========================================================================
+*                      Synthesis Options Summary                        *
+=========================================================================
+---- Source Parameters
+Input File Name                    : "MyVGA.prj"
+Input Format                       : mixed
+Ignore Synthesis Constraint File   : NO
+
+---- Target Parameters
+Output File Name                   : "MyVGA"
+Output Format                      : NGC
+Target Device                      : xc3s400-4-pq208
+
+---- Source Options
+Top Module Name                    : MyVGA
+Automatic FSM Extraction           : YES
+FSM Encoding Algorithm             : Auto
+Safe Implementation                : No
+FSM Style                          : LUT
+RAM Extraction                     : Yes
+RAM Style                          : Auto
+ROM Extraction                     : Yes
+Mux Style                          : Auto
+Decoder Extraction                 : YES
+Priority Encoder Extraction        : Yes
+Shift Register Extraction          : YES
+Logical Shifter Extraction         : YES
+XOR Collapsing                     : YES
+ROM Style                          : Auto
+Mux Extraction                     : Yes
+Resource Sharing                   : YES
+Asynchronous To Synchronous        : NO
+Multiplier Style                   : Auto
+Automatic Register Balancing       : No
+
+---- Target Options
+Add IO Buffers                     : YES
+Global Maximum Fanout              : 500
+Add Generic Clock Buffer(BUFG)     : 8
+Register Duplication               : YES
+Slice Packing                      : YES
+Optimize Instantiated Primitives   : NO
+Use Clock Enable                   : Yes
+Use Synchronous Set                : Yes
+Use Synchronous Reset              : Yes
+Pack IO Registers into IOBs        : Auto
+Equivalent register Removal        : YES
+
+---- General Options
+Optimization Goal                  : Speed
+Optimization Effort                : 1
+Keep Hierarchy                     : No
+Netlist Hierarchy                  : As_Optimized
+RTL Output                         : Yes
+Global Optimization                : AllClockNets
+Read Cores                         : YES
+Write Timing Constraints           : NO
+Cross Clock Analysis               : NO
+Hierarchy Separator                : /
+Bus Delimiter                      : <>
+Case Specifier                     : Maintain
+Slice Utilization Ratio            : 100
+BRAM Utilization Ratio             : 100
+Verilog 2001                       : YES
+Auto BRAM Packing                  : NO
+Slice Utilization Ratio Delta      : 5
+
+---- Other Options
+Cores Search Directories           : {"ipcore_dir"  }
+
+=========================================================================
+
+
+=========================================================================
+*                          HDL Compilation                              *
+=========================================================================
+Compiling vhdl file "D:/FPGA Example/MyVGA/ipcore_dir/ram.vhd" in Library work.
+Architecture ram_a of Entity ram is up to date.
+Compiling vhdl file "D:/FPGA Example/MyVGA/ipcore_dir/VGACHAR.vhd" in Library work.
+Architecture vgachar_a of Entity vgachar is up to date.
+Compiling vhdl file "D:/FPGA Example/MyVGA/OwnVGA.vhd" in Library work.
+Entity <myvga> compiled.
+Entity <myvga> (Architecture <behavioral>) compiled.
+
+=========================================================================
+*                     Design Hierarchy Analysis                         *
+=========================================================================
+Analyzing hierarchy for entity <MyVGA> in library <work> (architecture <behavioral>).
+WARNING:Xst:2094 - "D:/FPGA Example/MyVGA/OwnVGA.vhd" line 77: Default value is ignored for signal <Echar>.
+
+
+=========================================================================
+*                            HDL Analysis                               *
+=========================================================================
+Analyzing Entity <MyVGA> in library <work> (Architecture <behavioral>).
+WARNING:Xst:2094 - "D:/FPGA Example/MyVGA/OwnVGA.vhd" line 77: Default value is ignored for signal <Echar>.
+WARNING:Xst:2211 - "D:/FPGA Example/MyVGA/OwnVGA.vhd" line 86: Instantiating black box module <ram>.
+WARNING:Xst:2211 - "D:/FPGA Example/MyVGA/OwnVGA.vhd" line 95: Instantiating black box module <VGACHAR>.
+WARNING:Xst:1610 - "D:/FPGA Example/MyVGA/OwnVGA.vhd" line 163: Width mismatch. <VGA_ADDR_RAM> has a width of 15 bits but assigned expression is 16-bit wide.
+Entity <MyVGA> analyzed. Unit <MyVGA> generated.
+
+
+=========================================================================
+*                           HDL Synthesis                               *
+=========================================================================
+
+Performing bidirectional port resolution...
+
+Synthesizing Unit <MyVGA>.
+    Related source file is "D:/FPGA Example/MyVGA/OwnVGA.vhd".
+WARNING:Xst:1781 - Signal <ROMchar<15:8>> is used but never assigned. Tied to default value.
+WARNING:Xst:1780 - Signal <Echar> is never used or assigned. This unconnected signal will be trimmed during the optimization process.
+WARNING:Xst:1780 - Signal <CounterY> is never used or assigned. This unconnected signal will be trimmed during the optimization process.
+WARNING:Xst:1780 - Signal <CounterX> is never used or assigned. This unconnected signal will be trimmed during the optimization process.
+WARNING:Xst:643 - "D:/FPGA Example/MyVGA/OwnVGA.vhd" line 163: The result of a 8x8-bit multiplication is partially used. Only the 15 least significant bits are used. If you are doing this on purpose, you may safely ignore this warning. Otherwise, make sure you are not losing information, leading to unexpected circuit behavior.
+    Found 8-bit 16-to-1 multiplexer for signal <$varindex0000> created at line 157.
+    Found 7-bit subtractor for signal <ADDR_ROM>.
+    Found 7-bit up counter for signal <char>.
+    Found 1-bit register for signal <Clk_25MHz>.
+    Found 20-bit up counter for signal <CounterTime>.
+    Found 11-bit up counter for signal <CurrentHPos>.
+    Found 11-bit comparator less for signal <CurrentHPos$cmp_lt0000> created at line 112.
+    Found 11-bit up counter for signal <CurrentVPos>.
+    Found 11-bit comparator less for signal <CurrentVPos$cmp_lt0000> created at line 115.
+    Found 11-bit comparator greatequal for signal <HBlank$cmp_ge0000> created at line 132.
+    Found 11-bit comparator less for signal <HBlank$cmp_lt0000> created at line 132.
+    Found 11-bit comparator less for signal <HS$cmp_lt0000> created at line 126.
+    Found 11-bit subtractor for signal <ScanlineX$addsub0000> created at line 141.
+    Found 11-bit subtractor for signal <ScanlineX$addsub0001> created at line 141.
+    Found 11-bit subtractor for signal <ScanlineY$addsub0000> created at line 144.
+    Found 11-bit subtractor for signal <ScanlineY$addsub0001> created at line 144.
+    Found 11-bit comparator greatequal for signal <VBlank$cmp_ge0000> created at line 135.
+    Found 11-bit comparator less for signal <VBlank$cmp_lt0000> created at line 135.
+    Found 15-bit adder for signal <VGA_ADDR_RAM>.
+    Found 8x8-bit multiplier for signal <VGA_ADDR_RAM$mult0000> created at line 163.
+    Found 8-bit comparator equal for signal <VGA_DATA_IN_RAM$cmp_eq0000> created at line 157.
+    Found 7-bit comparator equal for signal <VGA_DATA_IN_RAM$cmp_eq0001> created at line 157.
+    Found 1-bit 8-to-1 multiplexer for signal <VGA_DATA_OUT_RAM$mux0000> created at line 165.
+    Found 11-bit comparator less for signal <VS$cmp_lt0000> created at line 129.
+    Found 7-bit up counter for signal <Xchar>.
+    Found 5-bit up counter for signal <Ychar>.
+    Summary:
+	inferred   6 Counter(s).
+	inferred   1 D-type flip-flop(s).
+	inferred   6 Adder/Subtractor(s).
+	inferred   1 Multiplier(s).
+	inferred  10 Comparator(s).
+	inferred   9 Multiplexer(s).
+Unit <MyVGA> synthesized.
+
+
+=========================================================================
+HDL Synthesis Report
+
+Macro Statistics
+# Multipliers                                          : 1
+ 8x8-bit multiplier                                    : 1
+# Adders/Subtractors                                   : 6
+ 11-bit subtractor                                     : 4
+ 15-bit adder                                          : 1
+ 7-bit subtractor                                      : 1
+# Counters                                             : 6
+ 11-bit up counter                                     : 2
+ 20-bit up counter                                     : 1
+ 5-bit up counter                                      : 1
+ 7-bit up counter                                      : 2
+# Registers                                            : 1
+ 1-bit register                                        : 1
+# Comparators                                          : 10
+ 11-bit comparator greatequal                          : 2
+ 11-bit comparator less                                : 6
+ 7-bit comparator equal                                : 1
+ 8-bit comparator equal                                : 1
+# Multiplexers                                         : 2
+ 1-bit 8-to-1 multiplexer                              : 1
+ 8-bit 16-to-1 multiplexer                             : 1
+
+=========================================================================
+
+=========================================================================
+*                       Advanced HDL Synthesis                          *
+=========================================================================
+
+Reading core <ipcore_dir/ram.ngc>.
+Reading core <ipcore_dir/VGACHAR.ngc>.
+Loading core <ram> for timing and area information for instance <VGA_RAM>.
+Loading core <VGACHAR> for timing and area information for instance <VGA_CHAR>.
+
+=========================================================================
+Advanced HDL Synthesis Report
+
+Macro Statistics
+# Multipliers                                          : 1
+ 8x8-bit multiplier                                    : 1
+# Adders/Subtractors                                   : 6
+ 11-bit subtractor                                     : 4
+ 15-bit adder                                          : 1
+ 7-bit subtractor                                      : 1
+# Counters                                             : 6
+ 11-bit up counter                                     : 2
+ 20-bit up counter                                     : 1
+ 5-bit up counter                                      : 1
+ 7-bit up counter                                      : 2
+# Registers                                            : 1
+ Flip-Flops                                            : 1
+# Comparators                                          : 10
+ 11-bit comparator greatequal                          : 2
+ 11-bit comparator less                                : 6
+ 7-bit comparator equal                                : 1
+ 8-bit comparator equal                                : 1
+# Multiplexers                                         : 2
+ 1-bit 8-to-1 multiplexer                              : 1
+ 8-bit 16-to-1 multiplexer                             : 1
+
+=========================================================================
+
+=========================================================================
+*                         Low Level Synthesis                           *
+=========================================================================
+INFO:Xst:1901 - Instance U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[9].ram.r/s3_noinit.ram/dpram.dp1x1.ram in unit U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[9].ram.r/s3_noinit.ram/dpram.dp1x1.ram of type RAMB16_S1_S1 has been replaced by RAMB16
+INFO:Xst:1901 - Instance U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[8].ram.r/s3_noinit.ram/dpram.dp1x1.ram in unit U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[8].ram.r/s3_noinit.ram/dpram.dp1x1.ram of type RAMB16_S1_S1 has been replaced by RAMB16
+INFO:Xst:1901 - Instance U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[7].ram.r/s3_noinit.ram/dpram.dp1x1.ram in unit U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[7].ram.r/s3_noinit.ram/dpram.dp1x1.ram of type RAMB16_S1_S1 has been replaced by RAMB16
+INFO:Xst:1901 - Instance U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[6].ram.r/s3_noinit.ram/dpram.dp4x4.ram in unit U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[6].ram.r/s3_noinit.ram/dpram.dp4x4.ram of type RAMB16_S4_S4 has been replaced by RAMB16
+INFO:Xst:1901 - Instance U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[5].ram.r/s3_noinit.ram/dpram.dp1x1.ram in unit U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[5].ram.r/s3_noinit.ram/dpram.dp1x1.ram of type RAMB16_S1_S1 has been replaced by RAMB16
+INFO:Xst:1901 - Instance U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[4].ram.r/s3_noinit.ram/dpram.dp1x1.ram in unit U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[4].ram.r/s3_noinit.ram/dpram.dp1x1.ram of type RAMB16_S1_S1 has been replaced by RAMB16
+INFO:Xst:1901 - Instance U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[3].ram.r/s3_noinit.ram/dpram.dp1x1.ram in unit U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[3].ram.r/s3_noinit.ram/dpram.dp1x1.ram of type RAMB16_S1_S1 has been replaced by RAMB16
+INFO:Xst:1901 - Instance U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[2].ram.r/s3_noinit.ram/dpram.dp1x1.ram in unit U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[2].ram.r/s3_noinit.ram/dpram.dp1x1.ram of type RAMB16_S1_S1 has been replaced by RAMB16
+INFO:Xst:1901 - Instance U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[1].ram.r/s3_noinit.ram/dpram.dp4x4.ram in unit U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[1].ram.r/s3_noinit.ram/dpram.dp4x4.ram of type RAMB16_S4_S4 has been replaced by RAMB16
+INFO:Xst:1901 - Instance U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[0].ram.r/s3_noinit.ram/dpram.dp1x1.ram in unit U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[0].ram.r/s3_noinit.ram/dpram.dp1x1.ram of type RAMB16_S1_S1 has been replaced by RAMB16
+INFO:Xst:1901 - Instance U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[0].ram.r/s3_init.ram/spram.ram in unit U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[0].ram.r/s3_init.ram/spram.ram of type RAMB16_S36_S36 has been replaced by RAMB16
+
+Optimizing unit <MyVGA> ...
+
+Mapping all equations...
+Building and optimizing final netlist ...
+Found area constraint ratio of 100 (+ 5) on block MyVGA, actual ratio is 3.
+
+Final Macro Processing ...
+
+=========================================================================
+Final Register Report
+
+Macro Statistics
+# Registers                                            : 62
+ Flip-Flops                                            : 62
+
+=========================================================================
+
+=========================================================================
+*                           Partition Report                            *
+=========================================================================
+
+Partition Implementation Status
+-------------------------------
+
+  No Partitions were found in this design.
+
+-------------------------------
+
+=========================================================================
+*                            Final Report                               *
+=========================================================================
+Final Results
+RTL Top Level Output File Name     : MyVGA.ngr
+Top Level Output File Name         : MyVGA
+Output Format                      : NGC
+Optimization Goal                  : Speed
+Keep Hierarchy                     : No
+
+Design Statistics
+# IOs                              : 6
+
+Cell Usage :
+# BELS                             : 394
+#      GND                         : 14
+#      INV                         : 10
+#      LUT1                        : 47
+#      LUT2                        : 9
+#      LUT2_D                      : 1
+#      LUT2_L                      : 1
+#      LUT3                        : 27
+#      LUT3_D                      : 1
+#      LUT3_L                      : 1
+#      LUT4                        : 124
+#      LUT4_D                      : 2
+#      LUT4_L                      : 10
+#      MUXCY                       : 63
+#      MUXF5                       : 23
+#      MUXF6                       : 1
+#      VCC                         : 3
+#      XORCY                       : 57
+# FlipFlops/Latches                : 65
+#      FD                          : 20
+#      FDE                         : 15
+#      FDR                         : 12
+#      FDRE                        : 18
+# RAMS                             : 11
+#      RAMB16                      : 11
+# Clock Buffers                    : 2
+#      BUFG                        : 1
+#      BUFGP                       : 1
+# IO Buffers                       : 5
+#      OBUF                        : 5
+# MULTs                            : 1
+#      MULT18X18                   : 1
+=========================================================================
+
+Device utilization summary:
+---------------------------
+
+Selected Device : 3s400pq208-4 
+
+ Number of Slices:                      123  out of   3584     3%  
+ Number of Slice Flip Flops:             65  out of   7168     0%  
+ Number of 4 input LUTs:                233  out of   7168     3%  
+ Number of IOs:                           6
+ Number of bonded IOBs:                   6  out of    141     4%  
+ Number of BRAMs:                        11  out of     16    68%  
+ Number of MULT18X18s:                    1  out of     16     6%  
+ Number of GCLKs:                         2  out of      8    25%  
+
+---------------------------
+Partition Resource Summary:
+---------------------------
+
+  No Partitions were found in this design.
+
+---------------------------
+
+
+=========================================================================
+TIMING REPORT
+
+NOTE: THESE TIMING NUMBERS ARE ONLY A SYNTHESIS ESTIMATE.
+      FOR ACCURATE TIMING INFORMATION PLEASE REFER TO THE TRACE REPORT
+      GENERATED AFTER PLACE-and-ROUTE.
+
+Clock Information:
+------------------
+-----------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-------+
+Clock Signal                       | Clock buffer(FF name)                                                                                                                                                                                                                          | Load  |
+-----------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-------+
+CLK_50MHz                          | BUFGP                                                                                                                                                                                                                                          | 54    |
+VGA_RAM/N1                         | NONE(VGA_RAM/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[9].ram.r/s3_noinit.ram/dpram.dp1x1.ram/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[9].ram.r/s3_noinit.ram/dpram.dp1x1.ram)| 10    |
+Clk_25MHz1                         | BUFG                                                                                                                                                                                                                                           | 22    |
+-----------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-------+
+INFO:Xst:2169 - HDL ADVISOR - Some clock signals were not automatically buffered by XST with BUFG/BUFR resources. Please use the buffer_type constraint in order to insert these buffers to the clock signals to help prevent skew problems.
+
+Asynchronous Control Signals Information:
+----------------------------------------
+No asynchronous control signals found in this design
+
+Timing Summary:
+---------------
+Speed Grade: -4
+
+   Minimum period: 9.368ns (Maximum Frequency: 106.746MHz)
+   Minimum input arrival time before clock: No path found
+   Maximum output required time after clock: 19.045ns
+   Maximum combinational path delay: No path found
+
+Timing Detail:
+--------------
+All values displayed in nanoseconds (ns)
+
+=========================================================================
+Timing constraint: Default period analysis for Clock 'CLK_50MHz'
+  Clock period: 8.170ns (frequency: 122.399MHz)
+  Total number of paths / destination ports: 1366 / 96
+-------------------------------------------------------------------------
+Delay:               8.170ns (Levels of Logic = 6)
+  Source:            Ychar_2 (FF)
+  Destination:       VGA_RAM/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[9].ram.r/s3_noinit.ram/dpram.dp1x1.ram/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[9].ram.r/s3_noinit.ram/dpram.dp1x1.ram (RAM)
+  Source Clock:      CLK_50MHz rising
+  Destination Clock: CLK_50MHz rising
+
+  Data Path: Ychar_2 to VGA_RAM/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[9].ram.r/s3_noinit.ram/dpram.dp1x1.ram/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[9].ram.r/s3_noinit.ram/dpram.dp1x1.ram
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     FDE:C->Q              8   0.720   1.422  Ychar_2 (Ychar_2)
+     LUT4:I0->O            1   0.551   0.000  VGA_DATA_IN_RAM_and0000371_F (N75)
+     MUXF5:I0->O           1   0.360   0.827  VGA_DATA_IN_RAM_and0000371 (VGA_DATA_IN_RAM_and0000371)
+     LUT4_L:I3->LO         1   0.551   0.126  VGA_DATA_IN_RAM_and0000428 (VGA_DATA_IN_RAM_and0000428)
+     LUT4:I3->O            9   0.551   1.150  VGA_DATA_IN_RAM_and0000440 (VGA_DATA_IN_RAM_and0000440)
+     LUT4:I3->O            2   0.551   0.877  VGA_DATA_IN_RAM<7>1 (VGA_DATA_IN_RAM<7>)
+     begin scope: 'VGA_RAM'
+     begin scope: 'U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[9].ram.r/s3_noinit.ram/dpram.dp1x1.ram'
+     RAMB16:DIA0               0.484          U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[9].ram.r/s3_noinit.ram/dpram.dp1x1.ram
+    ----------------------------------------
+    Total                      8.170ns (3.768ns logic, 4.402ns route)
+                                       (46.1% logic, 53.9% route)
+
+=========================================================================
+Timing constraint: Default period analysis for Clock 'Clk_25MHz1'
+  Clock period: 9.368ns (frequency: 106.746MHz)
+  Total number of paths / destination ports: 594 / 55
+-------------------------------------------------------------------------
+Delay:               9.368ns (Levels of Logic = 4)
+  Source:            CurrentVPos_2 (FF)
+  Destination:       CurrentVPos_0 (FF)
+  Source Clock:      Clk_25MHz1 rising
+  Destination Clock: Clk_25MHz1 rising
+
+  Data Path: CurrentVPos_2 to CurrentVPos_0
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     FDRE:C->Q            10   0.720   1.473  CurrentVPos_2 (CurrentVPos_2)
+     LUT2:I0->O            2   0.551   0.903  VGA_DATA_IN_RAM_cmp_eq0001711 (N11)
+     LUT4:I3->O            6   0.551   1.071  VGA_DATA_IN_RAM_cmp_eq0001311 (N12)
+     LUT3:I2->O            1   0.551   0.827  CurrentVPos_and0000_SW0 (N102)
+     LUT4:I3->O           11   0.551   1.144  CurrentVPos_and0000 (CurrentVPos_and0000)
+     FDRE:R                    1.026          CurrentVPos_0
+    ----------------------------------------
+    Total                      9.368ns (3.950ns logic, 5.418ns route)
+                                       (42.2% logic, 57.8% route)
+
+=========================================================================
+Timing constraint: Default OFFSET OUT AFTER for Clock 'Clk_25MHz1'
+  Total number of paths / destination ports: 255 / 3
+-------------------------------------------------------------------------
+Offset:              19.045ns (Levels of Logic = 9)
+  Source:            CurrentHPos_6 (FF)
+  Destination:       GREEN (PAD)
+  Source Clock:      Clk_25MHz1 rising
+
+  Data Path: CurrentHPos_6 to GREEN
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     FDR:C->Q              9   0.720   1.463  CurrentHPos_6 (CurrentHPos_6)
+     LUT3:I0->O            5   0.551   1.116  Blank_or000011 (N10)
+     LUT3:I1->O            3   0.551   1.102  VGA_DATA_IN_RAM_cmp_eq0000621 (N19)
+     LUT4:I1->O           16   0.551   1.305  Blank_or000041 (Blank_or000041)
+     LUT3:I2->O           56   0.551   2.059  Blank_or000058 (Blank)
+     LUT4:I2->O            1   0.551   0.000  Mmux_VGA_DATA_OUT_RAM_mux0000_6 (Mmux_VGA_DATA_OUT_RAM_mux0000_6)
+     MUXF5:I0->O           1   0.360   0.000  Mmux_VGA_DATA_OUT_RAM_mux0000_4_f5 (Mmux_VGA_DATA_OUT_RAM_mux0000_4_f5)
+     MUXF6:I0->O           1   0.342   0.827  Mmux_VGA_DATA_OUT_RAM_mux0000_2_f6 (ColorOutput<1>)
+     LUT4:I3->O            1   0.551   0.801  GREEN1 (GREEN_OBUF)
+     OBUF:I->O                 5.644          GREEN_OBUF (GREEN)
+    ----------------------------------------
+    Total                     19.045ns (10.372ns logic, 8.673ns route)
+                                       (54.5% logic, 45.5% route)
+
+=========================================================================
+Timing constraint: Default OFFSET OUT AFTER for Clock 'CLK_50MHz'
+  Total number of paths / destination ports: 32 / 1
+-------------------------------------------------------------------------
+Offset:              14.508ns (Levels of Logic = 8)
+  Source:            VGA_RAM/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/has_mux_a.A/sel_pipe_2 (FF)
+  Destination:       GREEN (PAD)
+  Source Clock:      CLK_50MHz rising
+
+  Data Path: VGA_RAM/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/has_mux_a.A/sel_pipe_2 to GREEN
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     FDE:C->Q              9   0.720   1.192  U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/has_mux_a.A/sel_pipe_2 (U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/has_mux_a.A/sel_pipe<2>)
+     LUT3:I2->O            8   0.551   1.422  U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/has_mux_a.A/Mmux_dout_mux111 (U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/has_mux_a.A/Mmux_dout_mux11)
+     LUT4:I0->O            1   0.551   0.996  U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/has_mux_a.A/Mmux_dout_mux12 (douta<0>)
+     end scope: 'VGA_RAM'
+     LUT4:I1->O            1   0.551   0.000  Mmux_VGA_DATA_OUT_RAM_mux0000_6 (Mmux_VGA_DATA_OUT_RAM_mux0000_6)
+     MUXF5:I0->O           1   0.360   0.000  Mmux_VGA_DATA_OUT_RAM_mux0000_4_f5 (Mmux_VGA_DATA_OUT_RAM_mux0000_4_f5)
+     MUXF6:I0->O           1   0.342   0.827  Mmux_VGA_DATA_OUT_RAM_mux0000_2_f6 (ColorOutput<1>)
+     LUT4:I3->O            1   0.551   0.801  GREEN1 (GREEN_OBUF)
+     OBUF:I->O                 5.644          GREEN_OBUF (GREEN)
+    ----------------------------------------
+    Total                     14.508ns (9.270ns logic, 5.238ns route)
+                                       (63.9% logic, 36.1% route)
+
+=========================================================================
+
+
+Total REAL time to Xst completion: 11.00 secs
+Total CPU time to Xst completion: 10.68 secs
+ 
+--> 
+
+Total memory usage is 326056 kilobytes
+
+Number of errors   :    0 (   0 filtered)
+Number of warnings :   10 (   0 filtered)
+Number of infos    :   12 (   0 filtered)
+

@@ -1,0 +1,15 @@
+Release 14.7 Drc P.20131013 (nt64)
+Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
+
+Thu May 25 19:14:45 2017
+
+drc -z MyVGA.ncd MyVGA.pcf
+
+WARNING:PhysDesignRules:781 - PULLUP on an active net. PULLUP of comp VS is set
+   but the tri state is not configured. 
+WARNING:PhysDesignRules:781 - PULLUP on an active net. PULLUP of comp GREEN is
+   set but the tri state is not configured. 
+WARNING:PhysDesignRules:781 - PULLUP on an active net. PULLUP of comp HS.PAD is
+   set but the tri state is not configured. 
+DRC detected 0 errors and 3 warnings.  Please see the previously displayed
+individual error or warning messages for more details.

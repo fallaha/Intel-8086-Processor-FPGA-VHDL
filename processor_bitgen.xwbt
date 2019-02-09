@@ -1,0 +1,8 @@
+INTSTYLE=ise
+INFILE=J:\xilinx_prj\processor\processor.ncd
+OUTFILE=J:\xilinx_prj\processor\processor.bit
+FAMILY=Spartan3
+PART=xc3s400-4pq208
+WORKINGDIR=J:\xilinx_prj\processor
+LICENSE=WebPack
+USER_INFO=__0_0_0

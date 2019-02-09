@@ -1,0 +1,2 @@
+vhdl work "OwnVGA.vhd"
+vhdl work "VGA_tb1.vhd"

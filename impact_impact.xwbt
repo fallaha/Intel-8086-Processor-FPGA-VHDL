@@ -1,0 +1,8 @@
+INTSTYLE=impact
+INFILE=J:\xilinx_prj\processor\impact.xsl
+OUTFILE=J:\xilinx_prj\processor\impact.xsl
+FAMILY=Multiple
+PART=Multiple
+WORKINGDIR=J:\xilinx_prj\processor
+LICENSE=iMPACT
+USER_INFO=iMPACT

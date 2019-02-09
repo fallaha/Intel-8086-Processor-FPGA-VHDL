@@ -1,0 +1,15 @@
+//! **************************************************************************
+// Written by: Map P.20131013 on Mon May 15 15:43:36 2017
+//! **************************************************************************
+
+SCHEMATIC START;
+COMP "HS" LOCATE = SITE "P203" LEVEL 1;
+COMP "RED<0>" LOCATE = SITE "P197" LEVEL 1;
+COMP "VS" LOCATE = SITE "P199" LEVEL 1;
+COMP "CLK_50MHz" LOCATE = SITE "P80" LEVEL 1;
+COMP "GREEN<0>" LOCATE = SITE "P194" LEVEL 1;
+COMP "BLUE<1>" LOCATE = SITE "P190" LEVEL 1;
+NET "CLK_50MHz_BUFGP/IBUFG" BEL "CLK_50MHz_BUFGP/BUFG.GCLKMUX"
+        USELOCALCONNECT;
+SCHEMATIC END;
+

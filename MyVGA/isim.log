@@ -1,0 +1,13 @@
+ISim log file
+Running: D:\FPGA Example\MyVGA\VGA_tb1_isim_beh.exe -intstyle ise -gui -tclbatch isim.cmd -wdb D:/FPGA Example/MyVGA/VGA_tb1_isim_beh.wdb 
+ISim P.20131013 (signature 0x7708f090)
+This is a Full version of ISim.
+Time resolution is 1 ps
+# onerror resume
+# wave add /
+# run 1000 ns
+Simulator is doing circuit initialization process.
+at 0 ps, Instance /vga_tb1/uut/ : Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+Finished circuit initialization process.
+# run 10000.00us
+# run 10000.00us

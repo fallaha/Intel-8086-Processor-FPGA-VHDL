@@ -1,0 +1,1 @@
+-intstyle "ise" -incremental -o "D:/FPGA Example/MyVGA/VGA_tb1_isim_beh.exe" -prj "D:/FPGA Example/MyVGA/VGA_tb1_beh.prj" "work.VGA_tb1" 

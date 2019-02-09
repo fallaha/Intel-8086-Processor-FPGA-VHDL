@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- IMPORTANT: This is an internal file that has been generated
+     by the Xilinx ISE software.  Any direct editing or
+     changes made to this file may result in unpredictable
+     behavior or data corruption.  It is strongly advised that
+     users do not edit the contents of this file. -->
+<messages>
+<msg type="warning" file="Xst" num="2094" delta="old" >&quot;<arg fmt="%s" index="1">D:/FPGA Example/MyVGA/OwnVGA.vhd</arg>&quot; line <arg fmt="%d" index="2">77</arg>: Default value is ignored for signal &lt;<arg fmt="%s" index="3">Echar</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2094" delta="old" >&quot;<arg fmt="%s" index="1">D:/FPGA Example/MyVGA/OwnVGA.vhd</arg>&quot; line <arg fmt="%d" index="2">77</arg>: Default value is ignored for signal &lt;<arg fmt="%s" index="3">Echar</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2211" delta="old" >&quot;<arg fmt="%s" index="1">D:/FPGA Example/MyVGA/OwnVGA.vhd</arg>&quot; line <arg fmt="%d" index="2">86</arg>: Instantiating black box module &lt;<arg fmt="%s" index="3">ram</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2211" delta="old" >&quot;<arg fmt="%s" index="1">D:/FPGA Example/MyVGA/OwnVGA.vhd</arg>&quot; line <arg fmt="%d" index="2">95</arg>: Instantiating black box module &lt;<arg fmt="%s" index="3">VGACHAR</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="1610" delta="old" >&quot;<arg fmt="%s" index="1">D:/FPGA Example/MyVGA/OwnVGA.vhd</arg>&quot; line <arg fmt="%d" index="2">163</arg>: Width mismatch. &lt;<arg fmt="%s" index="3">VGA_ADDR_RAM</arg>&gt; has a width of <arg fmt="%d" index="4">15</arg> bits but assigned expression is <arg fmt="%d" index="5">16</arg>-bit wide.
+</msg>
+
+<msg type="warning" file="Xst" num="1781" delta="old" >Signal &lt;<arg fmt="%s" index="1">ROMchar&lt;15:8&gt;</arg>&gt; is used but never assigned. Tied to default value.
+</msg>
+
+<msg type="warning" file="Xst" num="1780" delta="old" >Signal &lt;<arg fmt="%s" index="1">Echar</arg>&gt; is never used or assigned. This unconnected signal will be trimmed during the optimization process.
+</msg>
+
+<msg type="warning" file="Xst" num="1780" delta="old" >Signal &lt;<arg fmt="%s" index="1">CounterY</arg>&gt; is never used or assigned. This unconnected signal will be trimmed during the optimization process.
+</msg>
+
+<msg type="warning" file="Xst" num="1780" delta="old" >Signal &lt;<arg fmt="%s" index="1">CounterX</arg>&gt; is never used or assigned. This unconnected signal will be trimmed during the optimization process.
+</msg>
+
+<msg type="warning" file="Xst" num="643" delta="old" >&quot;<arg fmt="%s" index="1">D:/FPGA Example/MyVGA/OwnVGA.vhd</arg>&quot; line <arg fmt="%d" index="2">163</arg>: The result of a <arg fmt="%d" index="3">8</arg>x<arg fmt="%d" index="4">8</arg>-bit multiplication is partially used. Only the <arg fmt="%d" index="5">15</arg> least significant bits are used. If you are doing this on purpose, you may safely ignore this warning. Otherwise, make sure you are not losing information, leading to unexpected circuit behavior.
+</msg>
+
+<msg type="info" file="Xst" num="1901" delta="old" >Instance <arg fmt="%s" index="1">U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[9].ram.r/s3_noinit.ram/dpram.dp1x1.ram</arg> in unit <arg fmt="%s" index="2">U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[9].ram.r/s3_noinit.ram/dpram.dp1x1.ram</arg> of type <arg fmt="%s" index="3">RAMB16_S1_S1</arg> has been replaced by <arg fmt="%s" index="4">RAMB16</arg>
+</msg>
+
+<msg type="info" file="Xst" num="1901" delta="old" >Instance <arg fmt="%s" index="1">U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[8].ram.r/s3_noinit.ram/dpram.dp1x1.ram</arg> in unit <arg fmt="%s" index="2">U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[8].ram.r/s3_noinit.ram/dpram.dp1x1.ram</arg> of type <arg fmt="%s" index="3">RAMB16_S1_S1</arg> has been replaced by <arg fmt="%s" index="4">RAMB16</arg>
+</msg>
+
+<msg type="info" file="Xst" num="1901" delta="old" >Instance <arg fmt="%s" index="1">U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[7].ram.r/s3_noinit.ram/dpram.dp1x1.ram</arg> in unit <arg fmt="%s" index="2">U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[7].ram.r/s3_noinit.ram/dpram.dp1x1.ram</arg> of type <arg fmt="%s" index="3">RAMB16_S1_S1</arg> has been replaced by <arg fmt="%s" index="4">RAMB16</arg>
+</msg>
+
+<msg type="info" file="Xst" num="1901" delta="old" >Instance <arg fmt="%s" index="1">U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[6].ram.r/s3_noinit.ram/dpram.dp4x4.ram</arg> in unit <arg fmt="%s" index="2">U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[6].ram.r/s3_noinit.ram/dpram.dp4x4.ram</arg> of type <arg fmt="%s" index="3">RAMB16_S4_S4</arg> has been replaced by <arg fmt="%s" index="4">RAMB16</arg>
+</msg>
+
+<msg type="info" file="Xst" num="1901" delta="old" >Instance <arg fmt="%s" index="1">U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[5].ram.r/s3_noinit.ram/dpram.dp1x1.ram</arg> in unit <arg fmt="%s" index="2">U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[5].ram.r/s3_noinit.ram/dpram.dp1x1.ram</arg> of type <arg fmt="%s" index="3">RAMB16_S1_S1</arg> has been replaced by <arg fmt="%s" index="4">RAMB16</arg>
+</msg>
+
+<msg type="info" file="Xst" num="1901" delta="old" >Instance <arg fmt="%s" index="1">U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[4].ram.r/s3_noinit.ram/dpram.dp1x1.ram</arg> in unit <arg fmt="%s" index="2">U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[4].ram.r/s3_noinit.ram/dpram.dp1x1.ram</arg> of type <arg fmt="%s" index="3">RAMB16_S1_S1</arg> has been replaced by <arg fmt="%s" index="4">RAMB16</arg>
+</msg>
+
+<msg type="info" file="Xst" num="1901" delta="old" >Instance <arg fmt="%s" index="1">U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[3].ram.r/s3_noinit.ram/dpram.dp1x1.ram</arg> in unit <arg fmt="%s" index="2">U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[3].ram.r/s3_noinit.ram/dpram.dp1x1.ram</arg> of type <arg fmt="%s" index="3">RAMB16_S1_S1</arg> has been replaced by <arg fmt="%s" index="4">RAMB16</arg>
+</msg>
+
+<msg type="info" file="Xst" num="1901" delta="old" >Instance <arg fmt="%s" index="1">U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[2].ram.r/s3_noinit.ram/dpram.dp1x1.ram</arg> in unit <arg fmt="%s" index="2">U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[2].ram.r/s3_noinit.ram/dpram.dp1x1.ram</arg> of type <arg fmt="%s" index="3">RAMB16_S1_S1</arg> has been replaced by <arg fmt="%s" index="4">RAMB16</arg>
+</msg>
+
+<msg type="info" file="Xst" num="1901" delta="old" >Instance <arg fmt="%s" index="1">U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[1].ram.r/s3_noinit.ram/dpram.dp4x4.ram</arg> in unit <arg fmt="%s" index="2">U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[1].ram.r/s3_noinit.ram/dpram.dp4x4.ram</arg> of type <arg fmt="%s" index="3">RAMB16_S4_S4</arg> has been replaced by <arg fmt="%s" index="4">RAMB16</arg>
+</msg>
+
+<msg type="info" file="Xst" num="1901" delta="old" >Instance <arg fmt="%s" index="1">U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[0].ram.r/s3_noinit.ram/dpram.dp1x1.ram</arg> in unit <arg fmt="%s" index="2">U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[0].ram.r/s3_noinit.ram/dpram.dp1x1.ram</arg> of type <arg fmt="%s" index="3">RAMB16_S1_S1</arg> has been replaced by <arg fmt="%s" index="4">RAMB16</arg>
+</msg>
+
+<msg type="info" file="Xst" num="1901" delta="old" >Instance <arg fmt="%s" index="1">U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[0].ram.r/s3_init.ram/spram.ram</arg> in unit <arg fmt="%s" index="2">U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[0].ram.r/s3_init.ram/spram.ram</arg> of type <arg fmt="%s" index="3">RAMB16_S36_S36</arg> has been replaced by <arg fmt="%s" index="4">RAMB16</arg>
+</msg>
+
+<msg type="info" file="Xst" num="2169" delta="old" >HDL ADVISOR - Some clock signals were not automatically buffered by XST with BUFG/BUFR resources. Please use the buffer_type constraint in order to insert these buffers to the clock signals to help prevent skew problems.
+</msg>
+
+</messages>
+

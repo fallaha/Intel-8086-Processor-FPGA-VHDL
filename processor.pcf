@@ -1,0 +1,24 @@
+//! **************************************************************************
+// Written by: Map P.20131013 on Sun Jul 09 13:03:13 2017
+//! **************************************************************************
+
+SCHEMATIC START;
+COMP "HS" LOCATE = SITE "P205" LEVEL 1;
+COMP "VS" LOCATE = SITE "P203" LEVEL 1;
+COMP "TX" LOCATE = SITE "P190" LEVEL 1;
+COMP "cs" LOCATE = SITE "P90" LEVEL 1;
+COMP "RED" LOCATE = SITE "P199" LEVEL 1;
+COMP "BLUE" LOCATE = SITE "P194" LEVEL 1;
+COMP "GREEN" LOCATE = SITE "P197" LEVEL 1;
+COMP "clk_i" LOCATE = SITE "P80" LEVEL 1;
+COMP "reset_i" LOCATE = SITE "P152" LEVEL 1;
+COMP "LED<0>" LOCATE = SITE "P12" LEVEL 1;
+COMP "LED<1>" LOCATE = SITE "P16" LEVEL 1;
+COMP "LED<2>" LOCATE = SITE "P19" LEVEL 1;
+COMP "LED<3>" LOCATE = SITE "P21" LEVEL 1;
+COMP "miso_i" LOCATE = SITE "P87" LEVEL 1;
+COMP "sclk_o" LOCATE = SITE "P93" LEVEL 1;
+COMP "mosi_o" LOCATE = SITE "P85" LEVEL 1;
+NET "clk_i_BUFGP/IBUFG" BEL "clk_i_BUFGP/BUFG.GCLKMUX" USELOCALCONNECT;
+SCHEMATIC END;
+
